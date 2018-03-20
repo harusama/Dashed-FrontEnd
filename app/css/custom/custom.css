@@ -1,0 +1,67 @@
+/*================================================================================
+Item Name: Home-Page
+Author: JirenSama, Edgardo
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+a.submit {
+    cursor: pointer;
+}
+
+footer.page-footer {
+    padding-top: 0px;
+    color: #fff;
+    background-color: #26c6da;
+}
+
+/* The landing image */
+div.landing-image {
+    /* The image used */
+    background-image: url("../../assets/images/landing/classroom1.jpg");
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Place text in the middle of the image */
+div.landing-section {
+    position: relative;
+    margin-left: 15%;
+    /*top: 50%;*/
+    /*left: 50%;*/
+}
+
+div.landing-promo {
+    /*for mobile and desktop adjust*/
+    min-width: 225px;
+    max-width: 300px;
+    min-height: 500px;
+    max-height: 500px;
+
+    margin: 8%;
+
+    padding: 1%;
+
+    border-radius: 15px 50px;
+    opacity: 0.90;
+    color: grey;
+    background-color: white;
+}
+
+/*^^^^^^^^^^^^^Media Queries^^^^^^^^^^^^^^^^^^^^^*/
+@media only screen and (max-width: 420px) {
+    .landing-section {
+        margin-left: 1%;
+    }
+}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/

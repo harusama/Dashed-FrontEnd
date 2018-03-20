@@ -1,0 +1,10 @@
+#gitignore for WebStorm
+.idea/
+
+#gitignore for Materialize Admin Template
+/Dashed/front-end
+/Dashed/grunt
+/Dashed/starter-kit
+
+#Remove all .DS_Store
+.DS_Store
