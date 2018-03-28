@@ -57,7 +57,7 @@ div.landing-promo {
     color: grey;
     background-color: white;
 }
-
+/*End landing page*/
 .semi-dark-blue-tab {
     color: #ffffff;
 }
@@ -67,15 +67,46 @@ div a.title-nav-bar-dash {
     margin: 1%;
 }
 
+/*Start report error texts*/
+/*TODO: Change font style for report error title*/
+div.reportErrorTitle {
+    font-size : 2rem;
+    text-align: center;
+    margin-top: 5%;
+}
+/*End report error texts*/
+
+/*Start Dashboard Cards*/
+div.db-card-container {
+    padding-left: 25%;
+    /*margin-top: 10%;*/
+}
+
+div.db-cards-margin {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+div.roundedCard {
+    border-radius: 25px;
+}
+/*End Dashboard Cards*/
+
+/*Start Test boxing*/
+.boxTesting {
+    border: 3px solid green;
+}
+/*End Test Boxing*/
+
 /*^^^^^^^^^^^^^Media Queries^^^^^^^^^^^^^^^^^^^^^*/
 @media only screen and (max-width: 420px) {
     .landing-section {
         margin-left: 1%;
     }
 
-    /*.title-nav-bar-dash {*/
-        /*color: #0e2e42;*/
-        /*text-align: center;*/
-    /*}*/
+    div.db-card-container {
+        padding-left: 0%;
+    }
+
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
