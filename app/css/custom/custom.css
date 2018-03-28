@@ -58,10 +58,25 @@ div.landing-promo {
     background-color: white;
 }
 
+.semi-dark-blue-tab {
+    color: #3369E6;
+}
+
+.title-nav-bar-dash {
+    text-decoration-color : #0e2e42;
+    /*text-align: -moz-center;*/
+    /*margin: 1rem;*/
+}
+
 /*^^^^^^^^^^^^^Media Queries^^^^^^^^^^^^^^^^^^^^^*/
 @media only screen and (max-width: 420px) {
     .landing-section {
         margin-left: 1%;
     }
+
+    /*.title-nav-bar-dash {*/
+        /*color: #0e2e42;*/
+        /*text-align: center;*/
+    /*}*/
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
