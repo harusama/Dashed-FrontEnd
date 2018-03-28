@@ -266,36 +266,51 @@ Author: JirenSama
                     <!--End Donate-->
                     <!--Start Report Error-->
                     <div class="container" id="reportError">
-                        <div class="row reportErrorTitle"><a class="white-text">What seems to be the problem?</a></div>
-                        <div class="row db-card-container">
-                            <div class="col s12 m4 db-cards-margin">
-                                <div class="card roundedCard">
-                                    <div class="card-image">
-                                        <img src="assets/images/gallary/1.png">
-                                        <span class="card-title">Question Error</span>
+                        <div id="errorOptions">
+                            <div class="row reportErrorTitle"><a class="white-text">What seems to be the problem?</a></div>
+                            <div class="row db-card-container">
+                                <div class="col s12 m4 db-cards-margin">
+                                    <div class="card roundedCard">
+                                        <div class="card-image">
+                                            <img src="assets/images/gallary/1.png">
+                                            <span class="card-title">Question Error</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <p>To report a question problem, please click the link below.</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a class="changeErrorCard" id="questionError" href="#">Report question error!</a>
+                                        </div>
                                     </div>
-                                    <div class="card-content">
-                                        <p>To report a question problem, please click the link below.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a class="changeErrorCard" id="questionError" href="#">Report question error!</a>
+                                </div>
+                                <div class="col s12 m4 db-cards-margin">
+                                    <div class="card roundedCard">
+                                        <div class="card-image">
+                                            <img src="assets/images/gallary/2.png">
+                                            <span class="card-title">System Error</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <p>To report a system problem, please click the link below.</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a class="changeErrorCard" id="systemError" href="#">Report system error!</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col s12 m4 db-cards-margin">
-                                <div class="card roundedCard">
-                                    <div class="card-image">
-                                        <img src="assets/images/gallary/2.png">
-                                        <span class="card-title">System Error</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p>To report a system problem, please click the link below.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a class="changeErrorCard" id="systemError" href="#">Report system error!</a>
-                                    </div>
-                                </div>
+                        </div>
+                        <div id="errorSubmit" class="container boxTesting" style="display: none">
+                            <!--Start question report-->
+                            <div class="container none boxTesting" id="questionReport">
+                                <a>Question</a>
                             </div>
+                            <!--End question report-->
+                            <!--Start system report-->
+                            <div class="container none boxTesting" id="systemReport">
+                                <a>System</a>
+                            </div>
+                            <!--End system report-->
+                            <a class="cancelReport waves-effect waves-light btn">Cancel</a>
                         </div>
                     </div>
                     <!--End Report Error-->
