@@ -276,7 +276,13 @@ Author: JirenSama
                                             <span class="card-title">Question Error</span>
                                         </div>
                                         <div class="card-content">
-                                            <p>To report a question problem, please click the link below.</p>
+                                            <p>What is the question id?</p>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="icon_prefix" type="number" class="validate">
+                                                    <label for="icon_prefix" id="questionID">Question id</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="card-action">
                                             <a class="changeErrorCard" id="questionError" href="#">Report question error!</a>
@@ -302,7 +308,18 @@ Author: JirenSama
                         <div id="errorSubmit" class="container boxTesting" style="display: none">
                             <!--Start question report-->
                             <div class="container none boxTesting" id="questionReport">
-                                <a>Question</a>
+                                <a id="questionIdText">Question</a>
+                                <!--TODO: Present the question here-->
+                                <div class="row">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="icon_telephone" type="text" class="validate">
+                                                <label for="icon_telephone">Please describe the problem here.</label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                             <!--End question report-->
                             <!--Start system report-->
