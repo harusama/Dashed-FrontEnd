@@ -59,13 +59,12 @@ div.landing-promo {
 }
 
 .semi-dark-blue-tab {
-    color: #3369E6;
+    color: #ffffff;
 }
 
-.title-nav-bar-dash {
-    text-decoration-color : #0e2e42;
-    /*text-align: -moz-center;*/
-    /*margin: 1rem;*/
+div a.title-nav-bar-dash {
+    font-size : 3rem;
+    margin: 1%;
 }
 
 /*^^^^^^^^^^^^^Media Queries^^^^^^^^^^^^^^^^^^^^^*/

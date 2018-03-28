@@ -33,7 +33,7 @@ Author: JirenSama
     <!-- Google imports -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom JS -->
-    <script type="text/javascript" src="js/changeContentDashboard.js"></script>
+    <script type="text/javascript" src="js/dashboard/changeContentDashboard.js"></script>
 </head>
 <body>
 <!-- Start Page Loading -->
@@ -236,17 +236,18 @@ Author: JirenSama
             <div>
                 <!--Start tabs-->
                 <div>
-                    <div class="col title-nav-bar-dash s12 background white"><a>Title</a></div>
+                    <div class="col s12 background white"><a class="title-nav-bar-dash" id="dashboardTitle">Dashboard</a></div>
+                    <div class="divider"></div>
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3"><a class="active semi-dark-blue" href="#userProgress">Progress</a></li>
-                            <li class="tab col s3"><a class="semi-dark-blue-tab" href="#userStatistics">Statistics</a></li>
-                            <li class="tab col s3"><a href="#donate">Doante</a></li>
-                            <li class="tab col s3"><a href="#reportError">Report Error</a></li>
+                            <li class="tab col s3"><a class="active changeTitle" href="#userDashboard">Dashboard</a></li>
+                            <li class="tab col s3"><a class="changeTitle" href="#userStatistics">Statistics</a></li>
+                            <li class="tab col s3"><a class="changeTitle" href="#donate">Donate</a></li>
+                            <li class="tab col s3"><a class="changeTitle" href="#reportError">Report Error</a></li>
                         </ul>
                     </div>
-                    <div class="container" id="userProgress">
-                        <p class="caption">Progress</p>
+                    <div class="container" id="userDashboard">
+                        <p class="caption">Dashboard</p>
                         <div class="divider"></div>
                     </div>
                     <div class="container" id="userStatistics">
@@ -597,5 +598,7 @@ Author: JirenSama
 <script type="text/javascript" src="js/plugins.js"></script>
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="js/custom-script.js"></script>
+<!--Custom js for dashboard text-->
+<script type="text/javascript" src="js/dashboard/dashboardTextManager.js"></script>
 </body>
 </html>
