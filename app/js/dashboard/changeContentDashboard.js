@@ -25,14 +25,4 @@ $(document).ready(function () {
             alert("Error: 001");
         }
     })
-    //Toggle report options
-    $("a.cancelReport").click(function (e) {
-        e.preventDefault();
-        $("#errorOptions").toggle();//On
-        $("#errorSubmit").toggle();//Off
-        $("#questionReport").hide();//Off
-        $("#systemReport").hide();//Off
-
-    })
-    //==================================================
 });

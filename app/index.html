@@ -303,19 +303,21 @@ Author: JirenSama
                             <!--Start question report-->
                             <div class="container none" id="questionReport">
                                 <div class="row section">
-                                    <div class="card roundedCard question-r-card-4 col s12 m4">
+                                    <div class="card roundedCard-5 question-r-card-4 col s12 m4">
                                         <p>Question Report</p>
                                     </div>
-                                    <div class="input-field card roundedCard question-r-card-4 col s4 m2 offset-m5">
-                                        <input id="questionID" type="number" class="validate">Input</input>
-                                        <label for="questionID">Question #</label>
-                                    </div>
-                                    <div class="col s4 m1">
-                                        <a class="searchQuestionID waves-effect waves-light btn">Search</a>
-                                    </div>
+                                    <form class="row col s12 m8" name="searchQuestionID" id="searchQuestionID">
+                                        <div class="input-field card roundedCard-5 question-r-card-4 col s4 m2 offset-m5">
+                                            <input id="questionID" type="number" class="validate" name="questionID" required>Input</input>
+                                            <label for="questionID">Question #</label>
+                                        </div>
+                                        <div class="col s4 m1">
+                                            <button class="waves-effect waves-light btn" type="submit">Search</button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="row section">
-                                    <div class="card roundedCard question-r-card-6 col s12 m12">
+                                    <div class="card roundedCard-5 question-r-card-6 col s12 m12">
                                         <p>Description of question (READ ONLY)</p>
                                     </div>
                                 </div>
@@ -324,7 +326,7 @@ Author: JirenSama
                                     <div class="question-r-card-12 col s12 m5">
                                         <img src="assets/images/gallary/3.png">
                                     </div>
-                                    <div class="card roundedCard col s12 m6 offset-m1">
+                                    <div class="card roundedCard-5 col s12 m6 offset-m1">
                                         <p>Field of question (READ ONLY)</p>
                                         <p>Field of question (READ ONLY)</p>
                                         <p>Field of question (READ ONLY)</p>
@@ -338,20 +340,19 @@ Author: JirenSama
                                     </div>
                                 </div>
                                 <div class="row section">
-                                    <div class="card roundedCard col s12 m12 question-r-card-8">
-                                        <form class="col s12">
-                                            <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="icon_telephone" type="text" class="validate">
-                                                    <label for="icon_telephone">Please describe the problem here.</label>
-                                                </div>
+                                    <form class="row col s12 m12" name="qtnReport_form" id="qtnReport_form">
+                                        <div class="row card roundedCard-5">
+                                            <div class="input-field col s12">
+                                                <input id="reportDescriptionQ" type="text" class="validate" name="reportDescriptionQ" required>
+                                                <label for="reportDescriptionQ">Please describe the problem here.</label>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row section col s12 m12">
-                                    <a class="cancelReport waves-effect waves-light btn col s6 m2 offset-m3">Cancel</a>
-                                    <a id="submitQtnReport" class="submitReport waves-effect waves-light btn col s6 m2 offset-m1">Submit</a>
+                                        </div>
+                                        <div class="row section"></div>
+                                        <div class="row col s12 m12">
+                                            <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                            <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <!--End question report-->
@@ -359,8 +360,8 @@ Author: JirenSama
                             <div class="container none boxTesting" id="systemReport">
                                 <a>System</a>
                                 <div class="row section col s12 m12">
-                                    <a class="cancelReport waves-effect waves-light btn col s6 m2 offset-m3">Cancel</a>
-                                    <a id="submitSysReport" class="submitReport waves-effect waves-light btn col s6 m2 offset-m1">Submit</a>
+                                    <!--<a class="cancelReport waves-effect waves-light btn col s6 m2 offset-m3">Cancel</a>-->
+                                    <!--<a id="submitSysReport" class="submitReport waves-effect waves-light btn col s6 m2 offset-m1">Submit</a>-->
                                 </div>
                             </div>
                             <!--End system report-->

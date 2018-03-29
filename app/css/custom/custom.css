@@ -94,12 +94,17 @@ div.db-cards-margin {
 div.roundedCard {
     border-radius: 25px;
 }
+
+div.roundedCard-5 {
+    border-radius: 5px;
+}
+
 div.question-r-card-4 {
     height: 4rem;
     font-size: x-large;
     text-align: center;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 div.question-r-card-6 {
@@ -107,7 +112,6 @@ div.question-r-card-6 {
     font-size: x-large;
     text-align: left;
     margin: auto;
-    border-radius: 15px;
 }
 
 div.question-r-card-8 {
@@ -115,7 +119,6 @@ div.question-r-card-8 {
     font-size: x-large;
     text-align: left;
     margin: auto;
-    border-radius: 15px;
 }
 /*End Dashboard Cards*/
 
