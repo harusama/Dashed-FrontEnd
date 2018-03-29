@@ -304,7 +304,7 @@ Author: JirenSama
                             <div class="container none" id="questionReport">
                                 <div class="row section">
                                     <div class="card roundedCard-5 question-r-card-4 col s12 m4">
-                                        <p>Question Report</p>
+                                        <p>Question Error Report</p>
                                     </div>
                                     <form class="row col s12 m8" name="searchQuestionID" id="searchQuestionID">
                                         <div class="input-field card roundedCard-5 question-r-card-4 col s4 m2 offset-m5">
@@ -357,11 +357,27 @@ Author: JirenSama
                             </div>
                             <!--End question report-->
                             <!--Start system report-->
-                            <div class="container none boxTesting" id="systemReport">
-                                <a>System</a>
-                                <div class="row section col s12 m12">
-                                    <!--<a class="cancelReport waves-effect waves-light btn col s6 m2 offset-m3">Cancel</a>-->
-                                    <!--<a id="submitSysReport" class="submitReport waves-effect waves-light btn col s6 m2 offset-m1">Submit</a>-->
+                            <div class="container none" id="systemReport">
+                                <div class="row section">
+                                    <div class="card roundedCard-5 question-r-card-4 col s12 m4">
+                                        <p>System Error Report</p>
+                                    </div>
+                                </div>
+                                <div class="row section">
+                                    <form class="row col s12 m12" name="sysReport_form" id="sysReport_form">
+                                        <div class="row section">
+                                            <img class="image-rounded-5 col s12 m5" src="assets/images/gallary/4.png">
+                                            <div class="input-field col s12 m6 card roundedCard-5 description-r-card-h26">
+                                                <input id="reportDescriptionS" type="text" class="validate" name="reportDescriptionS" required>
+                                                <label for="reportDescriptionS">Please describe the problem here.</label>
+                                            </div>
+                                        </div>
+                                        <div class="row section"></div>
+                                        <div class="row col s12 m12">
+                                            <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                            <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <!--End system report-->

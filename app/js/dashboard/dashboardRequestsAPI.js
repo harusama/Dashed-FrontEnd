@@ -3,7 +3,7 @@ function returnToReportOptions() {
     //Reset forms
     $('#searchQuestionID').trigger('reset');
     $('#qtnReport_form').trigger('reset');
-    // $('#sysReport_form').trigger('reset');
+    $('#sysReport_form').trigger('reset');
 
     //Reset options
     $("#errorOptions").toggle();//On
@@ -29,7 +29,7 @@ $(document).ready(function () {
         }
     })
 
-    //Submits question report to API.
+    //Submits question error report to API.
     $('#qtnReport_form').submit(function (e) {
         e.preventDefault();
 
@@ -41,6 +41,22 @@ $(document).ready(function () {
             alert("Question Report Submitted -> " + data[0].value + " -> " + dataDescription[0].value);
         } else {
             alert("Error: 002: " + $(this).attr('id'));
+        }
+
+        returnToReportOptions();
+    })
+
+    //Submits system error report to API.
+    $('#sysReport_form').submit(function (e) {
+        e.preventDefault();
+
+        var dataDescription = $('#sysReport_form').serializeArray();
+
+        if ($(this).attr('id') == "sysReport_form") {
+            //TODO: Submit report to api.
+            alert("System Report Submitted -> " + dataDescription[0].value);
+        } else {
+            alert("Error: 003: " + $(this).attr('id'));
         }
 
         returnToReportOptions();
