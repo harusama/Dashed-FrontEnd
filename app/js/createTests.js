@@ -10,26 +10,39 @@ $(document).ready(function () {
     });
 
     // On submit function
-    $('.submitQuestion:not(.toggleInput)').submit(function (e) {
+    $('.submitQuestion:not(.toggleInput)').on('submit', function (e) {
+
+        // $('.submitQuestion:not(.toggleInput)').submit(function (e) {
+
         e.preventDefault();
-
-        var i = 0;
+        alert("Sumit Fomr");
+        var i = 1;
+        var form = $(this).closest('form');
+        var answers = [];
+        var question = {};
         // Get the closest form and from there the input not hidden
-        var data = $(this).closest('form').find(':input:not(:hidden)').serializeArray().reduce(function (obj, item) {
-            // obj[item.name] = item.value;
-            obj["answer" + i] = item.value;
+        var data = form.find(':input:not(:hidden)').serializeArray();
+        $.each(data, function (key, body) {
+            answers.push({
+                "index": i,
+                "text": body.value
+            });
             i++;
-            return obj;
-        }, {});
-        // Get the closest text area content
-        data['description'] = $(this).parents('.row').prev('.description').find('.materialize-textarea').val();
-
-        // todo: TEST DELETE AFTER TEST
-        var test = 'TEST \n';
-        $.each(data, function (key, value) {
-            test += key + " -> " + value + "\n";
         });
-        alert(test);
+
+        // Get the closest text area content
+        question["answers"] = answers;
+        question['kind'] = form.attr('name');
+        question['descriptionText'] = $(this).parents('.row').prev('.description').find('.materialize-textarea').val();
+        question['descriptionImage'] = "";
+
+        console.log(question);
+        // // todo: TEST DELETE AFTER TEST
+        // var test = 'TEST \n';
+        // $.each(data, function (key, value) {
+        //     test += key + " -> " + value + "\n";
+        // });
+        // alert(test);
         //
     });
 });
