@@ -15,9 +15,6 @@ $(document).ready(function () {
          */
 
         if (toggleCard == "questionError"){
-            var qText = $("#questionIdText");
-            var qId = $("#questionID");
-            qText.append(qId.data("text"));//Adds question id for next screen.
             $("#questionReport").toggle();//On
         } else if (toggleCard == "systemError"){
             $("#systemReport").toggle();//On

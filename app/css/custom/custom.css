@@ -10,11 +10,11 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 /*General*/
 .none {
-    display: none !important;
+    display: none;
 }
 
 .margin-1 {
-    margin: 1rem !important;
+    margin: 1rem;
 }
 
 a.submit {
