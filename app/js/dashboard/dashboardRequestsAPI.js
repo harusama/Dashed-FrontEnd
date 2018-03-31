@@ -12,6 +12,62 @@ function returnToReportOptions() {
     $("#systemReport").hide();//Off
 }
 
+function insertQuestion(qData) {
+
+    $('.questionAsset').remove();//Clears previous searches.
+
+    var addQuestion = document.createElement('div');
+    var qID = '';
+    var type = '';
+    addQuestion.setAttribute('class', 'col 12 questionAsset');
+
+    switch (qData) {
+        case '1':
+            qID = 'bridgeMap';
+            type = "questions/bridgeMap.html";
+            break;
+        case '2':
+            qID = 'mFlowMap';
+            type = "questions/mFlowMap.html";
+            break;
+        case '3':
+            qID = 'fMap';
+            type = "questions/fMap.html";
+            break;
+        case '4':
+            qID = 'dBubbleMap';
+            type = "questions/dBubbleMap.html";
+            break;
+        case '5':
+            qID = 'bubblemap';
+            type = "questions/bubblemap.html";
+            break;
+        case '6':
+            qID = 'cFrameMap';
+            type = "questions/cFrameMap.html";
+            break;
+        case '7':
+            qID = 'treeMap';
+            type = "questions/treeMap.html";
+            break;
+        case '8':
+            qID = 'braceMap';
+            type = "questions/braceMap.html";
+            break;
+    }
+
+    addQuestion.id = qID;
+    addQuestion.setAttribute('w3-include-html', type);
+
+    //Runs script to run library.
+    var load = document.createElement('script');
+    load.innerHTML = 'w3IncludeHTML();';
+    load.setAttribute('class', 'questionAsset');
+    $('#searchQuestionID').after(addQuestion, load);
+
+    // $('#readTest').prop('readonly', true);
+}
+
 $(document).ready(function () {
 
     //Requests question information to API.
@@ -23,6 +79,7 @@ $(document).ready(function () {
         if (data[0].value != ''){
             //TODO: Do api request.
             alert("So request to API here, Question #" + data[0].value);
+            insertQuestion(data[0].value);
         } else {
             //TODO: Show message of empty request.
             alert("Show message of invalid input");

@@ -32,6 +32,9 @@ Author: JirenSama
     <link href="vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
     <!-- Google imports -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--W3Schools include-->
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+
 </head>
 <body>
 <!-- Start Page Loading -->
@@ -243,14 +246,14 @@ Author: JirenSama
             <div>
                 <!--Start tabs-->
                 <div>
-                    <div class="col s12 gradient-45deg-blue-grey-blue gradient-shadow"><a class="title-nav-bar-dash white-text" id="dashboardTitle">Dashboard</a></div>
+                    <div class="col s12 gradient-45deg-indigo-light-blue gradient-shadow profile-page-sidebar"><a class="title-nav-bar-dash white-text" id="dashboardTitle">Dashboard</a></div>
                     <div class="divider"></div>
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3"><a class="active changeTitle" href="#userDashboard">Dashboard</a></li>
-                            <li class="tab col s3"><a class="changeTitle" href="#userStatistics">Statistics</a></li>
-                            <li class="tab col s3"><a class="changeTitle" href="#donate">Donate</a></li>
-                            <li class="tab col s3"><a class="changeTitle" href="#reportError">Report Error</a></li>
+                            <li class="tab col s3"><a class="active changeTitle blue-grey-text" href="#userDashboard">Dashboard</a></li>
+                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#userStatistics">Statistics</a></li>
+                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
+                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
                         </ul>
                     </div>
                     <!--Start User Dashboard-->
@@ -295,86 +298,94 @@ Author: JirenSama
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m12">
-                            <div class="col s12 m8">
-                                <div class="row section">
-                                    <div class="col s12 m3">
-                                        <div class="card gradient-shadow white border-radius-3">
-                                            <div class="card-content green accent-2 gradient-45deg-amber-amber white-text">
-                                                <span class="card-title">Currency</span>
-                                            </div>
-                                            <div class="col s12 card-content center amber-text amber lighten-5">
-                                                <div class="row">
-                                                    <div class="col s12 m4">
-                                                        <i class="material-icons medium">attach_money</i>
-                                                    </div>
-                                                    <div class="col s12 m4">
-                                                        <h5 id="currency" class="lighten-4">0</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <!--Start page content dashboard-->
+                        <div class="row" id="profile-page-content">
+                            <div id="profile-page-sidebar" class="col s12 m8">
+                                <div class="col s12 m4">
+                                    <div class="card gradient-shadow white border-radius-3">
+                                        <div class="card-content green accent-2 gradient-45deg-amber-amber white-text">
+                                            <span class="card-title">Currency</span>
                                         </div>
-                                    </div>
-                                    <div class="col s12 m5">
-                                        <div class="card gradient-shadow white border-radius-3">
-                                            <div class="card-content gradient-45deg-green-teal white-text">
-                                                <span class="card-title">Milestone</span>
-                                            </div>
-                                            <div class="col s12 card-content center green-text green lighten-5">
-                                                <div class="row">
-                                                    <div class="col s12 m2">
-                                                        <i class="material-icons medium">ev_station</i>
-                                                    </div>
-                                                    <div class="progress col s12 m8">
-                                                        <div class="determinate gradient-45deg-green-teal" style="width: 100%"></div>
-                                                    </div>
-                                                    <div class="col s12 m2">
-                                                        <h5 id="milestone" class="lighten-4">0</h5>
-                                                    </div>
+                                        <div class="col s12 card-content center amber-text amber lighten-5">
+                                            <div class="row">
+                                                <div class="col s12 m4">
+                                                    <i class="material-icons medium">attach_money</i>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--TODO: Add general card news js here.-->
-                                    <div class="col s12 m4">
-                                        <div class="card gradient-shadow white border-radius-3">
-                                            <div class="card-content gradient-45deg-blue-grey-blue white-text">
-                                                <span class="card-title">News</span>
-                                            </div>
-                                            <div class="card-tabs">
-                                                <ul class="tabs tabs-fixed-width">
-                                                    <li class="tab"><a class="active blue-grey-text" href="#generalNews">General</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="card-content blue-grey-text lighten-4">
-                                                <div id="generalNews">General news here</div>
+                                                <div class="col s12 m4">
+                                                    <h5 id="currency" class="lighten-4">0</h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row section">
-                                    <div class="col s12 m8">
-                                        <div class="card gradient-shadow white border-radius-3">
-                                            <div class="card-content gradient-45deg-indigo-light-blue white-text">
-                                                <span class="card-title">Question's status</span>
+                                <div class="col s12 m8">
+                                    <div class="card gradient-shadow white border-radius-3">
+                                        <div class="card-content gradient-45deg-green-teal white-text">
+                                            <span class="card-title">Milestone</span>
+                                        </div>
+                                        <div class="col s12 card-content center green-text green lighten-5">
+                                            <div class="row">
+                                                <div class="col s12 m2">
+                                                    <i class="material-icons medium">ev_station</i>
+                                                </div>
+                                                <div class="progress col s12 m8">
+                                                    <div class="determinate gradient-45deg-green-teal" style="width: 100%"></div>
+                                                </div>
+                                                <div class="col s12 m2">
+                                                    <h5 id="milestone" class="lighten-4">0</h5>
+                                                </div>
                                             </div>
-                                            <div class="card-tabs">
-                                                <ul class="tabs tabs-fixed-width">
-                                                    <li class="tab"><a class="active blue-grey-text" href="#approved">Active</a></li>
-                                                    <li class="tab"><a class="blue-grey-text" href="#review">Under review</a></li>
-                                                    <li class="tab"><a class="blue-grey-text" href="#quarantine">Quarantine</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="card-content blue-grey-text lighten-4">
-                                                <div id="approved">Approved information list here</div>
-                                                <div id="review">Under review information list here</div>
-                                                <div id="quarantine">Quarantine information list here</div>
-                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s12 m12">
+                                    <div class="card gradient-shadow white border-radius-3">
+                                        <div class="card-content gradient-45deg-indigo-light-blue white-text">
+                                            <span class="card-title">Question's status</span>
+                                        </div>
+                                        <div class="card-tabs">
+                                            <ul class="tabs tabs-fixed-width">
+                                                <li class="tab"><a class="active blue-grey-text" href="#approved">Active</a></li>
+                                                <li class="tab"><a class="blue-grey-text" href="#review">Under review</a></li>
+                                                <li class="tab"><a class="blue-grey-text" href="#quarantine">Quarantine</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-content blue-grey-text lighten-4">
+                                            <div id="approved">Approved information list here</div>
+                                            <div id="review">Under review information list here</div>
+                                            <div id="quarantine">Quarantine information list here</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div id="general-news-wall" class="col s12 m4">
+                                <div class="card gradient-shadow white border-radius-3" style="height: 28.8rem">
+                                    <div class="card-content gradient-45deg-blue-grey-blue white-text">
+                                        <span class="card-title">News</span>
+                                    </div>
+                                    <div class="card-tabs">
+                                        <ul class="tabs tabs-fixed-width">
+                                            <li class="tab"><a class="active blue-grey-text" href="#generalNews">General</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-content blue-grey-text lighten-4">
+                                        <div id="generalNews">General news here</div>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                        <p>test test</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!--End page content dashboard-->
                         <div class="col s12">
                             <div class="row section">
 
@@ -445,29 +456,6 @@ Author: JirenSama
                                             <button class="waves-effect waves-light btn" type="submit">Search</button>
                                         </div>
                                     </form>
-                                </div>
-                                <div class="row section">
-                                    <div class="card roundedCard-5 question-r-card-6 col s12 m12">
-                                        <p>Description of question (READ ONLY)</p>
-                                    </div>
-                                </div>
-                                <!--TODO: Present the question here-->
-                                <div class="row section">
-                                    <div class="question-r-card-12 col s12 m5">
-                                        <img src="assets/images/gallary/3.png">
-                                    </div>
-                                    <div class="card roundedCard-5 col s12 m6 offset-m1">
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                        <p>Field of question (READ ONLY)</p>
-                                    </div>
                                 </div>
                                 <div class="row section">
                                     <form class="row col s12 m12" name="qtnReport_form" id="qtnReport_form">
