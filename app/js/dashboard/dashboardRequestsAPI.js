@@ -64,8 +64,6 @@ function insertQuestion(qData) {
     load.innerHTML = 'w3IncludeHTML();';
     load.setAttribute('class', 'questionAsset');
     $('#searchQuestionID').after(addQuestion, load);
-
-    // $('#readTest').prop('readonly', true);
 }
 
 $(document).ready(function () {
@@ -96,6 +94,15 @@ $(document).ready(function () {
         if ($(this).attr('id') == "qtnReport_form") {
             //TODO: Submit report to api.
             alert("Question Report Submitted -> " + data[0].value + " -> " + dataDescription[0].value);
+
+            swal({
+                type: 'success',
+                position: 'top-end',
+                title: "Report submitted!",
+                text: "Thank you for your help!",
+                timer: 1500
+            });
+
         } else {
             alert("Error: 002: " + $(this).attr('id'));
         }
@@ -112,6 +119,15 @@ $(document).ready(function () {
         if ($(this).attr('id') == "sysReport_form") {
             //TODO: Submit report to api.
             alert("System Report Submitted -> " + dataDescription[0].value);
+
+            swal({
+                type: 'success',
+                position: 'top-end',
+                title: "Report submitted!",
+                text: "Thank you for your help!",
+                timer: 1500
+            });
+
         } else {
             alert("Error: 003: " + $(this).attr('id'));
         }
