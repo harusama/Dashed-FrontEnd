@@ -21,7 +21,7 @@ function userLogin(email, password) {
             if (xhr.status == 201) {
                 alert(data);
                 Cookies.set("userData", data);
-                window.location.href = 'http://localhost:8080/www/Dashed-FrontEnd/app/index.html';
+                window.location.href = 'http://localhost:63342/www/Dashed-FrontEnd/app/index.html';
             }
             else {
                 swal({
