@@ -1,4 +1,81 @@
-function singupUser(email, password) {
+urlTemp = 'http://localhost:3000/v1/users/signup';
+
+function singupUser(firstName, lastName, username, email, password, campusID) {
+
+    // Request to API for signup.
+    $.ajax({
+        type: "POST",
+        url: urlTemp,
+        data: JSON.stringify({
+            "firstName": firstName,
+            "lastName": lastName,
+            "username": username,
+            "email": email,
+            "password": password,
+            "campusId": parseInt(campusID)
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        success: function (data, textStatus, xhr) {
+            console.log("xhr: ",xhr);
+            if (xhr.status == 201) {
+                alert(data);
+                Cookies.set("userData", data);
+                // window.location.href = './login.html';
+            }
+            else {
+                swal({
+                    type: 'success',
+                    position: 'top-end',
+                    title: "Congratulations!",
+                    text: "Please verify your e-mail!",
+                    showCancelButton: true,
+                    confirmButtonText: "Reload",
+                    timer: 1500
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        location.reload();
+                    }
+                });
+            }
+        },
+        error: function (jqXHR, ajaxOptions, thrownError) {
+            if (jqXHR.status == 404) {
+                swal({
+                    type: 'error',
+                    position: 'top-end',
+                    title: "Sorry the username the credential don't match our data!",
+                    text: "Check your info",
+                    showCloseButton: true
+                });
+            }
+            else if (jqXHR.status == 400) {
+                swal({
+                    type: 'info',
+                    position: 'top-end',
+                    title: "Error 400",
+                    text: "Go check your mail",
+                    showCloseButton: true
+                });
+            } else {
+                swal({
+                    type: 'error',
+                    position: 'top-end',
+                    title: "Internal error",
+                    text: "Please reload page and try again",
+                    showCancelButton: true,
+                    confirmButtonText: "Reload"
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        location.reload();
+                    }
+                });
+            }
+
+        }
+    });
 
 }
 
@@ -21,7 +98,7 @@ function userLogin(email, password) {
             if (xhr.status == 201) {
                 alert(data);
                 Cookies.set("userData", data);
-                window.location.href = 'http://localhost:63342/www/Dashed-FrontEnd/app/index.html';
+                window.location.href = './index.html';
             }
             else {
                 swal({
@@ -120,9 +197,13 @@ $(document).ready(function () {
     $('#register_form').submit(function (e) {
         e.preventDefault();
         var data = $('#register_form').serializeArray();
+        var firstName = data[0].value;
+        var lastName = data[1].value;
         var email = data[2].value;
-        var password = data[4].value;
-        singupUser(email, password)
+        var username = data[3].value;
+        var campusID = data[4].value;
+        var password = data[5].value;
+        singupUser(firstName, lastName, username, email, password, campusID);
     });
 
     $('#forget_pass').click(function (e) {
