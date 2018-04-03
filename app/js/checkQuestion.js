@@ -226,8 +226,6 @@ function getQuestion(body) {
 
 $(document).ready(function () {
     $('.collapsible').collapsible();
-
-    // Todo: Changes this function for -> requestQuestions();
     $(function () {
         $.each(questions, function (key, body) {
             var question = getQuestion(body);
