@@ -95,6 +95,71 @@ var questions = [
     }
 ];
 // <-
+var url = 'https://dash-ed.herokuapp.com/v1/questions/';
+function requestQuestions() {
+
+    // Request to API
+    $.ajax({
+        type: "GET",
+        // Id of subject
+        url: url +  Cookies.get("subject"),
+        headers: {
+            // "Authorization": "" ,
+            "X-API-KEY": Cookies.get("token"),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        success: function (data, textStatus, xhr) {
+            if (xhr.status == 201) {
+                $.each(data, function (key, body) {
+                    var question = getQuestion(body);
+
+                    $('#question-list').append(
+                        '<li id="question' + key + '">' +
+                        '   <div class="collapsible-header">\n' +
+                        '       <i class="material-icons">question_answer</i>' + body.descriptionText +
+                        '   </div>' +
+                        '   <div class="collapsible-body">' +
+                        question +
+                        '   </div>' +
+                        '</li>');
+
+                });
+            }
+            else {
+                swal({
+                    type: 'error',
+                    position: 'top-end',
+                    title: "Internal error",
+                    text: "Please reload page and try again",
+                    showCancelButton: true,
+                    confirmButtonText: "Reload",
+                    timer: 1500
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        location.reload();
+                    }
+                });
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.status);
+            swal({
+                type: 'error',
+                position: 'top-end',
+                title: "Internal error",
+                text: "Please reload page and try again",
+                showCancelButton: true,
+                confirmButtonText: "Reload",
+                timer: 1500
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    location.reload();
+                }
+            });
+        }
+    });
+}
 
 function getQuestion(body) {
     var questionImage, answer = '';
@@ -161,6 +226,8 @@ function getQuestion(body) {
 
 $(document).ready(function () {
     $('.collapsible').collapsible();
+
+    // Todo: Changes this function for -> requestQuestions();
     $(function () {
         $.each(questions, function (key, body) {
             var question = getQuestion(body);
