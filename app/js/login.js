@@ -14,35 +14,18 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
             "password": password,
             "campusId": parseInt(campusID)
         }),
+        dataType: "json",
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        success: function (data, textStatus, xhr) {
-            console.log("xhr: ",xhr);
+
+        complete: function (xhr, settings) {
             if (xhr.status == 201) {
-                alert(data);
-                Cookies.set("userData", data);
+                window.location.href = './index.html';
                 // window.location.href = './login.html';
             }
-            else {
-                swal({
-                    type: 'success',
-                    position: 'top-end',
-                    title: "Congratulations!",
-                    text: "Please verify your e-mail!",
-                    showCancelButton: true,
-                    confirmButtonText: "Reload",
-                    timer: 1500
-                }, function (isConfirm) {
-                    if (isConfirm) {
-                        location.reload();
-                    }
-                });
-            }
-        },
-        error: function (jqXHR, ajaxOptions, thrownError) {
-            if (jqXHR.status == 404) {
+            else if (xhr.status == 404) {
                 swal({
                     type: 'error',
                     position: 'top-end',
@@ -51,7 +34,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     showCloseButton: true
                 });
             }
-            else if (jqXHR.status == 400) {
+            else if (xhr.status == 400) {
                 swal({
                     type: 'info',
                     position: 'top-end',
@@ -73,7 +56,6 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     }
                 });
             }
-
         }
     });
 
