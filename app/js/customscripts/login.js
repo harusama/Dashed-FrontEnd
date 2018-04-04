@@ -80,7 +80,7 @@ function userLogin(email, password) {
             if (xhr.status == 201) {
                 alert(data);
                 Cookies.set("userData", data);
-                window.location.href = './index.html';
+                window.location.href = './dashboard.html';
             }
             else {
                 swal({
