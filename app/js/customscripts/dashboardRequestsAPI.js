@@ -24,35 +24,35 @@ function insertQuestion(qData) {
     switch (qData) {
         case '1':
             qID = 'bridgeMap';
-            type = "questions/bridgeMap.html";
+            type = "../questions/bridgeMap.html";
             break;
         case '2':
             qID = 'mFlowMap';
-            type = "questions/mFlowMap.html";
+            type = "../questions/mFlowMap.html";
             break;
         case '3':
             qID = 'fMap';
-            type = "questions/fMap.html";
+            type = "../questions/fMap.html";
             break;
         case '4':
             qID = 'dBubbleMap';
-            type = "questions/dBubbleMap.html";
+            type = "../questions/dBubbleMap.html";
             break;
         case '5':
             qID = 'bubblemap';
-            type = "questions/bubblemap.html";
+            type = "../questions/bubblemap.html";
             break;
         case '6':
             qID = 'cFrameMap';
-            type = "questions/cFrameMap.html";
+            type = "../questions/cFrameMap.html";
             break;
         case '7':
             qID = 'treeMap';
-            type = "questions/treeMap.html";
+            type = "../questions/treeMap.html";
             break;
         case '8':
             qID = 'braceMap';
-            type = "questions/braceMap.html";
+            type = "../questions/braceMap.html";
             break;
     }
 
