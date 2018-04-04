@@ -82,7 +82,7 @@ $(document).ready(function () {
             //TODO: Show message of empty request.
             alert("Show message of invalid input");
         }
-    })
+    });
 
     //Submits question error report to API.
     $('#qtnReport_form').submit(function (e) {
@@ -108,7 +108,7 @@ $(document).ready(function () {
         }
 
         returnToReportOptions();
-    })
+    });
 
     //Submits system error report to API.
     $('#sysReport_form').submit(function (e) {
@@ -133,13 +133,13 @@ $(document).ready(function () {
         }
 
         returnToReportOptions();
-    })
+    });
 
     //Toggle report options
     $(".cancelReport").click(function (e) {
         e.preventDefault();
 
         returnToReportOptions();
-    })
+    });
     //==================================================
 });

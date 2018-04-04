@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    //============== Get Cookie Data ===================
+    $().onload(function (e) {
+        e.preventDefault();
+
+    });
+    //================ End Cookie data =================
     //=================REPORT ERRORS====================
     //Change Report Error elements
     //Toggle input report
@@ -21,5 +27,5 @@ $(document).ready(function () {
         }else {
             alert("Error: 001");
         }
-    })
+    });
 });
