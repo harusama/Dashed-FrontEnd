@@ -68,7 +68,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
 
 }
 
-url = 'http://localhost:3000/v1/users';
+url = 'http://localhost:3000/v1/users/login';
 
 function userLogin(email, password) {
     // Request to API
