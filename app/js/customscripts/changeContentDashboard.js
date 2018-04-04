@@ -1,11 +1,14 @@
+function setUsersData() {
+    var cookie = JSON.parse(Cookies.get('userData'));//Get data in Jason
+    $('#usersName').text(cookie.data.firstName + " " + cookie.data.lastName);
+};
+
 $(document).ready(function () {
 
-    //============== Get Cookie Data ===================
-    $().onload(function (e) {
-        e.preventDefault();
+    //============== Get User Data ===================
+        setUsersData();
+    //================ End User Data =================
 
-    });
-    //================ End Cookie data =================
     //=================REPORT ERRORS====================
     //Change Report Error elements
     //Toggle input report
