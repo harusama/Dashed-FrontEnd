@@ -201,7 +201,7 @@ function getQuestion(body) {
         '                <p class="description">' + body.descriptionText + '</p>' +
         '            </div>' +
         '            <div class="card-image col s6 ">' +
-        '                <img src="../assets/images/questions/' + questionImage + '">' +
+        '                <img src=' + questionImage + '"../../assets/images/questions">' +
         '            </div>' +
         '        </div>' +
         '    </div>' +

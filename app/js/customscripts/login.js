@@ -22,7 +22,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
 
         complete: function (xhr, settings) {
             if (xhr.status == 201) {
-                window.location.href = './index.html';
+                window.location.href = '../../index.html';
                 // window.location.href = './login.html';
             }
             else if (xhr.status == 404) {
