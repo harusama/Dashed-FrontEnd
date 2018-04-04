@@ -22,7 +22,14 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
 
         complete: function (xhr, settings) {
             if (xhr.status == 201) {
-                window.location.href = '../../index.html';
+                swal({
+                    type: 'success',
+                    position: 'top-end',
+                    title: "Congratulations!",
+                    text: "Please check your email to verify your account!",
+                    showCloseButton: true
+                });
+                // window.location.href = '../../index.html';
                 // window.location.href = './login.html';
             }
             else if (xhr.status == 404) {
@@ -30,7 +37,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     type: 'error',
                     position: 'top-end',
                     title: "Sorry the username the credential don't match our data!",
-                    text: "Check your info",
+                    text: "Please make sure your information is correct! :)",
                     showCloseButton: true
                 });
             }
@@ -39,7 +46,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     type: 'info',
                     position: 'top-end',
                     title: "Error 400",
-                    text: "Go check your mail",
+                    text: "Incomplete info",
                     showCloseButton: true
                 });
             } else {
@@ -103,7 +110,7 @@ function userLogin(email, password) {
                 swal({
                     type: 'error',
                     position: 'top-end',
-                    title: "Sorry the username the credential don't match our data!",
+                    title: "Sorry the information does not match our data!",
                     text: "Check your info",
                     showCloseButton: true
                 });
@@ -112,8 +119,8 @@ function userLogin(email, password) {
                 swal({
                     type: 'info',
                     position: 'top-end',
-                    title: "It seems that you have not verify your account!",
-                    text: "Go check your mail",
+                    title: "It seems that you have not verified your account!",
+                    text: "Go check your mail!",
                     showCloseButton: true
                 });
             } else {
