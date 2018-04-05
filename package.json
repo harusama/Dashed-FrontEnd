@@ -1,0 +1,26 @@
+{
+   "name": "dashed-frontend",
+   "version": "1.0.0",
+   "description": "Proyecto en desarollo por alumnos de ITESM campus Monterrey",
+   "main": "server.js",
+   "engines": {
+      "node": "8.9.4",
+      "yarn": "1.3.2"
+   },
+   "scripts": {
+      "start": "node server.js"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/harusama/Dashed-FrontEnd.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/harusama/Dashed-FrontEnd/issues"
+   },
+   "homepage": "https://github.com/harusama/Dashed-FrontEnd#readme",
+   "dependencies": {
+      "express": "^4.16.3"
+   }
+}
