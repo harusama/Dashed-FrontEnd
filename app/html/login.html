@@ -19,10 +19,8 @@
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
     <!-- For Windows Phone -->
-
     <!-- Cookies for jquery -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
     <!-- CORE CSS-->
     <link href="../css/themes/semi-dark-menu/materialize.css" type="text/css" rel="stylesheet">
     <link href="../css/themes/semi-dark-menu/style.css" type="text/css" rel="stylesheet">
@@ -31,16 +29,14 @@
     <link href="../css/layouts/page-center.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--JS API configuration file-->
+    <script src="../js/configuration/configuration.js"></script>
 
     <!-- jQuery Library -->
     <script type="text/javascript" src="../vendors/jquery-3.2.1.min.js"></script>
     <link href="../vendors/sweetalert/dist/sweetalert.css" type="text/css" rel="stylesheet">
-
-    <!-- SCRIPTS FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-    <!-- END SCRIPTS FIREBASE -->
 
     <!-- custom js for login -->
     <script type="application/javascript" src="../js/customscripts/login.js"></script>
@@ -141,9 +137,37 @@
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
+                    <i class="material-icons prefix pt-5">lock_outline</i>
+                    <input id="password" name="password" type="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pt-5">account_circle</i>
+                    <input id="stateID" name="stateID" type="number">
+                    <label for="stateID" class="center-align">State</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pt-5">account_circle</i>
+                    <input id="regionID" name="regionID" type="number">
+                    <label for="regionID" class="center-align">Region</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix pt-5">account_circle</i>
+                    <input id="districtID" name="districtID" type="number">
+                    <label for="districtID" class="center-align">District</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
                     <i class="material-icons prefix pt-5">account_circle</i>
                     <input id="campusID" name="CampusID" type="number">
-                    <label for="CampusID" class="center-align">Campus</label>
+                    <label for="campusID" class="center-align">Campus</label>
                 </div>
             </div>
             <!--<div class="row margin">-->
@@ -159,13 +183,6 @@
             <!--<label>State</label>-->
             <!--</div>-->
             <!--</div>-->
-            <div class="row margin">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix pt-5">lock_outline</i>
-                    <input id="password" name="password" type="password">
-                    <label for="password">Password</label>
-                </div>
-            </div>
             <div class="row">
                 <div class="input-field col s12">
                     <button class="btn waves-effect waves-light col s12" type="submit">Register Now</button>
@@ -187,10 +204,10 @@
 <!--scrollbar-->
 <script type="text/javascript" src="../vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="../vendors/sweetalert/dist/sweetalert.min.js"></script>
-
 <!--plugins.js - Some Specific JS codes for Plugin Settings-->
 <script type="text/javascript" src="../js/plugins.js"></script>
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="../js/custom-script.js"></script>
+<script type="text/javascript" src="../js/customscripts/schoolStructure.js"></script>
 </body>
 </html>

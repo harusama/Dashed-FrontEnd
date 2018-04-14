@@ -12,7 +12,7 @@ $.urlParam = function(name){
 
 function verifyEmail(urlHash) {
 
-    // // Request to API for signup.
+    // Request to API for signup.
     $.ajax({
         type: "GET",
         url: url,
