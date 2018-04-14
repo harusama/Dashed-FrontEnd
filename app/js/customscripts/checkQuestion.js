@@ -96,6 +96,13 @@ var questions = [
 ];
 // <-
 var url = 'https://dash-ed.herokuapp.com/v1/questions/';
+// Validate if user is logger
+$(function () {
+    console.log($.session.get('StatusUser') );
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+        window.location.href = '../index.html';
+    }
+});
 
 function requestQuestions() {
 

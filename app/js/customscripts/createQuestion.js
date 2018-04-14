@@ -1,4 +1,12 @@
 var url = 'https://dash-ed.herokuapp.com/v1/questions';
+// Validate if user is logger
+$(function () {
+    console.log($.session.get('StatusUser') );
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+        window.location.href = '../index.html';
+    }
+});
+
 $(document).ready(function () {
     // Todo : for test proposes
     // Reference to use cookies https://github.com/js-cookie/js-cookie

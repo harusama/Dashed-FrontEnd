@@ -1,4 +1,4 @@
-urlTemp = 'http://localhost:3000/v1/users/signup';
+urlTemp = 'http://192.168.1.70:3000/v1/users/signup';
 
 function singupUser(firstName, lastName, username, email, password, campusID) {
 
@@ -29,7 +29,8 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     text: "Please check your email to verify your account!",
                     showCloseButton: true
                 });
-                // window.location.href = '../../index.html';
+                $.session.set('StatusUser', 'Login');
+                window.location.href = '../dashboard.html';
                 // window.location.href = './login.html';
             }
             else if (xhr.status == 404) {
@@ -86,6 +87,7 @@ function userLogin(email, password) {
             if (xhr.status == 201) {
                 alert(data);
                 Cookies.set("userData", data);
+                $.session.set('StatusUser', 'Login');
                 window.location.href = './dashboard.html';
             }
             else {
@@ -143,7 +145,7 @@ function userLogin(email, password) {
 
 // Close connection with firebase
 function userLogout() {
-
+    $.session.set('StatusUser', 'Logout');
 
 }
 
@@ -153,8 +155,7 @@ function resetPassword(email) {
 
 
 $(document).ready(function () {
-
-
+    $.session.set('StatusUser', 'Logout');
     // Show register form
     $('#bt_register').click(function (e) {
         e.preventDefault();
