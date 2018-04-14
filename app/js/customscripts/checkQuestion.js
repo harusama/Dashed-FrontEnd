@@ -96,13 +96,14 @@ var questions = [
 ];
 // <-
 var url = 'https://dash-ed.herokuapp.com/v1/questions/';
+
 function requestQuestions() {
 
     // Request to API
     $.ajax({
         type: "GET",
         // Id of subject
-        url: url +  Cookies.get("subject"),
+        url: url + Cookies.get("subject"),
         headers: {
             // "Authorization": "" ,
             "X-API-KEY": Cookies.get("token"),
@@ -201,7 +202,7 @@ function getQuestion(body) {
         '                <p class="description">' + body.descriptionText + '</p>' +
         '            </div>' +
         '            <div class="card-image col s6 ">' +
-        '                <img src=' + questionImage + '"../../assets/images/questions">' +
+        '                <img src="../assets/images/questions/' + questionImage + '">' +
         '            </div>' +
         '        </div>' +
         '    </div>' +
