@@ -1,11 +1,11 @@
-urlTemp = 'http://localhost:3000/v1/users/signup';
+usersScope = 'users/';
 
 function singupUser(firstName, lastName, username, email, password, campusID) {
 
     // Request to API for signup.
     $.ajax({
         type: "POST",
-        url: urlTemp,
+        url: url + usersScope + 'signup',
         data: JSON.stringify({
             "firstName": firstName,
             "lastName": lastName,
@@ -67,13 +67,11 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
     });
 }
 
-url = 'http://localhost:3000/v1/users/login';
-
 function userLogin(email, password) {
     // Request to API
     $.ajax({
         type: "POST",
-        url: url,
+        url: url + usersScope + 'login',
         data: JSON.stringify({
             "email": email,
             "password": password
@@ -151,9 +149,67 @@ function resetPassword(email) {
 
 }
 
+function getCampusStructure() {
+    // Request to API for signup.
+    $.ajax({
+        type: "GET",
+        url: url,
+        complete: function (xhr, settings) {
+            alert("Success CompusStructure information brought")
+            if (xhr.status == 200) {
+                swal({
+                        type: 'success',
+                        position: 'top-end',
+                        title: "Congratulations!",
+                        text: "Account verified!",
+                        confirmButtonText: "Go to login!",
+                        showCloseButton: true},
+                    function (isConfirm) {
+                        alert("Success information brought");
+                    });
+            }
+            else if (xhr.status == 400) {
+                swal({
+                        type: 'error',
+                        position: 'top-end',
+                        title: "Sorry your email has not yet been verified!",
+                        text: "Feel free to contact us if the problem persists!",
+                        confirmButtonText: "Reload",
+                        showCloseButton: true},
+                    function (isConfirm) {
+                        location.reload();
+                    });
+            }
+            else if (xhr.status == 404) {
+                swal({
+                        type: 'info',
+                        position: 'top-end',
+                        title: "Email already verified.",
+                        text: "Just login, email already verified!",
+                        confirmButtonText: "Go to login!",
+                        showCloseButton: true},
+                    function (isConfirm) {
+                        window.location.href = './login.html';
+                    });
+            } else {
+                swal({
+                    type: 'error',
+                    position: 'top-end',
+                    title: "Internal error",
+                    text: "Please reload page and try again",
+                    showCancelButton: true,
+                    confirmButtonText: "Reload"
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    });
+}
 
 $(document).ready(function () {
-
 
     // Show register form
     $('#bt_register').click(function (e) {
@@ -218,5 +274,9 @@ $(document).ready(function () {
 
     });
 
+    $('#bt_register').click(function (e) {
+        e.preventDefault();
+        getCampusStructure();
+    });
 
 });
