@@ -5,7 +5,19 @@ var districtStructure = null;
 var campusStructure = null;
 
 function cleanDropdown(elementID) {
-    $(elementID).empty();
+    switch (elementID)
+    {
+        case '#state-dropdown':
+            $('#state-dropdown').empty();
+        case '#region-dropdown':
+            $('#region-dropdown').empty();
+        case '#district-dropdown':
+            $('#district-dropdown').empty();
+        case '#campus-dropdown':
+            $('#campus-dropdown').empty();
+        default:
+            break;
+    }
 }
 
 function getCampusStructure() {
@@ -39,9 +51,6 @@ function getCampusStructure() {
 
 function updateStateDropdown() {
     cleanDropdown('#state-dropdown');
-    cleanDropdown('#region-dropdown');
-    cleanDropdown('#district-dropdown');
-    cleanDropdown('#campus-dropdown');
     console.log(stateStructure);
     $.each(stateStructure, function (key, body) {
         $('#state-dropdown').append("<li class='state' value='" + key + "'><a>" + stateStructure[key].key + ", " + stateStructure[key].name + "</a></li>");
@@ -50,8 +59,6 @@ function updateStateDropdown() {
 
 function updateRegionDropdown(id) {
     cleanDropdown('#region-dropdown');
-    cleanDropdown('#district-dropdown');
-    cleanDropdown('#campus-dropdown');
     console.log(id);
     regionStructure = stateStructure[id].regions;
     console.log(regionStructure);
@@ -62,7 +69,6 @@ function updateRegionDropdown(id) {
 
 function updateDistrictDropdown(id) {
     cleanDropdown('#district-dropdown');
-    cleanDropdown('#campus-dropdown');
     districtStructure = regionStructure[id].districts;
     console.log(districtStructure);
     $.each(districtStructure, function (key, body) {
