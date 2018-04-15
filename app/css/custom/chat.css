@@ -155,6 +155,10 @@ button {
     text-align: right;
 }
 
+.message__title h5 {
+   font-size: 1.2rem;
+}
+
 .message-right .message__title {
     margin-left: auto;
 }
@@ -179,8 +183,10 @@ button {
     margin-bottom: 5px;
 }
 
-.message__title h4 {
+.message__title h4, .message__title h5 {
     font-weight: 600;
+    margin: 0;
+    padding: 0;
     margin-right: 10px;
 }
 
