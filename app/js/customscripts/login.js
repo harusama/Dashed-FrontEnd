@@ -30,8 +30,7 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     showCloseButton: true
                 });
                 $.session.set('StatusUser', 'Login');
-                window.location.href = '../dashboard.html';
-                // window.location.href = './login.html';
+                location.reload();
             }
             else if (xhr.status == 404) {
                 swal({
@@ -186,8 +185,9 @@ $(document).ready(function () {
         var lastName = data[1].value;
         var email = data[2].value;
         var username = data[3].value;
-        var campusID = data[4].value;
-        var password = data[5].value;
+        var password = data[4].value;
+        var campusID = $('#campus-dropdown').attr('value');
+
         singupUser(firstName, lastName, username, email, password, campusID);
     });
 

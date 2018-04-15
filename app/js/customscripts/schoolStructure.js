@@ -88,25 +88,29 @@ $(document).ready(function () {
     });
 
     //Gets information for school structure. (Region)
-    $('#state-dropdown').on('click','li.state',function() {
+    $('#state-dropdown').on('click','li.state',function(e) {
+        e.preventDefault();
         console.log($(this).attr('value'));
         updateRegionDropdown($(this).attr('value'));
     });
 
     //Gets information for school structure. (District)
-    $('#region-dropdown').on('click','li.region',function() {
+    $('#region-dropdown').on('click','li.region',function(e) {
+        e.preventDefault();
         console.log($(this).attr('value'));
         updateDistrictDropdown($(this).attr('value'));
     });
 
     //Gets information for school structure. (Campus)
-    $('#district-dropdown').on('click','li.district',function() {
+    $('#district-dropdown').on('click','li.district',function(e) {
+        e.preventDefault();
         console.log($(this).attr('value'));
         updateCampusDropdown($(this).attr('value'));
     });
 
     //Gets information for school structure. (Specific)
-    $('#campus-dropdown').on('click','li.campus',function() {
+    $('#campus-dropdown').on('click','li.campus',function(e) {
+        e.preventDefault();
         console.log("Campus: " + $(this).attr('value'));
         $('#campus-dropdown').attr('value', campusStructure[$(this).attr('value')].id);
         console.log("specific: " + $('#campus-dropdown').attr('value'));
