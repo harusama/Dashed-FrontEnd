@@ -27,10 +27,14 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     position: 'top-end',
                     title: "Congratulations!",
                     text: "Please check your email to verify your account!",
-                    showCloseButton: true
+                    timer:1500,
+                    showConfirmButton: true,
+                    closeOnConfirm: true
+                },
+                    function(){
+                        location.reload();
                 });
                 $.session.set('StatusUser', 'Login');
-                location.reload();
             }
             else if (xhr.status == 404) {
                 swal({
