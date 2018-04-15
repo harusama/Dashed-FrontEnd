@@ -1,6 +1,17 @@
+// Validate if user is logger
+$(function () {
+    console.log($.session.get('StatusUser') );
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+        window.location.href = '../index.html';
+    }
+
+});
+
 function setUsersData() {
-    var cookie = JSON.parse(Cookies.get('userData'));//Get data in JSON
-    $('#usersName').text(cookie.data.firstName + " " + cookie.data.lastName);
+    $('#usersName').text($.session.get('name') + " " + $.session.get('lname'));
+    $('#milestone').text($.session.get('milestone'));
+    $('#currency').text($.session.get('currency'));
+
 };
 
 $(document).ready(function () {
