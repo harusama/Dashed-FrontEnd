@@ -29,7 +29,6 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     text: "Please check your email to verify your account!",
                     showCloseButton: true
                 });
-                $.session.set('StatusUser', 'Login');
                 location.reload();
             }
             else if (xhr.status == 404) {
@@ -82,8 +81,10 @@ function userLogin(email, password) {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 201) {
-                alert(data);
                 Cookies.set("userData", data);
+                console.log(data.data);
+                $.session.set('userData', data.data);
+                $.session.set('username', data.data.username);
                 $.session.set('StatusUser', 'Login');
                 window.location.href = './dashboard.html';
             }

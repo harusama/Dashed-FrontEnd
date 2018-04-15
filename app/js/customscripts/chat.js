@@ -19,13 +19,15 @@ function scrollToBottom() {
 
 socket.on('connect', function () {
     console.log('Connected to server');
-    var params = jQuery.deparam(window.location.search);
-    socket.emit('join', params, function (err) {
+    // var params = jQuery.deparam(window.location.search);
+    var username = $.session.get('username');
+    var room = 'Subject1';
+    socket.emit('join', {'name': username, 'room': room}, function (err) {
         if (err) {
             alert(err);
             window.location.href = '/';
         } else {
-            console.log('No error.');
+            // console.log('No error.');
         }
     });
 });
@@ -36,7 +38,7 @@ socket.on('disconnect', function () {
 
 socket.on('updateUserList', function (users) {
 
-   $('#users-collection').html('<li class="collection-item avatar"><i class= "material-icons cyan circle">account_box</i><h5 class="collection-header m-0">Users in chat</h5></li>');
+    $('#users-collection').html('<li class="collection-item avatar"><i class= "material-icons cyan circle">account_box</i><h5 class="collection-header m-0">Users in chat</h5></li>');
 
     users.forEach(function (user) {
         $('#users-collection').append(
@@ -51,7 +53,7 @@ socket.on('updateUserList', function (users) {
 });
 
 socket.on('newMessage', function (message) {
-   console.log('message', message);
+    console.log('message', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-template').html();
     var html = Mustache.render(template, {
@@ -66,13 +68,13 @@ socket.on('newMessage', function (message) {
 });
 
 socket.on('newMessageLeft', function (message) {
-   console.log('messageLeft', message);
+    console.log('messageLeft', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-right-template').html();
     var html = Mustache.render(template, {
         from: message.from,
         text: message.text,
-       color: message.color,
+        color: message.color,
         createdAt: formattedTime
     });
 
@@ -81,13 +83,12 @@ socket.on('newMessageLeft', function (message) {
 });
 
 socket.on('newMessageCenter', function (message) {
-   console.log('messageCenter', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-center-template').html();
     var html = Mustache.render(template, {
         from: message.from,
         text: message.text,
-       color: message.color,
+        color: message.color,
         createdAt: formattedTime
     });
 
