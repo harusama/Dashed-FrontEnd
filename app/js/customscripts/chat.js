@@ -43,7 +43,7 @@ socket.on('updateUserList', function (users) {
             '<li class="collection-item">' +
             '   <div class="row">' +
             '       <div class="col s6">' +
-            '           <h6 class="collections-title">' + user + '</h6>' +
+            '           <h6 class="collections-title" style="color:' + user.color + '">' + user.name + '</h6>' +
             '       </div>' +
             '   </div>' +
             '</li>');
