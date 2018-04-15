@@ -1,4 +1,4 @@
-url = 'http://localhost:3000/v1/users/signup/verify?id=';
+urlVerify = urls.base + urls.usersScope + 'signup/verify?id=';
 
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -15,7 +15,7 @@ function verifyEmail(urlHash) {
     // Request to API for signup.
     $.ajax({
         type: "GET",
-        url: url,
+        url: urlVerify,
         complete: function (xhr, settings) {
             if (xhr.status == 200) {
                 swal({
@@ -72,6 +72,6 @@ function verifyEmail(urlHash) {
 }
 
 $(document).ready(function () {
-    url += $.urlParam('id');//Get url with hash
-    verifyEmail(url);//Verifies email.
+    urlVerify += $.urlParam('id');//Get url with hash
+    verifyEmail(urlVerify);//Verifies email.
 });

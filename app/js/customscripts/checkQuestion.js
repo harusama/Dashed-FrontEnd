@@ -95,7 +95,6 @@ var questions = [
     }
 ];
 
-var questionsScope = 'questions/';
 // Validate if user is logger
 $(function () {
     console.log($.session.get('StatusUser') );
@@ -111,7 +110,7 @@ function requestQuestions() {
     $.ajax({
         type: "GET",
         // Id of subject
-        url: url + questionsScope + Cookies.get("subject"),
+        url: urls.base + urls.questionScope + "/" + Cookies.get("subject"),
         headers: {
             // "Authorization": "" ,
             "X-API-KEY": Cookies.get("token"),

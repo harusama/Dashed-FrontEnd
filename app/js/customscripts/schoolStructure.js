@@ -1,4 +1,3 @@
-var stateScope = 'states'
 var stateStructure = null;
 var regionStructure = null;
 var districtStructure = null;
@@ -24,7 +23,7 @@ function getCampusStructure() {
     // Request to API for school structure information.
     $.ajax({
         type: "GET",
-        url: url + stateScope,
+        url: urls.base + urls.stateScope,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'

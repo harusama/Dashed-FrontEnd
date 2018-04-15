@@ -1,11 +1,9 @@
-usersScope = 'users/';
-
 function singupUser(firstName, lastName, username, email, password, campusID) {
 
     // Request to API for signup.
     $.ajax({
         type: "POST",
-        url: url + usersScope + 'signup',
+        url: urls.base + urls.usersScope + 'signup',
         data: JSON.stringify({
             "firstName": firstName,
             "lastName": lastName,
@@ -75,7 +73,7 @@ function userLogin(email, password) {
     // Request to API
     $.ajax({
         type: "POST",
-        url: url + usersScope + 'login',
+        url: urls.base + urls.usersScope + 'login',
         data: JSON.stringify({
             "email": email,
             "password": password

@@ -1,9 +1,19 @@
 //Base URL
 
+var urls = {};
 //Server
-// var url = 'https://dash-ed-api.herokuapp.com/v1/';
-var chatUrl = 'https://dash-ed-api.herokuapp.com/';
+// urls.base = 'https://dash-ed-api.herokuapp.com/v1/';
+// urls.chat = 'https://dash-ed-api.herokuapp.com/';
 
 //Local
-var url = 'http://localhost:3000/v1/';
-// var chatUrl = 'http://localhost:3000/';
+urls.base = 'http://localhost:3000/v1/';
+urls.chat = 'http://localhost:3000/';
+
+//Relatives
+urls.usersScope = 'users/';
+urls.questionScope = 'questions';
+urls.stateScope = 'states';
+
+//Session
+var userSession = $.session.get('userData');
+

@@ -1,6 +1,6 @@
 //var socket = io();
 
-var socket = io.connect('https://dash-ed-api.herokuapp.com/');
+var socket = io.connect(urls.chat);
 
 function scrollToBottom() {
     var messages = jQuery('#messages');

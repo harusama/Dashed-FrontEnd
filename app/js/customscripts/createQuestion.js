@@ -1,4 +1,3 @@
-var url = 'https://dash-ed.herokuapp.com/v1/questions';
 // Validate if user is logger
 $(function () {
     console.log($.session.get('StatusUser') );
@@ -53,7 +52,7 @@ $(document).ready(function () {
         // Request to API
         $.ajax({
             type: "POST",
-            url: url,
+            url: urls.base + urls.questionScope,
             data: question,
             headers: {
                 // "Authorization": "" ,
