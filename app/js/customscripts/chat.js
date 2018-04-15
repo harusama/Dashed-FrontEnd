@@ -20,7 +20,6 @@ function scrollToBottom() {
 socket.on('connect', function () {
     console.log('Connected to server');
     var params = jQuery.deparam(window.location.search);
-
     socket.emit('join', params, function (err) {
         if (err) {
             alert(err);
@@ -90,15 +89,18 @@ socket.on('newMessageCenter', function (message) {
 });
 
 
-$('#message-form').on('submit', function (e) {
-    e.preventDefault();
+$(document).ready(function () {
+    $('#message-form').submit(function (e) {
+        e.preventDefault();
 
-    var messageTextbox = jQuery('[name=message]');
+        var messageTextbox = $(this).find(':input');
 
-    socket.emit('createMessage', {
-        text: messageTextbox.val()
-    }, function () {
-        messageTextbox.val('');
+        socket.emit('createMessage', {
+            text: messageTextbox.val()
+        }, function () {
+            messageTextbox.val('');
+        });
     });
+
 });
 
