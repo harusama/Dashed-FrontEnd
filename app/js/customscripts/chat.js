@@ -1,6 +1,6 @@
-var socket = io();
+//var socket = io();
 
-//var socket = io.connect('https://whatsappminia.herokuapp.com/');
+var socket = io.connect('localhost:3000');
 
 function scrollToBottom() {
     var messages = jQuery('#messages');
@@ -36,6 +36,8 @@ socket.on('disconnect', function () {
 
 socket.on('updateUserList', function (users) {
 
+   $('#users-collection').html('<li class="collection-item avatar"><i class= "material-icons cyan circle">account_box</i><h5 class="collection-header m-0">Users in chat</h5></li>');
+
     users.forEach(function (user) {
         $('#users-collection').append(
             '<li class="collection-item">' +
@@ -46,15 +48,16 @@ socket.on('updateUserList', function (users) {
             '   </div>' +
             '</li>');
     });
-
 });
 
 socket.on('newMessage', function (message) {
+   console.log('message', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-template').html();
     var html = Mustache.render(template, {
         from: message.from,
         text: message.text,
+        color: message.color,
         createdAt: formattedTime
     });
 
@@ -63,11 +66,13 @@ socket.on('newMessage', function (message) {
 });
 
 socket.on('newMessageLeft', function (message) {
+   console.log('messageLeft', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-right-template').html();
     var html = Mustache.render(template, {
         from: message.from,
         text: message.text,
+       color: message.color,
         createdAt: formattedTime
     });
 
@@ -76,11 +81,13 @@ socket.on('newMessageLeft', function (message) {
 });
 
 socket.on('newMessageCenter', function (message) {
+   console.log('messageCenter', message);
     var formattedTime = moment(message.createdAt).format('h:mm a');
     var template = jQuery('#message-center-template').html();
     var html = Mustache.render(template, {
         from: message.from,
         text: message.text,
+       color: message.color,
         createdAt: formattedTime
     });
 
