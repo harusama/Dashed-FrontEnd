@@ -40,6 +40,9 @@
 
     <!-- custom js for login -->
     <script type="application/javascript" src="../js/customscripts/login.js"></script>
+
+    <!--Storage-->
+    <script type="text/javascript" src="../js/customscripts/localStorage.js"></script>
 </head>
 <body class="gradient-45deg-light-blue-cyan">
 <!-- Start Page Loading -->
@@ -143,9 +146,14 @@
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix pt-5">account_circle</i>
-                    <input id="stateID" name="stateID" type="number">
-                    <label for="stateID" class="center-align">State</label>
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-button btn' data-activates='state-dropdown'>States</a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='state-dropdown' class='dropdown-content'>
+                        <li><a>Choose a state</a></li>
+                        <li class="divider"></li>
+                    </ul>
                 </div>
             </div>
             <div class="row margin">
@@ -169,19 +177,6 @@
                     <label for="campusID" class="center-align">Campus</label>
                 </div>
             </div>
-            <!--<div class="row margin">-->
-            <!--<div class="input-field col s12">-->
-            <!--<i class="material-icons prefix pt-5">flag</i>-->
-            <!--<select required>-->
-            <!--<option value="" disabled selected>Select an option</option>-->
-            <!--<option value="3">AL</option>-->
-            <!--<option value="3">CA</option>-->
-            <!--<option value="1">TX</option>-->
-            <!--<option value="2">NY</option>-->
-            <!--</select>-->
-            <!--<label>State</label>-->
-            <!--</div>-->
-            <!--</div>-->
             <div class="row">
                 <div class="input-field col s12">
                     <button class="btn waves-effect waves-light col s12" type="submit">Register Now</button>

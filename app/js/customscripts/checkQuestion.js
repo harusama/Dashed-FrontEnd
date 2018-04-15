@@ -94,8 +94,8 @@ var questions = [
         ]
     }
 ];
-// <-
-var url = 'https://dash-ed.herokuapp.com/v1/questions/';
+
+questionsScope = 'questions/'
 
 function requestQuestions() {
 
@@ -103,7 +103,7 @@ function requestQuestions() {
     $.ajax({
         type: "GET",
         // Id of subject
-        url: url + Cookies.get("subject"),
+        url: url + questionsScope + Cookies.get("subject"),
         headers: {
             // "Authorization": "" ,
             "X-API-KEY": Cookies.get("token"),

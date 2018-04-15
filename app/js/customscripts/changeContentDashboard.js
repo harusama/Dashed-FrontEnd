@@ -1,5 +1,5 @@
 function setUsersData() {
-    var cookie = JSON.parse(Cookies.get('userData'));//Get data in Jason
+    var cookie = JSON.parse(Cookies.get('userData'));//Get data in JSON
     $('#usersName').text(cookie.data.firstName + " " + cookie.data.lastName);
 };
 
