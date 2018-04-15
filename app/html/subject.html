@@ -33,6 +33,7 @@ Author: Edgardo
     <link href="../css/themes/fixed-menu/style.css" type="text/css" rel="stylesheet">
     <!-- Custome CSS-->
     <link href="../css/custom/custom.css" type="text/css" rel="stylesheet">
+    <link href="../css/custom/chat.css" type="text/css" rel="stylesheet">
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="../vendors/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet">
     <link href="../vendors/flag-icon/css/flag-icon.min.css" type="text/css" rel="stylesheet">
@@ -58,7 +59,6 @@ Author: Edgardo
     <script src="../js/libs/moment.js"></script>
     <script src="../js/libs/mustache.js"></script>
     <script src="../js/libs/deparam.js"></script>
-    <script src="../js/customscripts/chat.js"></script>
 
 </head>
 
@@ -307,8 +307,7 @@ Author: Edgardo
                             </div>
                         </div>
                         <div class="col s4">
-                            <ul id="users-collection" class="collection z-depth-1"
-                                style="height:250px;overflow:hidden; overflow-y:scroll;">
+                            <ul id="users-collection" class="collection z-depth-1 chat__users">
                                 <li class="collection-item avatar">
                                     <i class="material-icons cyan circle">account_box</i>
                                     <h5 class="collection-header m-0">Users in chat</h5>
@@ -319,7 +318,29 @@ Author: Edgardo
                         <script id="message-template" type="text/template">
                             <li class="message">
                                 <div class="message__title">
-                                    <h4>{{from}}</h4>
+                                    <h5>{{from}}</h5>
+                                    <span>{{createdAt}}</span>
+                                </div>
+                                <div class="message_body">
+                                    <p>{{text}}</p>
+                                </div>
+                            </li>
+                        </script>
+                        <script id="message-right-template" type="text/template">
+                            <li class="message message-right">
+                                <div class="message__title">
+                                    <h5>{{from}}</h5>
+                                    <span>{{createdAt}}</span>
+                                </div>
+                                <div class="message_body">
+                                    <p>{{text}}</p>
+                                </div>
+                            </li>
+                        </script>
+                        <script id="message-center-template" type="text/template">
+                            <li class="message message-center">
+                                <div class="message__title">
+                                    <h5>{{from}}</h5>
                                     <span>{{createdAt}}</span>
                                 </div>
                                 <div class="message_body">
@@ -680,5 +701,7 @@ Author: Edgardo
 <script type="text/javascript" src="../js/scripts/form-file-uploads.js"></script>
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="../js/custom-script.js"></script>
+<script src="../js/customscripts/chat.js"></script>
+
 </body>
 </html>
