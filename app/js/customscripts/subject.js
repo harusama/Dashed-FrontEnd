@@ -42,7 +42,6 @@ $(function () {
         window.location.href = '../index.html';
     }
 });
-
 function searchTopics() {
     var input, filter, ul, li, content, i;
     input = document.getElementById("searchTopic");

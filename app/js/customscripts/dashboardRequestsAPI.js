@@ -4,6 +4,7 @@ $(function () {
     if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
         window.location.href = '../index.html';
     }
+
 });
 
 function returnToReportOptions() {

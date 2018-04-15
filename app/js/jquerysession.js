@@ -1,5 +1,4 @@
 (function($){
-
     $.session = {
 
         _id: null,
