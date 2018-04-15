@@ -146,7 +146,7 @@ function userLogin(email, password) {
     });
 }
 
-// Close connection with firebase
+// Close connection with server
 function userLogout() {
     $.session.set('StatusUser', 'Logout');
 }
