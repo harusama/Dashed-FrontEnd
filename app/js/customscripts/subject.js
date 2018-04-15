@@ -36,12 +36,12 @@ var news = [
 ];
 
 // Validate if user is logger
-$(function () {
-    console.log($.session.get('StatusUser') );
-    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
-        window.location.href = '../index.html';
-    }
-});
+// $(function () {
+//     console.log($.session.get('StatusUser') );
+//     if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+//         window.location.href = '../index.html';
+//     }
+// });
 function searchTopics() {
     var input, filter, ul, li, content, i;
     input = document.getElementById("searchTopic");
