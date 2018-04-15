@@ -104,5 +104,12 @@ $(document).ready(function () {
         console.log($(this).attr('value'));
         updateCampusDropdown($(this).attr('value'));
     });
+
+    //Gets information for school structure. (Specific)
+    $('#campus-dropdown').on('click','li.campus',function() {
+        console.log("Campus: " + $(this).attr('value'));
+        $('#campus-dropdown').attr('value', campusStructure[$(this).attr('value')].id);
+        console.log("specific: " + $('#campus-dropdown').attr('value'));
+    });
 });
 
