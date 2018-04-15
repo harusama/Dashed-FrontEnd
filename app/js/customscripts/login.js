@@ -86,8 +86,10 @@ function userLogin(email, password) {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 201) {
-                alert(data);
                 Cookies.set("userData", data);
+                console.log(data.data);
+                $.session.set('userData', data.data);
+                $.session.set('username', data.data.username);
                 $.session.set('StatusUser', 'Login');
                 window.location.href = './dashboard.html';
             }
