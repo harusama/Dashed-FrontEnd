@@ -13,6 +13,7 @@ function getCampusStructure() {
                 console.log("Status: " + xhr.status);
                 $.jStorage.set('schoolStructure', data.data);
                 console.log($.jStorage.get('schoolStructure'));
+                updateStateDropdown();
             }
             else if (xhr.status == 400) {
                 console.log("Status: " + xhr.status);
@@ -27,11 +28,11 @@ function getCampusStructure() {
 }
 
 function updateStateDropdown() {
-    var data = JSON.parse(Cookies.get('schoolStructure'));//Get data in JSON.
+    var data = $.jStorage.get('schoolStructure');//Get data in JSON.
     console.log(data);
-    // $.each(data, function (key, body) {
-    //     $('#state-dropdown').append("<li><a>" + data[key].key + ", " + data[key].name + "</a></li>");
-    // });
+    $.each(data, function (key, body) {
+        $('#state-dropdown').append("<li><a>" + data[key].key + ", " + data[key].name + "</a></li>");
+    });
 }
 
 $(document).ready(function () {
