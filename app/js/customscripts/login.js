@@ -34,7 +34,6 @@ function singupUser(firstName, lastName, username, email, password, campusID) {
                     function(){
                         location.reload();
                 });
-                $.session.set('StatusUser', 'Login');
             }
             else if (xhr.status == 404) {
                 swal({
