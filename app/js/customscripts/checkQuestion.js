@@ -95,7 +95,15 @@ var questions = [
     }
 ];
 
-questionsScope = 'questions/'
+var questionsScope = 'questions/';
+// Validate if user is logger
+$(function () {
+    console.log($.session.get('StatusUser') );
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+        window.location.href = '../index.html';
+    }
+
+});
 
 function requestQuestions() {
 
