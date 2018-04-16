@@ -92,8 +92,9 @@ function userLogin(email, password) {
                 $.session.set('currency', data.data.coins);
                 $.session.set('milestone', data.data.experience);
                 $.session.set('StatusUser', 'Login');
-                $.session.set('token', data.data.token);
-                $.session.set('subjects', data.data.subjects);
+                $.session.set('token', xhr.getResponseHeader('x-auth'));
+                console.log("After; Subjects: " + $.session.get('subjects'));
+                $.session.set('subjects', JSON.stringify(data.data.subjects));
                 console.log("After; Subjects: " + $.session.get('subjects'));
                 window.location.href = './dashboard.html';
             }

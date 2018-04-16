@@ -9,8 +9,26 @@ $(function () {
 
 function setUsersData() {
     $('#usersName').text($.session.get('name') + " " + $.session.get('lname'));
+    $('#username').text("@" + $.session.get('username'));
     $('#milestone').text($.session.get('milestone'));
     $('#currency').text($.session.get('currency'));
+    console.log("Subjects: " + JSON.parse($.session.get('subjects'))[0].name);
+
+    // Load content from subjects
+    $(function () {
+        $.each(JSON.parse($.session.get('subjects')), function (key, body) {
+
+            $('#subjectList').after(' ' +
+                '<li>' +
+                '   <a id="' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
+                '       <i class="material-icons white-text">pages</i>' +
+                '       <span class="nav-text">' + body.name + '</span>' +
+                '   </a>' +
+                '</li>' +
+                '<div class="divider"></div>');
+
+        });
+    });
 
 };
 
