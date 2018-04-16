@@ -61,6 +61,7 @@ function searchTopics() {
 
 $(document).ready(function () {
 
+    console.log("Subjects: " + $.session.get('subjects'));
     // Load content from json value
     $(function () {
         $.each(topic, function (key, body) {

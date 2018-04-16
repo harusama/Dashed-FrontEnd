@@ -49,7 +49,6 @@ Author: Edgardo
     <!-- Google imports -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
     <!-- Sweet Alerts -->
     <link href="../vendors/sweetalert/dist/sweetalert.css" type="text/css" rel="stylesheet">
     <script src="../vendors/sweetalert/dist/sweetalert.min.js"></script>
@@ -80,7 +79,7 @@ Author: Edgardo
 <header id="header" class="page-topbar">
     <!-- start header nav-->
     <div class="navbar-fixed">
-        <nav class="navbar-color cyan">
+        <nav class="navbar-color gradient-45deg-semi-dark">
             <div class="nav-wrapper">
                 <ul class="left">
                     <li>
@@ -94,8 +93,7 @@ Author: Edgardo
                 </ul>
                 <div class="header-search-wrapper hide-on-med-and-down">
                     <i class="material-icons">search</i>
-                    <input type="text" name="Search" class="header-search-input z-depth-2"
-                           placeholder="Explore features, tags, topics, questions, and more..."/>
+                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore features, tags, topics, questions, and more..." />
                 </div>
                 <ul class="right hide-on-med-and-down">
                     <li>
@@ -104,16 +102,14 @@ Author: Edgardo
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button"
-                           data-activates="notifications-dropdown">
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                             <i class="material-icons">notifications_none
                                 <small class="notification-badge pink accent-2">5</small>
                             </i>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button"
-                           data-activates="profile-dropdown">
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
                     <img src="../assets/images/avatar/avatar-7.png" alt="avatar">
                     <i></i>
@@ -121,8 +117,7 @@ Author: Edgardo
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-activates="chat-out"
-                           class="waves-effect waves-block waves-light chat-collapse">
+                        <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
                             <i class="material-icons">format_indent_increase</i>
                         </a>
                     </li>
@@ -137,8 +132,7 @@ Author: Edgardo
                     <li class="divider"></li>
                     <li>
                         <a href="#!" class="grey-text text-darken-2">
-                            <span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> A new order
-                            has been placed!</a>
+                            <span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> A new order has been placed!</a>
                         <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
                     </li>
                     <li>
@@ -153,14 +147,12 @@ Author: Edgardo
                     </li>
                     <li>
                         <a href="#!" class="grey-text text-darken-2">
-                            <span class="material-icons icon-bg-circle deep-orange small">today</span> Director meeting
-                            started</a>
+                            <span class="material-icons icon-bg-circle deep-orange small">today</span> Director meeting started</a>
                         <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
                     </li>
                     <li>
                         <a href="#!" class="grey-text text-darken-2">
-                            <span class="material-icons icon-bg-circle amber small">trending_up</span> Generate monthly
-                            report</a>
+                            <span class="material-icons icon-bg-circle amber small">trending_up</span> Generate monthly report</a>
                         <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
                     </li>
                 </ul>
@@ -184,7 +176,7 @@ Author: Edgardo
                             <i class="material-icons">lock_outline</i> Lock</a>
                     </li>
                     <li>
-                        <a href="#" class="grey-text text-darken-1">
+                        <a class="logoutBtn grey-text text-darken-1">
                             <i class="material-icons">keyboard_tab</i> Logout</a>
                     </li>
                 </ul>
@@ -194,6 +186,7 @@ Author: Edgardo
     <!-- end header nav-->
 </header>
 <!-- END HEADER -->
+<!-- END HEADER -->
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <!-- START MAIN -->
 <div id="main">
@@ -201,12 +194,11 @@ Author: Edgardo
     <div class="wrapper">
         <!-- START LEFT SIDEBAR NAV-->
         <aside id="left-sidebar-nav">
-            <ul id="slide-out" class="side-nav fixed leftside-navigation">
-                <li class="user-details cyan">
+            <ul id="slide-out" class="side-nav fixed leftside-navigation gradient-45deg-semi-dark">
+                <li class="user-details blue">
                     <div class="row">
                         <div class="col col s4 m4 l4">
-                            <img src="../assets/images/avatar/avatar-7.png" alt=""
-                                 class="circle responsive-img valign profile-image cyan">
+                            <img src="../assets/images/avatar/avatar-7.png" alt="" class="circle responsive-img profile-image blue">
                         </div>
                         <div class="col col s8 m8 l8">
                             <ul id="profile-dropdown-nav" class="dropdown-content">
@@ -232,34 +224,40 @@ Author: Edgardo
                                         <i class="material-icons">keyboard_tab</i> Logout</a>
                                 </li>
                             </ul>
-                            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#"
-                               data-activates="profile-dropdown-nav">John Doe<i
-                                    class="mdi-navigation-arrow-drop-down right"></i></a>
+                            <a id="usersName" class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown-nav">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
                             <p class="user-roal">Administrator</p>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="../../../documentation" target="_blank">
-                        <i class="material-icons">pages</i>
+                    <a class="waves-effect waves-cyan white-text" target="_blank">
+                        <i class="material-icons white-text">dashboard</i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <div class="divider"></div>
+                <li>
+                    <a class="waves-effect waves-cyan white-text" target="_self" href="subject.html">
+                        <i class="material-icons white-text">pages</i>
                         <span class="nav-text">Subject 1</span>
                     </a>
                 </li>
+                <div class="divider"></div>
                 <li>
-                    <a href="../../../documentation" target="_blank">
-                        <i class="material-icons">pages</i>
+                    <a class="waves-effect waves-cyan white-text" target="_blank">
+                        <i class="material-icons white-text">pages</i>
                         <span class="nav-text">Subject 2</span>
                     </a>
                 </li>
+                <div class="divider"></div>
                 <li>
-                    <a href="https://pixinvent.ticksy.com" target="_blank">
-                        <i class="material-icons">photo_filter</i>
+                    <a onclick="addSubject()" class="waves-effect waves-cyan white-text" target="_blank">
+                        <i class="material-icons white-text">photo_filter</i>
                         <span class="nav-text">Add Subject</span>
                     </a>
                 </li>
             </ul>
-            <a href="#" data-activates="slide-out"
-               class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
+            <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
                 <i class="material-icons">menu</i>
             </a>
         </aside>
@@ -271,27 +269,28 @@ Author: Edgardo
             <div id="breadcrumbs-wrapper">
                 <!-- Search for small screen -->
                 <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                    <input type="text" name="Search" class="header-search-input z-depth-2"
-                           placeholder="Explore Materialize">
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title">Subject</h5>
-                            <ol class="breadcrumbs">
-                                <li><a href="dashboard.html">Progress</a></li>
-                                <li><a href="#">Statistics</a></li>
-                                <li><a href="#">Donate</a></li>
-                                <li><a href="#">Report error</a></li>
-                                <li class="active">Comming soon!</li>
-                            </ol>
-                        </div>
-                    </div>
+                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
                 </div>
             </div>
             <!--breadcrumbs end-->
             <!--start container-->
-            <div class="container">
+            <div>
+                <!--Start tabs-->
+                <div>
+                    <div class="col s12 gradient-45deg-indigo-light-blue gradient-shadow profile-page-sidebar"  style="background-image: url('../assets/images/gallary/33.png'); height: 8.8rem">
+                        <a class="title-nav-bar-dash white-text" id="dashboardTitle">Dashboard</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s2"><a class="active changeTitle blue-grey-text" href="#subjectDashboard">Subject</a></li>
+                            <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#contentMaker">Content</a></li>
+                            <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#createQuestion">Create question</a></li>
+                            <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
+                            <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="section">
                     <div class="row">
                         <div class="col s8">
@@ -710,6 +709,9 @@ Author: Edgardo
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="../js/custom-script.js"></script>
 <script src="../js/customscripts/chat.js"></script>
+
+<!--UserSession-->
+<script src="../js/user/userSession.js"></script>
 
 </body>
 </html>

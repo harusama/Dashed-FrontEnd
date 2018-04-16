@@ -92,6 +92,7 @@ function userLogin(email, password) {
                 $.session.set('currency', data.data.coins);
                 $.session.set('milestone', data.data.experience);
                 $.session.set('StatusUser', 'Login');
+                $.session.set('subjects', data.data.subjects.toArray());
                 window.location.href = './dashboard.html';
             }
             else {
