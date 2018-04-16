@@ -149,10 +149,18 @@ button {
     padding: 10px;
 }
 
+.bubble {
+   width: 75%;
+   background-color: #f6f6f6;
+   border-radius: 10px;
+   margin-bottom: 1rem;
+}
+
 .message-right {
     display: flex;
     flex-direction: column;
     text-align: right;
+    margin-left: auto;
 }
 
 .message__title h5 {
@@ -214,4 +222,12 @@ button {
     .chat__footer button {
         margin-right: 0px;
     }
+
+    .bubble {
+      width: 100%;
+   }
+
+   .message__title {
+      flex-direction: column;
+   }
 }

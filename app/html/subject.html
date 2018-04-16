@@ -321,30 +321,25 @@ Author: Edgardo
                             </ul>
                         </div>
                         <script id="message-template" type="text/template">
-                            <li class="message">
+                            <li class="message bubble">
                                 <div class="message__title">
                                     <h5 style="color: {{color}}">{{from}}</h5>
-                                    <div class="message_body">
-                                        <div class="chip">
-
-                                            <p><span>{{createdAt}}</span> {{text}}</p>
-                                        </div>
-                                    </div>
+                                    <span>{{createdAt}}</span>
                                 </div>
-
+                                 <div class="message_body">
+                                    <p>{{text}}</p>
+                                 </div>
                             </li>
                         </script>
                         <script id="message-right-template" type="text/template">
-                            <li class="message message-right">
+                            <li class="message message-right bubble">
                                 <div class="message__title">
                                     <h5 style="color: {{color}}">{{from}}</h5>
-                                    <div class="message_body">
-                                        <div class="chip">
-                                            <p><span>{{createdAt}}</span> {{text}}</p>
-                                        </div>
-                                    </div>
+                                    <span>{{createdAt}}</span>
                                 </div>
-
+                                 <div class="message_body">
+                                    <p>{{text}}</p>
+                                 </div>
                             </li>
                         </script>
                         <script id="message-center-template" type="text/template">
@@ -353,9 +348,9 @@ Author: Edgardo
                                     <h5 style="color: {{color}}">{{from}}</h5>
                                     <span>{{createdAt}}</span>
                                 </div>
-                                <div class="message_body">
+                                 <div class="message_body">
                                     <p>{{text}}</p>
-                                </div>
+                                 </div>
                             </li>
                         </script>
                     </div>
