@@ -284,45 +284,38 @@ Author: Edgardo
             <!--breadcrumbs end-->
             <!--start container-->
             <div class="container">
-                <!--Start section-->
-                <div class="section">
+                <!--Start subject section-->
+                <div id="subjectDashboard" class="section">
                     <div class="col s12">
                         <div class="row">
                             <div class="col s8">
                                 <div class="row">
-                                    <div class="col s8">
+                                    <div class="col s12">
                                         <a>Post</a>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s8">
+                                    <div class="col s12">
                                         <a>Topics</a>
+                                        <div class="row">
+                                            <div class="header-search-wrapper hide-on-med-and-down">
+                                                <i class="material-icons">search</i>
+                                                <input type="text" id="searchTopic" name="Search"
+                                                       class="header-search-input z-depth-2"
+                                                       placeholder="Search topics" onkeyup="searchTopics()"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <ul id="topic-collection" class="collection z-depth-1">
+                                                <li class="collection-item avatar">
+                                                    <i class="material-icons cyan circle">description</i>
+                                                    <h5 class="collection-header m-0">Topics</h5>
+                                                    <p>List of topics</p>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col s4">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <a>Users</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <a>Chat</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <a>News</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12">
-                        <div class="row">
-                            <div class="col s8">
-                                <a>Post</a>
                             </div>
                             <div class="col s4">
                                 <div class="row">
@@ -390,42 +383,42 @@ Author: Edgardo
                                         </div>
                                     </li>
                                 </script>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s8">
-                                <a>Topics</a>
                                 <div class="row">
-                                    <div class="header-search-wrapper hide-on-med-and-down">
-                                        <i class="material-icons">search</i>
-                                        <input type="text" id="searchTopic" name="Search"
-                                               class="header-search-input z-depth-2"
-                                               placeholder="Search topics" onkeyup="searchTopics()"/>
+                                    <div class="col s12">
+                                        <a>News</a>
+                                        <ul id="news-collection" class="collection z-depth-1">
+                                            <li class="collection-item avatar">
+                                                <i class="material-icons cyan circle">public</i>
+                                                <h5 class="collection-header m-0">News</h5>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <ul id="topic-collection" class="collection z-depth-1">
-                                        <li class="collection-item avatar">
-                                            <i class="material-icons cyan circle">description</i>
-                                            <h5 class="collection-header m-0">Topics</h5>
-                                            <p>List of topics</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col s4">
-                                <a>news</a>
-                                <ul id="news-collection" class="collection z-depth-1">
-                                    <li class="collection-item avatar">
-                                        <i class="material-icons cyan circle">public</i>
-                                        <h5 class="collection-header m-0">News</h5>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--End section-->
+                <!--End subject section-->
+                <!--Start content section-->
+                <div id="contentMaker" class="section">
+                    <a>Content</a>
+                </div>
+                <!--End content section-->
+                <!--Start content section-->
+                <div id="createQuestion" class="section">
+                    <a>Create question</a>
+                </div>
+                <!--End content section-->
+                <!--Start content section-->
+                <div id="donate" class="section">
+                    <a>Donate</a>
+                </div>
+                <!--End content section-->
+                <!--Start content section-->
+                <div id="reportError" class="section">
+                    <a>Report error</a>
+                </div>
+                <!--End content section-->
             </div>
             <!--end container-->
         </section>
