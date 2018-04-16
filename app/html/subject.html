@@ -322,22 +322,27 @@ Author: Edgardo
                             <li class="message">
                                 <div class="message__title">
                                     <h5 style="color: {{color}}">{{from}}</h5>
-                                    <span>{{createdAt}}</span>
+                                    <div class="message_body">
+                                        <div class="chip">
+
+                                            <p><span>{{createdAt}}</span> {{text}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="message_body">
-                                    <p>{{text}}</p>
-                                </div>
+
                             </li>
                         </script>
                         <script id="message-right-template" type="text/template">
                             <li class="message message-right">
                                 <div class="message__title">
                                     <h5 style="color: {{color}}">{{from}}</h5>
-                                    <span>{{createdAt}}</span>
+                                    <div class="message_body">
+                                        <div class="chip">
+                                            <p><span>{{createdAt}}</span> {{text}}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="message_body">
-                                    <p>{{text}}</p>
-                                </div>
+
                             </li>
                         </script>
                         <script id="message-center-template" type="text/template">
