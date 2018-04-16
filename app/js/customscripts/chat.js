@@ -78,6 +78,10 @@ function addMessage(message, template) {
    scrollToBottom();
 }
 
+socket.on('newPost', function (post) {
+   console.log('newPost', post);
+});
+
 $(document).ready(function () {
    $('#message-form').submit(function (e) {
       e.preventDefault();
