@@ -92,7 +92,7 @@ function userLogin(email, password) {
                 $.session.set('currency', data.data.coins);
                 $.session.set('milestone', data.data.experience);
                 $.session.set('StatusUser', 'Login');
-                console.log("Before; Subjects: " + data.data.subjects);
+                $.session.set('token', data.data.token);
                 $.session.set('subjects', data.data.subjects);
                 console.log("After; Subjects: " + $.session.get('subjects'));
                 window.location.href = './dashboard.html';

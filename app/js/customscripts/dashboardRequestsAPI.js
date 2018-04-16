@@ -8,73 +8,99 @@ $(function () {
 });
 
 function addSubject() {
-    // Request to API for add subject.
-    $.ajax({
-        type: "POST",
-        url: urls.base + urls.usersScope + 'signup',
-        data: JSON.stringify({
-            "firstName": firstName,
-            "lastName": lastName,
-            "username": username,
-            "email": email,
-            "password": password,
-            "campusId": parseInt(campusID)
-        }),
-        dataType: "json",
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
+    swal({  title: "Ajax request example",
+            text: "Submit to run ajax request",
+            type: "info",   showCancelButton: true,
+            closeOnConfirm: true,
+            showLoaderOnConfirm: true, },
+        function(){
+            //TODO: Change url after testing to user data.
+            console.log(Cookies.get("token"));
+            console.log("Token not defined, check login endpoint");
+            $.ajax({
+                type: "POST",
+                url: urls.base + urls.usersScope + "1/subjects/1",
+                headers: {
+                    // "Authorization": "" ,
+                    "x-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIzODY0MzMwfQ.jpaixgA9_Y9m0pI_pigCrRml7rxxkseKp8rbf_r9XUE",
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
 
-        complete: function (xhr, settings) {
-            if (xhr.status == 201) {
-                swal({
-                        type: 'success',
-                        position: 'top-end',
-                        title: "Congratulations!",
-                        text: "Please check your email to verify your account!",
-                        timer:1500,
-                        showConfirmButton: true,
-                        closeOnConfirm: true
-                    },
-                    function(){
-                        location.reload();
-                    });
-                $.session.set('StatusUser', 'Login');
-            }
-            else if (xhr.status == 404) {
-                swal({
-                    type: 'error',
-                    position: 'top-end',
-                    title: "Sorry the username the credential don't match our data!",
-                    text: "Please make sure your information is correct! :)",
-                    showCloseButton: true
-                });
-            }
-            else if (xhr.status == 400) {
-                swal({
-                    type: 'info',
-                    position: 'top-end',
-                    title: "Error 400",
-                    text: "Incomplete info",
-                    showCloseButton: true
-                });
-            } else {
-                swal({
-                    type: 'error',
-                    position: 'top-end',
-                    title: "Internal error",
-                    text: "Please reload page and try again",
-                    showCancelButton: true,
-                    confirmButtonText: "Reload"
-                }, function (isConfirm) {
-                    if (isConfirm) {
-                        location.reload();
-                    }
-                });
-            }
-        }
-    });
+                complete: function () {
+                    console.log("Success");
+                }
+
+            });
+            setTimeout(function(){     swal("Ajax request finished!");   }, 2000);
+        });
+    // // Request to API for add subject.
+    // $.ajax({
+    //     type: "POST",
+    //     url: urls.base + urls.usersScope + 'signup',
+    //     data: JSON.stringify({
+    //         "firstName": firstName,
+    //         "lastName": lastName,
+    //         "username": username,
+    //         "email": email,
+    //         "password": password,
+    //         "campusId": parseInt(campusID)
+    //     }),
+    //     dataType: "json",
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     },
+    //
+    //     complete: function (xhr, settings) {
+    //         if (xhr.status == 201) {
+    //             swal({
+    //                     type: 'success',
+    //                     position: 'top-end',
+    //                     title: "Congratulations!",
+    //                     text: "Please check your email to verify your account!",
+    //                     timer:1500,
+    //                     showConfirmButton: true,
+    //                     closeOnConfirm: true
+    //                 },
+    //                 function(){
+    //                     location.reload();
+    //                 });
+    //             $.session.set('StatusUser', 'Login');
+    //         }
+    //         else if (xhr.status == 404) {
+    //             swal({
+    //                 type: 'error',
+    //                 position: 'top-end',
+    //                 title: "Sorry the username the credential don't match our data!",
+    //                 text: "Please make sure your information is correct! :)",
+    //                 showCloseButton: true
+    //             });
+    //         }
+    //         else if (xhr.status == 400) {
+    //             swal({
+    //                 type: 'info',
+    //                 position: 'top-end',
+    //                 title: "Error 400",
+    //                 text: "Incomplete info",
+    //                 showCloseButton: true
+    //             });
+    //         } else {
+    //             swal({
+    //                 type: 'error',
+    //                 position: 'top-end',
+    //                 title: "Internal error",
+    //                 text: "Please reload page and try again",
+    //                 showCancelButton: true,
+    //                 confirmButtonText: "Reload"
+    //             }, function (isConfirm) {
+    //                 if (isConfirm) {
+    //                     location.reload();
+    //                 }
+    //             });
+    //         }
+    //     }
+    // });
 }
 
 function returnToReportOptions() {
