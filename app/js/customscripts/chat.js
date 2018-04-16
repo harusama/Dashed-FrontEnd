@@ -18,7 +18,7 @@ function scrollToBottom() {
 socket.on('connect', function () {
    console.log('Connected to server');
    var username = $.session.get('username');
-   var room = 'Subject1';
+   var room = 'Subject 1';
    socket.emit('join', {'name': username, 'room': room}, function (err) {
       if (err) {
          alert(err);
@@ -80,6 +80,12 @@ function addMessage(message, template) {
 
 socket.on('newPost', function (post) {
    console.log('newPost', post);
+   var template = jQuery('#post-template').html();
+   var html = Mustache.render(template, {
+      title: post.title,
+      description: post.description
+   });
+   jQuery('#posts').append(html);
 });
 
 $(document).ready(function () {
