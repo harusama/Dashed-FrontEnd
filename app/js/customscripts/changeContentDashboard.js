@@ -12,24 +12,30 @@ function setUsersData() {
     $('#username').text("@" + $.session.get('username'));
     $('#milestone').text($.session.get('milestone'));
     $('#currency').text($.session.get('currency'));
-    console.log("Subjects: " + JSON.parse($.session.get('subjects'))[0].name);
+    var subjects = JSON.parse($.session.get('subjects'));
+    console.log("setUserData Subjects: " + subjects);
 
-    // Load content from subjects
-    $(function () {
-        $.each(JSON.parse($.session.get('subjects')), function (key, body) {
+    console.log(subjects.length);
+    if (subjects !== null && subjects !== '' && subjects.length !== 0) {
+        console.log("Succes Subjects: " + subjects);
+        // Load content from subjects
+        $(function () {
+            $.each(subjects, function (key, body) {
 
-            $('#subjectList').after(' ' +
-                '<li>' +
-                '   <a id="' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
-                '       <i class="material-icons white-text">pages</i>' +
-                '       <span class="nav-text">' + body.name + '</span>' +
-                '   </a>' +
-                '</li>' +
-                '<div class="divider"></div>');
+                $('#subjectList').after(' ' +
+                    '<li>' +
+                    '   <a id="' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
+                    '       <i class="material-icons white-text">pages</i>' +
+                    '       <span class="nav-text">' + body.name + '</span>' +
+                    '   </a>' +
+                    '</li>' +
+                    '<div class="divider"></div>');
 
+            });
         });
-    });
-
+    } else {
+        console.log("Error-No-Subjects: " + subjects);
+    }
 };
 
 $(document).ready(function () {
