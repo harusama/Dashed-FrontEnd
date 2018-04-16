@@ -93,7 +93,7 @@ function userLogin(email, password) {
                 $.session.set('milestone', data.data.experience);
                 $.session.set('StatusUser', 'Login');
                 $.session.set('token', xhr.getResponseHeader('x-auth'));
-                console.log("After; Subjects: " + $.session.get('subjects'));
+                console.log("After; token: " + $.session.get('token'));
                 $.session.set('subjects', JSON.stringify(data.data.subjects));
                 console.log("After; Subjects: " + $.session.get('subjects'));
                 window.location.href = './dashboard.html';
