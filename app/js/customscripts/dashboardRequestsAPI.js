@@ -15,15 +15,12 @@ function addSubject() {
             closeOnConfirm: true,
             showLoaderOnConfirm: true, },
         function(){
-            //TODO: Change url after testing to user data.
-            console.log("Token:" + $.session.get("token"));
-            console.log("Token not defined, check login endpoint");
             $.ajax({
                 type: "POST",
-                url: urls.base + urls.usersScope + "1/subjects/4",
+                url: urls.base + urls.usersScope + "1/subjects/1",
                 headers: {
                     // "Authorization": "" ,
-                    // "x-auth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIzODY1OTUzfQ.rPwBcEJw9A4Mkz-emZqY-BE13t5lqrjhnDmQi4izd9I",
+                    "x-auth": $.session.get('token'),
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
