@@ -1,6 +1,6 @@
 //var socket = io();
 console.log(urls.chat);
-var socket = io.connect('localhost:3000 ');
+var socket = io.connect(urls.chat);
 
 function scrollToBottom() {
     var messages = jQuery('#messages');
