@@ -246,301 +246,293 @@ Author: JirenSama
         <section id="content">
             <!--breadcrumbs start-->
             <div id="breadcrumbs-wrapper">
-                <!-- Search for small screen -->
-                <div class="header-search-wrapper grey lighten-2 hide-on-large-only">
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize">
+                <div class="col s12 gradient-45deg-indigo-light-blue gradient-shadow profile-page-sidebar"  style="background-image: url('../assets/images/gallary/33.png'); height: 8.8rem">
+                    <a class="title-nav-bar-dash white-text" id="dashboardTitle">Dashboard</a>
+                </div>
+                <div class="divider"></div>
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a class="active changeTitle blue-grey-text" href="#userDashboard">Dashboard</a></li>
+                        <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#userStatistics">Statistics</a></li>
+                        <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
+                        <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
+                    </ul>
                 </div>
             </div>
             <!--breadcrumbs end-->
             <!--start container-->
-            <div>
-                <!--Start tabs-->
-                <div>
-                    <div class="col s12 gradient-45deg-indigo-light-blue gradient-shadow profile-page-sidebar"  style="background-image: url('../assets/images/gallary/33.png'); height: 8.8rem">
-                        <a class="title-nav-bar-dash white-text" id="dashboardTitle">Dashboard</a>
-                    </div>
-                    <div class="divider"></div>
+            <div class="container">
+                <!--Start User Dashboard-->
+                <div class="container" id="userDashboard">
                     <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s3"><a class="active changeTitle blue-grey-text" href="#userDashboard">Dashboard</a></li>
-                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#userStatistics">Statistics</a></li>
-                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
-                            <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
-                        </ul>
-                    </div>
-                    <!--Start User Dashboard-->
-                    <div class="container" id="userDashboard">
-                        <div class="col s12">
-                            <div class="row section">
-                                <div class="col s12 m3">
-                                    <div class="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3">
-                                        <div class="card-content center white-text">
-                                            <i class="material-icons medium">assignment</i>
-                                            <h5 id="practicesMade" class="lighten-4">0</h5>
-                                            <h6 class="lighten-4">Practices created</h6>
-                                        </div>
+                        <div class="row section">
+                            <div class="col s12 m3">
+                                <div class="card gradient-shadow gradient-45deg-light-blue-cyan border-radius-3">
+                                    <div class="card-content center white-text">
+                                        <i class="material-icons medium">assignment</i>
+                                        <h5 id="practicesMade" class="lighten-4">0</h5>
+                                        <h6 class="lighten-4">Practices created</h6>
                                     </div>
                                 </div>
-                                <div class="col s12 m3">
-                                    <div class="card gradient-shadow gradient-45deg-red-pink border-radius-3">
-                                        <div class="card-content center white-text">
-                                            <i class="material-icons medium">assignment_turned_in</i>
-                                            <h5 id="examsMade" class="lighten-4">0</h5>
-                                            <h6 class="lighten-4">Exams created</h6>
-                                        </div>
+                            </div>
+                            <div class="col s12 m3">
+                                <div class="card gradient-shadow gradient-45deg-red-pink border-radius-3">
+                                    <div class="card-content center white-text">
+                                        <i class="material-icons medium">assignment_turned_in</i>
+                                        <h5 id="examsMade" class="lighten-4">0</h5>
+                                        <h6 class="lighten-4">Exams created</h6>
                                     </div>
                                 </div>
-                                <div class="col s12 m3">
-                                    <div class="card gradient-shadow gradient-45deg-amber-amber border-radius-3">
-                                        <div class="card-content center white-text">
-                                            <i class="material-icons medium">extension</i>
-                                            <h5 id="questionsCreated" class="lighten-4">0</h5>
-                                            <h6 class="lighten-4">Questions created</h6>
-                                        </div>
+                            </div>
+                            <div class="col s12 m3">
+                                <div class="card gradient-shadow gradient-45deg-amber-amber border-radius-3">
+                                    <div class="card-content center white-text">
+                                        <i class="material-icons medium">extension</i>
+                                        <h5 id="questionsCreated" class="lighten-4">0</h5>
+                                        <h6 class="lighten-4">Questions created</h6>
                                     </div>
                                 </div>
-                                <div class="col s12 m3">
-                                    <div class="card gradient-shadow gradient-45deg-green-teal border-radius-3">
-                                        <div class="card-content center white-text">
-                                            <i class="material-icons medium">done_all</i>
-                                            <h5 id="questionsReviewed" class="lighten-4">0</h5>
-                                            <h6 class="lighten-4">Questions reviewed</h6>
-                                        </div>
+                            </div>
+                            <div class="col s12 m3">
+                                <div class="card gradient-shadow gradient-45deg-green-teal border-radius-3">
+                                    <div class="card-content center white-text">
+                                        <i class="material-icons medium">done_all</i>
+                                        <h5 id="questionsReviewed" class="lighten-4">0</h5>
+                                        <h6 class="lighten-4">Questions reviewed</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--Start page content dashboard-->
-                        <div class="row" id="profile-page-content">
-                            <div id="profile-page-sidebar" class="col s12 m8">
-                                <div class="col s12 m4">
-                                    <div class="card gradient-shadow white border-radius-3">
-                                        <div class="card-content green accent-2 gradient-45deg-amber-amber white-text">
-                                            <span class="card-title">Currency</span>
-                                        </div>
-                                        <div class="col s12 card-content center amber-text amber lighten-5">
-                                            <div class="row">
-                                                <div class="col s12 m4">
-                                                    <i class="material-icons medium">attach_money</i>
-                                                </div>
-                                                <div class="col s12 m4">
-                                                    <h5 id="currency" class="lighten-4">0</h5>
-                                                </div>
-                                            </div>
-                                        </div>
+                    </div>
+                    <!--Start page content dashboard-->
+                    <div class="row" id="profile-page-content">
+                        <div id="profile-page-sidebar" class="col s12 m8">
+                            <div class="col s12 m4">
+                                <div class="card gradient-shadow white border-radius-3">
+                                    <div class="card-content green accent-2 gradient-45deg-amber-amber white-text">
+                                        <span class="card-title">Currency</span>
                                     </div>
-                                </div>
-                                <div class="col s12 m8">
-                                    <div class="card gradient-shadow white border-radius-3">
-                                        <div class="card-content gradient-45deg-green-teal white-text">
-                                            <span class="card-title">Milestone</span>
-                                        </div>
-                                        <div class="col s12 card-content center green-text green lighten-5">
-                                            <div class="row">
-                                                <div class="col s12 m2">
-                                                    <i class="material-icons medium">ev_station</i>
-                                                </div>
-                                                <div class="progress col s12 m8">
-                                                    <div class="determinate gradient-45deg-green-teal" style="width: 100%"></div>
-                                                </div>
-                                                <div class="col s12 m2">
-                                                    <h5 id="milestone" class="lighten-4">0</h5>
-                                                </div>
+                                    <div class="col s12 card-content center amber-text amber lighten-5">
+                                        <div class="row">
+                                            <div class="col s12 m4">
+                                                <i class="material-icons medium">attach_money</i>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m12">
-                                    <div class="card gradient-shadow white border-radius-3">
-                                        <div class="card-content gradient-45deg-indigo-light-blue white-text">
-                                            <span class="card-title">Question's status</span>
-                                        </div>
-                                        <div class="card-tabs">
-                                            <ul class="tabs tabs-fixed-width">
-                                                <li class="tab"><a class="active blue-grey-text" href="#approved">Active</a></li>
-                                                <li class="tab"><a class="blue-grey-text" href="#review">Under review</a></li>
-                                                <li class="tab"><a class="blue-grey-text" href="#quarantine">Quarantine</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="card-content blue-grey-text lighten-4">
-                                            <div id="approved">Approved information list here</div>
-                                            <div id="review">Under review information list here</div>
-                                            <div id="quarantine">Quarantine information list here</div>
+                                            <div class="col s12 m4">
+                                                <h5 id="currency" class="lighten-4">0</h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="general-news-wall" class="col s12 m4">
-                                <!-- task-card -->
-                                <ul id="task-card" class="collection with-header blue-grey-text" style="height: 30rem">
-                                    <li class="collection-header gradient-45deg-blue-grey-blue" style="height: 6rem">
-                                        <h4 class="task-card-title">News</h4>
-                                        <p class="task-card-date">March 26, 2018</p>
-                                    </li>
-                                    <li class="collection-item" style="height: 5.3rem">
-                                        <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
-                                        <a class="title">News title test 1.</a>
-                                        <p>Information
-                                            <a href="#" class="secondary-content">
-                                                <span class="ultra-small">Go to source</span>
-                                            </a>
-                                        </p>
-                                    </li>
-                                    <li class="collection-item" style="height: 5.3rem">
-                                        <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
-                                        <a class="title">News title test 2.</a>
-                                        <p>Information
-                                            <a href="#" class="secondary-content">
-                                                <span class="ultra-small">Go to source</span>
-                                            </a>
-                                        </p>
-                                    </li>
-                                    <li class="collection-item" style="height: 5.3rem">
-                                        <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
-                                        <a class="title">News title here.</a>
-                                        <p>Information
-                                            <a href="#" class="secondary-content">
-                                                <span class="ultra-small">Go to source</span>
-                                            </a>
-                                        </p>
-                                    </li>
-                                    <li class="collection-item" style="height: 5.3rem">
-                                        <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
-                                        <a class="title">News title here.</a>
-                                        <p>Information
-                                            <a href="#" class="secondary-content">
-                                                <span class="ultra-small">Go to source</span>
-                                            </a>
-                                        </p>
-                                    </li>
-                                    <li class="collection-item" style="height: 1rem;">
+                            <div class="col s12 m8">
+                                <div class="card gradient-shadow white border-radius-3">
+                                    <div class="card-content gradient-45deg-green-teal white-text">
+                                        <span class="card-title">Milestone</span>
+                                    </div>
+                                    <div class="col s12 card-content center green-text green lighten-5">
+                                        <div class="row">
+                                            <div class="col s12 m2">
+                                                <i class="material-icons medium">ev_station</i>
+                                            </div>
+                                            <div class="progress col s12 m8">
+                                                <div class="determinate gradient-45deg-green-teal" style="width: 100%"></div>
+                                            </div>
+                                            <div class="col s12 m2">
+                                                <h5 id="milestone" class="lighten-4">0</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m12">
+                                <div class="card gradient-shadow white border-radius-3">
+                                    <div class="card-content gradient-45deg-indigo-light-blue white-text">
+                                        <span class="card-title">Question's status</span>
+                                    </div>
+                                    <div class="card-tabs">
+                                        <ul class="tabs tabs-fixed-width">
+                                            <li class="tab"><a class="active blue-grey-text" href="#approved">Active</a></li>
+                                            <li class="tab"><a class="blue-grey-text" href="#review">Under review</a></li>
+                                            <li class="tab"><a class="blue-grey-text" href="#quarantine">Quarantine</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-content blue-grey-text lighten-4">
+                                        <div id="approved">Approved information list here</div>
+                                        <div id="review">Under review information list here</div>
+                                        <div id="quarantine">Quarantine information list here</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="general-news-wall" class="col s12 m4">
+                            <!-- task-card -->
+                            <ul id="task-card" class="collection with-header blue-grey-text" style="height: 30rem">
+                                <li class="collection-header gradient-45deg-blue-grey-blue" style="height: 6rem">
+                                    <h4 class="task-card-title">News</h4>
+                                    <p class="task-card-date">March 26, 2018</p>
+                                </li>
+                                <li class="collection-item" style="height: 5.3rem">
+                                    <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
+                                    <a class="title">News title test 1.</a>
+                                    <p>Information
                                         <a href="#" class="secondary-content">
-                                            <span class="ultra-small">See more</span>
+                                            <span class="ultra-small">Go to source</span>
                                         </a>
-                                    </li>
-                                </ul>
-                                <!-- task-card -->
-                            </div>
+                                    </p>
+                                </li>
+                                <li class="collection-item" style="height: 5.3rem">
+                                    <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
+                                    <a class="title">News title test 2.</a>
+                                    <p>Information
+                                        <a href="#" class="secondary-content">
+                                            <span class="ultra-small">Go to source</span>
+                                        </a>
+                                    </p>
+                                </li>
+                                <li class="collection-item" style="height: 5.3rem">
+                                    <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
+                                    <a class="title">News title here.</a>
+                                    <p>Information
+                                        <a href="#" class="secondary-content">
+                                            <span class="ultra-small">Go to source</span>
+                                        </a>
+                                    </p>
+                                </li>
+                                <li class="collection-item" style="height: 5.3rem">
+                                    <!--<img class="circle gradient-45deg-deep-purple-blue accent-2" src="assets/images/avatar/avatar-4.png" alt="">-->
+                                    <a class="title">News title here.</a>
+                                    <p>Information
+                                        <a href="#" class="secondary-content">
+                                            <span class="ultra-small">Go to source</span>
+                                        </a>
+                                    </p>
+                                </li>
+                                <li class="collection-item" style="height: 1rem;">
+                                    <a href="#" class="secondary-content">
+                                        <span class="ultra-small">See more</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- task-card -->
                         </div>
-                        <!--End page content dashboard-->
-                        <div class="col s12">
-                            <div class="row section">
+                    </div>
+                    <!--End page content dashboard-->
+                    <div class="col s12">
+                        <div class="row section">
 
-                            </div>
                         </div>
                     </div>
-                    <!--End User Dashboard-->
-                    <!--Start User Statistics-->
-                    <div class="container" id="userStatistics">
-                        <p class="caption">User Statistics</p>
-                        <div class="divider"></div>
-                    </div>
-                    <!--End User Staistics-->
-                    <!--Start Donate-->
-                    <div class="container" id="donate">
-                        <p class="caption">Donate</p>
-                        <div class="divider"></div>
-                    </div>
-                    <!--End Donate-->
-                    <!--Start Report Error-->
-                    <div class="container" id="reportError">
-                        <div id="errorOptions">
-                            <div class="row reportErrorTitle"><a class="white-text">What seems to be the problem?</a></div>
-                            <div class="row db-card-container">
-                                <div class="col s12 m4 db-cards-margin">
-                                    <div class="card roundedCard">
-                                        <div class="card-image">
-                                            <img src="../assets/images/gallary/1.png">
-                                            <span class="card-title">Question Error</span>
-                                        </div>
-                                        <div class="card-content">
-                                            <p>To report a question problem, please click the link below.</p>
-                                        </div>
-                                        <div class="card-action">
-                                            <a class="changeErrorCard waves-effect waves-light btn" id="questionError">Report question error!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m4 db-cards-margin">
-                                    <div class="card roundedCard">
-                                        <div class="card-image">
-                                            <img src="../assets/images/gallary/2.png">
-                                            <span class="card-title">System Error</span>
-                                        </div>
-                                        <div class="card-content">
-                                            <p>To report a system problem, please click the link below.</p>
-                                        </div>
-                                        <div class="card-action">
-                                            <a class="changeErrorCard waves-effect waves-light btn" id="systemError">Report system error!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="errorSubmit" class="container" style="display: none">
-                            <!--Start question report-->
-                            <div class="container none" id="questionReport">
-                                <div class="row section">
-                                    <div class="card roundedCard-5 question-r-card-4 col s12 m4">
-                                        <p>Question Error Report</p>
-                                    </div>
-                                    <form class="row col s12 m8" name="searchQuestionID" id="searchQuestionID">
-                                        <div class="input-field card roundedCard-5 question-r-card-4 col s4 m2 offset-m5">
-                                            <input id="questionID" type="number" class="validate" name="questionID" required>Input</input>
-                                            <label for="questionID">Question #</label>
-                                        </div>
-                                        <div class="col s4 m1">
-                                            <button class="waves-effect waves-light btn" type="submit">Search</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="row section">
-                                    <form class="row col s12 m12" name="qtnReport_form" id="qtnReport_form">
-                                        <div class="row card roundedCard-5">
-                                            <div class="input-field col s12">
-                                                <input id="reportDescriptionQ" type="text" class="validate" name="reportDescriptionQ" required>
-                                                <label for="reportDescriptionQ">Please describe the problem here.</label>
-                                            </div>
-                                        </div>
-                                        <div class="row section"></div>
-                                        <div class="row col s12 m12">
-                                            <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
-                                            <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!--End question report-->
-                            <!--Start system report-->
-                            <div class="container none" id="systemReport">
-                                <div class="row section">
-                                    <div class="card roundedCard-5 question-r-card-4 col s12 m4">
-                                        <p>System Error Report</p>
-                                    </div>
-                                </div>
-                                <div class="row section">
-                                    <form class="row col s12 m12" name="sysReport_form" id="sysReport_form">
-                                        <div class="row section">
-                                            <img class="image-rounded-5 col s12 m5" src="../assets/images/gallary/4.png">
-                                            <div class="input-field col s12 m6 card roundedCard-5 description-r-card-h26">
-                                                <input id="reportDescriptionS" type="text" class="validate" name="reportDescriptionS" required>
-                                                <label for="reportDescriptionS">Please describe the problem here.</label>
-                                            </div>
-                                        </div>
-                                        <div class="row section"></div>
-                                        <div class="row col s12 m12">
-                                            <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
-                                            <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!--End system report-->
-                        </div>
-                    </div>
-                    <!--End Report Error-->
                 </div>
-                <!--End tabs-->
+                <!--End User Dashboard-->
+                <!--Start User Statistics-->
+                <div class="container" id="userStatistics">
+                    <p class="caption">User Statistics</p>
+                    <div class="divider"></div>
+                </div>
+                <!--End User Staistics-->
+                <!--Start Donate-->
+                <div class="container" id="donate">
+                    <p class="caption">Donate</p>
+                    <div class="divider"></div>
+                </div>
+                <!--End Donate-->
+                <!--Start Report Error-->
+                <div class="container" id="reportError">
+                    <div id="errorOptions">
+                        <div class="row reportErrorTitle"><a class="white-text">What seems to be the problem?</a></div>
+                        <div class="row db-card-container">
+                            <div class="col s12 m4 db-cards-margin">
+                                <div class="card roundedCard">
+                                    <div class="card-image">
+                                        <img src="../assets/images/gallary/1.png">
+                                        <span class="card-title">Question Error</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>To report a question problem, please click the link below.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="changeErrorCard waves-effect waves-light btn" id="questionError">Report question error!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m4 db-cards-margin">
+                                <div class="card roundedCard">
+                                    <div class="card-image">
+                                        <img src="../assets/images/gallary/2.png">
+                                        <span class="card-title">System Error</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>To report a system problem, please click the link below.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="changeErrorCard waves-effect waves-light btn" id="systemError">Report system error!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="errorSubmit" class="container" style="display: none">
+                        <!--Start question report-->
+                        <div class="container none" id="questionReport">
+                            <div class="row section">
+                                <div class="card roundedCard-5 question-r-card-4 col s12 m4">
+                                    <p>Question Error Report</p>
+                                </div>
+                                <form class="row col s12 m8" name="searchQuestionID" id="searchQuestionID">
+                                    <div class="input-field card roundedCard-5 question-r-card-4 col s4 m2 offset-m5">
+                                        <input id="questionID" type="number" class="validate" name="questionID" required>Input</input>
+                                        <label for="questionID">Question #</label>
+                                    </div>
+                                    <div class="col s4 m1">
+                                        <button class="waves-effect waves-light btn" type="submit">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row section">
+                                <form class="row col s12 m12" name="qtnReport_form" id="qtnReport_form">
+                                    <div class="row card roundedCard-5">
+                                        <div class="input-field col s12">
+                                            <input id="reportDescriptionQ" type="text" class="validate" name="reportDescriptionQ" required>
+                                            <label for="reportDescriptionQ">Please describe the problem here.</label>
+                                        </div>
+                                    </div>
+                                    <div class="row section"></div>
+                                    <div class="row col s12 m12">
+                                        <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                        <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--End question report-->
+                        <!--Start system report-->
+                        <div class="container none" id="systemReport">
+                            <div class="row section">
+                                <div class="card roundedCard-5 question-r-card-4 col s12 m4">
+                                    <p>System Error Report</p>
+                                </div>
+                            </div>
+                            <div class="row section">
+                                <form class="row col s12 m12" name="sysReport_form" id="sysReport_form">
+                                    <div class="row section">
+                                        <img class="image-rounded-5 col s12 m5" src="../assets/images/gallary/4.png">
+                                        <div class="input-field col s12 m6 card roundedCard-5 description-r-card-h26">
+                                            <input id="reportDescriptionS" type="text" class="validate" name="reportDescriptionS" required>
+                                            <label for="reportDescriptionS">Please describe the problem here.</label>
+                                        </div>
+                                    </div>
+                                    <div class="row section"></div>
+                                    <div class="row col s12 m12">
+                                        <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                        <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--End system report-->
+                    </div>
+                </div>
+                <!--End Report Error-->
             </div>
             <!--end container-->
         </section>
