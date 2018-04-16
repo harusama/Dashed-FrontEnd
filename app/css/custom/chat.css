@@ -232,6 +232,24 @@ button {
     color: #999;
 }
 
+.comments .collections-title {
+   color: #333;
+   font-weight: 400;
+}
+
+.collections-title.username {
+   color: #00bcd4;
+}
+
+
+.comments {
+   margin: 1rem;
+}
+
+.comment {
+   margin-bottom: 2rem;
+}
+
 @media (max-width: 1199px) {
    .message__title {
       flex-direction: column;
