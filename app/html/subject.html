@@ -67,6 +67,7 @@ Author: Edgardo
     <script src="../js/libs/deparam.js"></script>
     <script type="text/javascript" src="../js/customscripts/subject.js"></script>
     <script type="text/javascript" src="../js/customscripts/createQuestion.js"></script>
+    <script type="text/javascript" src="../js/customscripts/checkQuestion.js"></script>
 
     <!--Storage-->
     <script type="text/javascript" src="../js/customscripts/jStorage.js"></script>
@@ -459,6 +460,12 @@ Author: Edgardo
                 <!--Start review question section-->
                 <div id="reviewQuestion" class="section">
                     <a>Review question</a>
+                    <div id="popout" class="row">
+                        <div class="col s12">
+                            <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion" id="question-list">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <!--End review question section-->
                 <!--Start evaluate question section-->
