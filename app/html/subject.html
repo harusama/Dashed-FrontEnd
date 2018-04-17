@@ -385,13 +385,16 @@ Author: Edgardo
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
-                                        <a>Posts</a>
                                         <div class="row">
-                                            <div class="header-search-wrapper hide-on-med-and-down">
-                                                <i class="material-icons">search</i>
-                                                <input type="text" id="searchTopic" name="Search"
-                                                       class="header-search-input z-depth-2"
-                                                       placeholder="Search topics" onkeyup="searchTopics()"/>
+                                            <div class="col s12 card-panel gradient-45deg-semi-dark header-search-wrapper hide-on-med-and-down">
+                                                <div class="col s2 m1">
+                                                    <i class="material-icons white-text">search</i>
+                                                </div>
+                                                <div class="col s10 m11">
+                                                    <input type="text" id="searchTopic" name="Search"
+                                                           class="header-search-input z-depth-2 white-text"
+                                                           placeholder="Search posts" onkeyup="searchTopics()"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -409,7 +412,6 @@ Author: Edgardo
                             <div class="col s4">
                                 <div class="row">
                                     <div class="col s12">
-                                        <a>Users</a>
                                         <ul id="users-collection" class="collection z-depth-1 chat__users">
                                             <li class="collection-item avatar">
                                                 <i class="material-icons cyan circle">account_box</i>
