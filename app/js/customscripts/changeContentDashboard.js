@@ -8,7 +8,7 @@ $(function () {
 });
 
 function setUsersData() {
-    $('#usersName').text($.session.get('name') + " " + $.session.get('lname'));
+    $('#usersName').text($.session.get('name'));
     $('#username').text("@" + $.session.get('username'));
     $('#milestone').text($.session.get('milestone'));
     $('#currency').text($.session.get('currency'));
@@ -24,7 +24,7 @@ function setUsersData() {
 
                 $('#subjectList').after(' ' +
                     '<li>' +
-                    '   <a id="' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
+                    '   <a id="subject' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
                     '       <i class="material-icons white-text">pages</i>' +
                     '       <span class="nav-text">' + body.name + '</span>' +
                     '   </a>' +

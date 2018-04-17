@@ -7,42 +7,142 @@ $(function () {
 
 });
 
-function addSubject() {
-    swal({
-            title: "Ajax request example",
-            text: "Submit to run ajax request",
-            type: "info",   showCancelButton: true,
-            closeOnConfirm: true,
-            showLoaderOnConfirm: true, },
-        function(){
-            $.ajax({
-                type: "POST",
-                url: urls.base + urls.usersScope + "1/subjects/1",
-                headers: {
-                    // "Authorization": "" ,
-                    "x-auth": $.session.get('token'),
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
+function addSubjectUser(subjectID) {
+    console.log("Subject id: " + subjectID);
 
-                complete: function (xhr, textStatus) {
-                    if (xhr.status == 201) {
-                        console.log("Success");
-                        //TODO: Mising user refresh endpoint with token.
+    $.ajax({
+        type: "POST",
+        url: urls.base + urls.subjectScope + "/" + subjectID + "/users",
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+
+        complete: function (xhr, textStatus) {
+            if (xhr.status == 201) {
+                console.log("Success subject added");
+                // Request to API for user refresh.
+                $.ajax({
+                    type: "GET",
+                    url: urls.base + urls.usersScope +'me',
+                    headers: {
+                        // "Authorization": "" ,
+                        "x-auth": $.session.get('token'),
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    success: function (data, textStatus, xhr) {
+                        if (xhr.status == 200 || xhr.status == 304) {
+                            console.log("Refresh user OK: " + data.data);
+                            setUserSessionData(data, xhr);
+                        }
+                        else if (xhr.status == 400) {
+                            console.log("Status: " + xhr.status);
+                        }
+                        else if (xhr.status == 404) {
+                            console.log("Status: " + xhr.status);
+                        } else {
+                            console.log("Status: " + xhr.status);
+                        }
+                    }
+                });
+                swal({
+                        title: "Success",
+                        text: "Subject added!",
+                        type: "success",
+                        showCancelButton: true,
+                        closeOnConfirm: true,
+                        showLoaderOnConfirm: true, },
+                    function(){
                         location.reload();
-                    }
-                    else if (xhr.status == 404) {
-                        console.log("error");
-                    }
-                    else if (xhr.status == 400) {
-                        console.log("error");
-                    } else {
-                        console.log("error");
-                    }
+                    });
+            }
+            else if (xhr.status == 404) {
+                console.log("error: " + xhr.status);
+                swal({
+                        title: "Oops!",
+                        text: "Something went wrong, please try again!",
+                        type: "error",
+                        showCancelButton: true,
+                        closeOnConfirm: true,
+                        showLoaderOnConfirm: true, },
+                    function(){
+                    });
+            }
+            else if (xhr.status == 400) {
+                console.log("error: " + xhr.status);
+                swal({
+                        title: "Subject already exists.",
+                        text: "Your subject is already on your list!",
+                        type: "info",
+                        showCancelButton: true,
+                        closeOnConfirm: true,
+                        showLoaderOnConfirm: true, },
+                    function(){
+                        //TODO:Refresh user here.
+                    });
+            } else {
+                console.log("error: " + xhr.status);
+                swal({
+                        title: "Not found.",
+                        text: "Please report error to administrator!",
+                        type: "error",
+                        showCancelButton: true,
+                        closeOnConfirm: true,
+                        showLoaderOnConfirm: true, },
+                    function(){
+                        //TODO:Refresh user here.
+                    });
+            }
+        }
+    });
+}
+
+function addSubject() {
+    var subjectList = $.jStorage.get('subjectList');
+
+    if (subjectList === null && subjectList === '' && subjectList.length === 0){
+        // Request to API for subject list information.
+        $.ajax({
+            type: "GET",
+            url: urls.base + urls.subjectScope,
+            headers: {
+                // "Authorization": "" ,
+                "x-auth": $.session.get('token'),
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            success: function (data, textStatus, xhr) {
+                if (xhr.status == 200 || xhr.status == 304) {
+                    console.log("Status: " + xhr.status);
+                    $.jStorage.set('subjectList', data.data);
+                    console.log("New subjectList created:" + $.jStorage.get('subjectList'));
+                    subjectList = $.jStorage.get('subjectList');//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
                 }
-            });
-            setTimeout(function(){     swal("Ajax request finished!");   }, 2000);
+                else if (xhr.status == 400) {
+                    console.log("Status: " + xhr.status);
+                }
+                else if (xhr.status == 404) {
+                    console.log("Status: " + xhr.status);
+                } else {
+                    console.log("Status: " + xhr.status);
+                }
+            }
         });
+    } else {
+        console.log("Subject list already in storage " + subjectList);
+    }
+
+    console.log("Succes subjectList: " + subjectList);
+    $.each(subjectList, function (key, body) {
+        $('#subject-dropdown').append(
+            '<li class="subject" value="' + key + '">' +
+            '   <a id="subjectlist' + subjectList[key].id + '" sKey="' + key + '" onclick="addSubjectUser(' + subjectList[key].id + ')">'  + subjectList[key].name + '</a>' +
+            '</li>'
+        );
+    });
 }
 
 function returnToReportOptions() {

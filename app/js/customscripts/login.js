@@ -83,19 +83,7 @@ function userLogin(email, password) {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 201) {
-                Cookies.set("userData", data);
-                console.log(data.data);
-                $.session.set('userData', data.data);
-                $.session.set('username', data.data.username);
-                $.session.set('name', data.data.firstName);
-                $.session.set('lname', data.data.lastName);
-                $.session.set('currency', data.data.coins);
-                $.session.set('milestone', data.data.experience);
-                $.session.set('StatusUser', 'Login');
-                $.session.set('token', xhr.getResponseHeader('x-auth'));
-                console.log("After; token: " + $.session.get('token'));
-                $.session.set('subjects', JSON.stringify(data.data.subjects));
-                console.log("After; Subjects: " + $.session.get('subjects'));
+                setUserSessionData(data, xhr);
                 window.location.href = './dashboard.html';
             }
             else {

@@ -45,6 +45,8 @@ Author: JirenSama
     <link href="../vendors/sweetalert/dist/sweetalert.css" type="text/css" rel="stylesheet">
     <!-- Cookies for jquery -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <!--Storage-->
+    <script type="text/javascript" src="../js/customscripts/jStorage.js"></script>
 </head>
 <body>
 <!-- Start Page Loading -->
@@ -209,19 +211,12 @@ Author: JirenSama
                     </div>
                 </li>
                 <li>
-                    <a class="waves-effect waves-cyan white-text" target="_blank">
+                    <a class="waves-effect waves-cyan white-text" target="_self" href="dashboard.html">
                         <i class="material-icons white-text">dashboard</i>
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
                 <div id="subjectList" class="divider"></div>
-                <li>
-                    <a onclick="addSubject()" class="waves-effect waves-cyan white-text" target="_blank">
-                        <i class="material-icons white-text">photo_filter</i>
-                        <span class="nav-text">Add Subject</span>
-                    </a>
-                </li>
-                <div class="divider"></div>
             </ul>
             <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
                 <i class="material-icons">menu</i>
@@ -242,6 +237,12 @@ Author: JirenSama
                         <li class="tab col s3"><a class="active changeTitle blue-grey-text" href="#userDashboard">Dashboard</a></li>
                         <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#userStatistics">Statistics</a></li>
                         <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
+                        <li class="tab col s3">
+                            <a onclick="addSubject()" class="changeTitle blue-grey-text" href="#addSubject">
+                                <!--<i class="material-icons blue-grey-text">photo_filter</i>-->
+                                <span class="nav-text">Add Subject</span>
+                            </a>
+                        </li>
                         <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
                     </ul>
                 </div>
@@ -417,6 +418,21 @@ Author: JirenSama
                     <div class="divider"></div>
                 </div>
                 <!--End User Staistics-->
+                <!--Start add subject-->
+                <div class="container" id="addSubject">
+                    <p class="caption">Add subject</p>
+                    <div class="divider"></div>
+                    <div class="row margin">
+                        <div class="input-field col s12">
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-button btn' data-activates='subject-dropdown'>Choose a subject</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='subject-dropdown' class='dropdown-content'>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--End add subject-->
                 <!--Start Donate-->
                 <div class="container" id="donate">
                     <p class="caption">Donate</p>
