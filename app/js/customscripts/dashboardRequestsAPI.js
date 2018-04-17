@@ -112,9 +112,9 @@ function setSubjTemplate(subjectList) {
     });
 }
 function addSubject() {
-    var subjectList = '';
+    var subjectList = $.session.get('subjectList');
     console.log("Inside addSubject");
-    // if (subjectList === null && subjectList === '' && subjectList.length === 0){
+    if (subjectList === null && subjectList === '' && subjectList.length === 0){
         // Request to API for subject list information.
         $.ajax({
             type: "GET",
@@ -143,9 +143,10 @@ function addSubject() {
                 }
             }
         });
-    // } else {
-    //     console.log("Subject list in storage " + subjectList);
-    // }
+    } else {
+        subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
+        setSubjTemplate(subjectList);
+    }
 }
 
 function returnToReportOptions() {
@@ -221,6 +222,7 @@ $(document).ready(function () {
     //Adds components for adding subjects
     $('#addSubTab').on('click', function (e) {
         e.preventDefault();
+        console.log("AddSubTab");
         addSubject();
     });
     //Requests question information to API.
