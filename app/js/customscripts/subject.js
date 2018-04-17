@@ -107,10 +107,22 @@ function createPostRequest(data) {
     });
 }
 
+function toggleBetweenPostSubj() {
+    $('#subjectContainer').toggle();
+    $('#postContainer').toggle();
+}
+
 $(document).ready(function () {
 
     console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
+
+    // $('.goToPost').on('click', function (e) {
+    //     e.preventDefault();
+    //     console.log("Success go to post");
+    //
+    //     toggleBetweenPostSubj();
+    // });
 
     $('.createPost').submit(function (e) {
         e.preventDefault();
