@@ -8,7 +8,7 @@ $(function () {
 });
 
 function setUsersData() {
-    $('#usersName').text($.session.get('name') + " " + $.session.get('lname'));
+    $('#usersName').text($.session.get('name'));
     $('#username').text("@" + $.session.get('username'));
     $('#milestone').text($.session.get('milestone'));
     $('#currency').text($.session.get('currency'));
