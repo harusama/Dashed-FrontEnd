@@ -1,3 +1,92 @@
+var subjects = [
+    {
+        "subjectID": 1,
+        "subjectName": "Subject 1",
+        "CampusType": "CampusType 1",
+        "genderTopic": "Math",
+        "contentName": "Math 1",
+        "ContentDescription": "Math Description 1",
+        "units": [
+            {
+                "unitID": 1,
+                "unitNumber": 1,
+                "unitName": "S1 Unit 1",
+                "unitDescription": "S1 Unit D",
+                "chapters": [
+                    {
+                        "chapterID": 1,
+                        "chapterNumber": 1,
+                        "chapterName": "Chapter Name 1",
+                        "chapterDescription": "Chapter Description 1",
+                        "lessons": [
+                            {
+                                "lessonID": 1,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 1",
+                                "lessonDescription": "Lesson Description 1"
+                            },
+                            {
+                                "lessonID": 2,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 2",
+                                "lessonDescription": "Lesson Description 2"
+                            }
+                        ]
+                    },
+                    {
+                        "chapterID": 2,
+                        "chapterNumber": 2,
+                        "chapterName": "Chapter Name 2",
+                        "chapterDescription": "Chapter Description 2",
+                        "lessons": [
+                            {
+                                "lessonID": 1,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 1",
+                                "lessonDescription": "Lesson Description 1"
+                            },
+                            {
+                                "lessonID": 2,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 2",
+                                "lessonDescription": "Lesson Description 2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "unitID": 2,
+                "unitNumber": 2,
+                "unitName": "S1 Unit 2",
+                "unitDescription": "S1 Unit D",
+                "chapters": [
+                    {
+                        "chapterID": 2,
+                        "chapterNumber": 2,
+                        "chapterName": "Chapter Name 1",
+                        "chapterDescription": "Chapter Description 1",
+                        "lessons": [
+                            {
+                                "lessonID": 1,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 1",
+                                "lessonDescription": "Lesson Description 1"
+                            },
+                            {
+                                "lessonID": 2,
+                                "lessonNumber": 1,
+                                "lessonName": "Lesson Name 2",
+                                "lessonDescription": "Lesson Description 2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
+
 // Validate if user is logger
 $(function () {
     console.log($.session.get('StatusUser') );
@@ -112,6 +201,77 @@ function toggleBetweenPostSubj() {
     $('#postContainer').toggle();
 }
 
+
+function getUnits(unit) {
+    var html = '';
+    $.each(unit, function (key, body) {
+        html +=
+            '<li> ' +
+            '       <div class="collapsible-header">' +
+            '           <i class="material-icons">list</i> Unit ' + ' ' + body.unitNumber + ' - ' + body.unitName +
+            '            <input type="checkbox" name="vehicle" value="Bike">' +
+            '       </div>' +
+            '       <div class="collapsible-body">' +
+            '           <div class="row">' +
+            '               <div class="col s12 m12">' +
+            '                   <ul class="collapsible" data-collapsible="accordion">' +
+            getChapters(body.chapters) +
+            '                   </ul>' +
+            '               </div>' +
+            '           </div>' +
+            '       </div>' +
+            '</li>'
+
+    });
+    return html;
+
+}
+
+function getChapters(chapter) {
+    var html = '';
+    $.each(chapter, function (key, body) {
+
+        html +=
+            '<li > ' +
+            '   <div class="collapsible-header">' +
+            '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.chapterNumber + ' - ' + body.chapterName +
+            '   </div>' +
+            '   <div class="collapsible-body">' +
+            '           <div class="row">' +
+            '               <div class="col s12 m12">' +
+            '                   <ul class="collapsible" data-collapsible="accordion">' +
+            getLessons(body.lessons) +
+            '                   </ul>' +
+            '               </div>' +
+            '           </div>' +
+            '   </div>' +
+            '</li>'
+
+
+    });
+    return html;
+
+}
+
+function getLessons(lesson) {
+    var html = '';
+    $.each(lesson, function (key, body) {
+        html +=
+            '<li>' +
+            '       <div class="collapsible-header">' +
+            '           <i class="material-icons">label</i>' + body.lessonName +
+            '       </div>' +
+            '      <div class="collapsible-body">' +
+            '           <p>' + body.lessonDescription + '</p>' +
+            '       </div>' +
+            '</li>'
+
+    });
+    return html;
+
+}
+
+
 $(document).ready(function () {
 
     console.log("Subjects: " + $.session.get('subjects'));
@@ -123,6 +283,18 @@ $(document).ready(function () {
     //
     //     toggleBetweenPostSubj();
     // });
+
+    $(function () {
+        $.each(subjects, function (key, body) {
+            $('#subject-collection').append(getUnits(body.units));
+
+        });
+        //This function (collapsible) must be her to load de content dynamically
+        $('.collapsible').collapsible();
+
+    });
+
+
 
     $('.createPost').submit(function (e) {
         e.preventDefault();
