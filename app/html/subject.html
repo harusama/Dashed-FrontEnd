@@ -286,7 +286,101 @@ Author: Edgardo
                             <div class="col s8">
                                 <div class="row">
                                     <div class="col s12">
-                                        <a>Post</a>
+                                        <div class="card gradient-shadow white border-radius-3">
+                                            <div class="card-content gradient-45deg-indigo-light-blue white-text">
+                                                <span class="card-title">Share or Ask something!</span>
+                                            </div>
+                                            <div class="card-tabs">
+                                                <ul class="tabs tabs-fixed-width">
+                                                    <li class="tab"><a class="active blue-grey-text" href="#postType1">Question</a></li>
+                                                    <li class="tab"><a class="blue-grey-text" href="#postType2">Content</a></li>
+                                                    <li class="tab"><a class="blue-grey-text" href="#postType3">Resources</a></li>
+                                                    <li class="tab"><a class="blue-grey-text" href="#postType4">Testimony</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-content blue-grey-text lighten-4">
+                                                <div id="postType1">
+                                                    <div class="row">
+                                                        <form id="postQuestion" class="col s12" onsubmit="return false;" >
+                                                            <div class="row">
+                                                                <div class="input-field col s12">
+                                                                    <input id="postTitle1" type = "text" />
+                                                                    <label for="postTitle1">What is your question about?</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="input-field col s12">
+                                                                    <textarea id="postDescription1" class="materialize-textarea" ></textarea>
+                                                                    <label for="postDescription1">Describe more your question!</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col s4 m1 offset-m10">
+                                                                    <button class="waves-effect waves-light btn blue" type="submit">Ask!</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div id="postType2">
+                                                    <form id="postContent" class="col s12" onsubmit="return false;" >
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <input id="postTitle2" type = "text" />
+                                                                <label for="postTitle2">Title of content?</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <textarea id="postDescription2" class="materialize-textarea" ></textarea>
+                                                                <label for="postDescription2">Describe more your content!</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s4 m1 offset-m10">
+                                                                <button class="waves-effect waves-light btn blue" type="submit">Share!</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div id="postType3">
+                                                    <form id="postResource" class="col s12" onsubmit="return false;" >
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <input id="postTitle3" type="text" />
+                                                                <label for="postTitle3">Title of resource?</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <input id="postDescription3" type="text" />
+                                                                <label for="postDescription3">Link to resource!</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s4 m1 offset-m10">
+                                                                <button class="waves-effect waves-light btn blue" type="submit">Share!</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div id="postType4">
+                                                    <form id="postTestimony" class="col s12" onsubmit="return false;" >
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <textarea id="postDescription4" class="materialize-textarea" ></textarea>
+                                                                <label for="postDescription4">Tell us what you think!</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s4 m1 offset-m10">
+                                                                <button class="waves-effect waves-light btn blue" type="submit">Share!</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

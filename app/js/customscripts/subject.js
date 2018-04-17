@@ -68,8 +68,14 @@ function setSubjectContent() {
     });
 }
 
+function submitPost() {
+    console.log("Success submit post");
+}
+
 $(document).ready(function () {
 
     console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
+
+
 });
