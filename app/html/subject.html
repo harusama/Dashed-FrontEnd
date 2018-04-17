@@ -296,7 +296,7 @@ Author: Edgardo
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
-                                        <a>Topics</a>
+                                        <a>Posts</a>
                                         <div class="row">
                                             <div class="header-search-wrapper hide-on-med-and-down">
                                                 <i class="material-icons">search</i>
@@ -309,8 +309,8 @@ Author: Edgardo
                                             <ul id="topic-collection" class="collection z-depth-1">
                                                 <li class="collection-item avatar">
                                                     <i class="material-icons cyan circle">description</i>
-                                                    <h5 class="collection-header m-0">Topics</h5>
-                                                    <p>List of topics</p>
+                                                    <h5 class="collection-header m-0">Posts</h5>
+                                                    <p>List of posts</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -348,21 +348,27 @@ Author: Edgardo
                                         </div>
                                     </div>
                                 </div>
-                              <div class="row">
-                                 <div class="col s12">
-                                    <a>Posts</a>
-                                    <div class="card">
-                                       <div class="card-content">
-                                          <ul id="posts" class=""></ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
 
                               <script id="post-template" type="text/template">
-                                 <li>
-                                    <h5>{{title}}</h5>
-                                    <p>{{description}}</p>
+                                 <li class="collection-item {{id}}">
+                                    <div class="row">
+                                       <div class="col s12">
+                                          <h6 class="collections-title username">{{username}}</h6>
+                                          <h6 class="collections-title">{{title}}</h6>
+                                          <p class="collections-content">{{description}}</p>
+                                          <p class="collections-content">Resource: {{resource}}</p>
+                                          <ul class="comments">
+                                             <p class="collections-title">Comments</p>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </li>
+                              </script>
+
+                              <script id="comment-template" type="text/template">
+                                 <li class="comment {{id}}">
+                                    <h6 class="collections-title username">{{username}}</h6>
+                                    <p class="collections-content">{{description}}</p>
                                  </li>
                               </script>
 

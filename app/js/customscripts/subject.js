@@ -63,21 +63,21 @@ $(document).ready(function () {
 
     console.log("Subjects: " + $.session.get('subjects'));
     // Load content from json value
-    $(function () {
-        $.each(topic, function (key, body) {
+   //  $(function () {
+   //      $.each(topic, function (key, body) {
 
-            $('#topic-collection').append(' ' +
-                '<li class="collection-item">' +
-                '   <div class="row">' +
-                '       <div class="col s6">' +
-                '           <h6 class="collections-title">' + body.Topic + '</h6>' +
-                '           <p class="collections-content">' + body.Description + '</p>' +
-                '       </div>' +
-                '   </div>' +
-                '</li>');
+   //          $('#topic-collection').append(' ' +
+   //              '<li class="collection-item">' +
+   //              '   <div class="row">' +
+   //              '       <div class="col s6">' +
+   //              '           <h6 class="collections-title">' + body.Topic + '</h6>' +
+   //              '           <p class="collections-content">' + body.Description + '</p>' +
+   //              '       </div>' +
+   //              '   </div>' +
+   //              '</li>');
 
-        });
-    });
+   //      });
+   //  });
     $(function () {
         $.each(news, function (key, body) {
             $('#news-collection').append(' ' +

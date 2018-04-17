@@ -82,10 +82,24 @@ socket.on('newPost', function (post) {
    console.log('newPost', post);
    var template = jQuery('#post-template').html();
    var html = Mustache.render(template, {
+      id: post.id,
       title: post.title,
-      description: post.description
+      description: post.description,
+      username: post.username,
+      resource: post.resource
    });
-   jQuery('#posts').append(html);
+   jQuery('#topic-collection').append(html);
+});
+
+socket.on('newComment', function (comment) {
+   console.log('newComment', comment);
+   var template = jQuery('#comment-template').html();
+   var html = Mustache.render(template, {
+      id: comment.id,
+      description: comment.description,
+      username: comment.username,
+   });
+   jQuery('.collection-item.' + comment.postId + ' .comments').append(html);
 });
 
 $(document).ready(function () {
