@@ -13,6 +13,7 @@ urls.chat = 'http://localhost:3000/';
 urls.usersScope = 'users/';
 urls.questionScope = 'questions';
 urls.stateScope = 'states';
+urls.subjectScope = 'subjects';
 
 //Session
 // var userSession = $.session.get('userData');
