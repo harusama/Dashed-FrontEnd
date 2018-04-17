@@ -53,10 +53,16 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: urls.base + urls.questionScope,
-            data: question,
+            data: JSON.stringify({
+                "descriptionText": descriptionArea.val(),
+                "descriptionImage": "None",
+                "kind": parseInt(form.attr('name')),
+                "subjectId": parseInt($.session.get('subjectID')),
+                "answers": answers
+            }),
             headers: {
                 // "Authorization": "" ,
-                "X-API-KEY": Cookies.get("token"),
+                "x-auth": $.session.get('token'),
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
