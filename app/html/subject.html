@@ -56,6 +56,9 @@ Author: Edgardo
     <!--- W3 Schools library to import content -->
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
 
+    <!--- W3 Schools library to import content -->
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+
     <!-- Custom JS -->
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -63,12 +66,18 @@ Author: Edgardo
     <script src="../js/libs/mustache.js"></script>
     <script src="../js/libs/deparam.js"></script>
     <script type="text/javascript" src="../js/customscripts/subject.js"></script>
+    <script type="text/javascript" src="../js/customscripts/createQuestion.js"></script>
 
     <!--Storage-->
     <script type="text/javascript" src="../js/customscripts/jStorage.js"></script>
-
 </head>
+<style>
+    question {
+        position: relative;
+        top: 50%;
+    }
 
+</style>
 <body>
 <!-- Start Page Loading -->
 <div id="loader-wrapper">
@@ -259,6 +268,8 @@ Author: Edgardo
                         <li class="tab col s2"><a class="active changeTitle blue-grey-text" href="#subjectDashboard">Subject</a></li>
                         <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#contentMaker">Content</a></li>
                         <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#createQuestion">Create question</a></li>
+                        <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#reviewQuestion">Review question</a></li>
+                        <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#evaluateQuestion">Evaluate question</a></li>
                         <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
                         <li class="tab col s2"><a class="changeTitle blue-grey-text" href="#reportError">Report Error</a></li>
                     </ul>
@@ -409,21 +420,154 @@ Author: Edgardo
                     <a>Content</a>
                 </div>
                 <!--End content section-->
-                <!--Start content section-->
+                <!--Start create question section-->
                 <div id="createQuestion" class="section">
                     <a>Create question</a>
+                    <div class="section">
+                        <nav class="nav-extended">
+                            <div class="nav-content">
+                                <ul class="tabs tabs-transparent">
+                                    <li class="tab"><a class="active" href="#bridgeMap">Bridge</a></li>
+                                    <li class="tab"><a href="#mFlowMap">Multi-Flow</a></li>
+                                    <li class="tab"><a href="#fMap">Flow Map</a></li>
+                                    <li class="tab"><a href="#dBubbleMap">Double Bubble</a></li>
+                                    <li class="tab"><a href="#bubblemap">Bubble</a></li>
+                                    <li class="tab"><a href="#cFrameMap">Circle and Frame</a></li>
+                                    <li class="tab"><a href="#treeMap">Tree Map</a></li>
+                                    <li class="tab"><a href="#braceMap">Brace</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div id="bridgeMap" class="col s12" w3-include-html="../questions/bridgeMap.html"></div>
+                        <div id="mFlowMap" class="col s12" w3-include-html="../questions/mFlowMap.html"></div>
+                        <div id="fMap" class="col s12" w3-include-html="../questions/fMap.html"></div>
+                        <div id="dBubbleMap" class="col s12" w3-include-html="../questions/dBubbleMap.html"></div>
+                        <div id="bubblemap" class="col s12" w3-include-html="../questions/bubblemap.html"></div>
+                        <div id="cFrameMap" class="col s12" w3-include-html="../questions/cFrameMap.html"></div>
+                        <div id="treeMap" class="col s12" w3-include-html="../questions/treeMap.html"></div>
+                        <div id="braceMap" class="col s12" w3-include-html="../questions/braceMap.html"></div>
+
+
+                        <script>
+                            w3IncludeHTML();
+                        </script>
+
+
+                    </div>
                 </div>
-                <!--End content section-->
-                <!--Start content section-->
+                <!--End create question section-->
+                <!--Start review question section-->
+                <div id="reviewQuestion" class="section">
+                    <a>Review question</a>
+                </div>
+                <!--End review question section-->
+                <!--Start evaluate question section-->
+                <div id="evaluateQuestion" class="section">
+                    <a>Evaluate question</a>
+                </div>
+                <!--End evaluate question section-->
+                <!--Start donate section-->
                 <div id="donate" class="section">
                     <a>Donate</a>
                 </div>
-                <!--End content section-->
-                <!--Start content section-->
-                <div id="reportError" class="section">
-                    <a>Report error</a>
+                <!--End donate section-->
+                <!--Start Report Error-->
+                <div class="container" id="reportError">
+                    <div id="errorOptions">
+                        <div class="row reportErrorTitle"><a class="white-text">What seems to be the problem?</a></div>
+                        <div class="row db-card-container">
+                            <div class="col s12 m4 db-cards-margin">
+                                <div class="card roundedCard">
+                                    <div class="card-image">
+                                        <img src="../assets/images/gallary/1.png">
+                                        <span class="card-title">Question Error</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>To report a question problem, please click the link below.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="changeErrorCard waves-effect waves-light btn" id="questionError">Report question error!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m4 db-cards-margin">
+                                <div class="card roundedCard">
+                                    <div class="card-image">
+                                        <img src="../assets/images/gallary/2.png">
+                                        <span class="card-title">System Error</span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>To report a system problem, please click the link below.</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="changeErrorCard waves-effect waves-light btn" id="systemError">Report system error!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="errorSubmit" class="container" style="display: none">
+                        <!--Start question report-->
+                        <div class="container none" id="questionReport">
+                            <div class="row section">
+                                <div class="card roundedCard-5 question-r-card-4 col s12 m4">
+                                    <p>Question Error Report</p>
+                                </div>
+                                <form class="row col s12 m8" name="searchQuestionID" id="searchQuestionID">
+                                    <div class="input-field card roundedCard-5 question-r-card-4 col s4 m2 offset-m5">
+                                        <input id="questionID" type="number" class="validate" name="questionID" required>Input</input>
+                                        <label for="questionID">Question #</label>
+                                    </div>
+                                    <div class="col s4 m1">
+                                        <button class="waves-effect waves-light btn" type="submit">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row section">
+                                <form class="row col s12 m12" name="qtnReport_form" id="qtnReport_form">
+                                    <div class="row card roundedCard-5">
+                                        <div class="input-field col s12">
+                                            <input id="reportDescriptionQ" type="text" class="validate" name="reportDescriptionQ" required>
+                                            <label for="reportDescriptionQ">Please describe the problem here.</label>
+                                        </div>
+                                    </div>
+                                    <div class="row section"></div>
+                                    <div class="row col s12 m12">
+                                        <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                        <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--End question report-->
+                        <!--Start system report-->
+                        <div class="container none" id="systemReport">
+                            <div class="row section">
+                                <div class="card roundedCard-5 question-r-card-4 col s12 m4">
+                                    <p>System Error Report</p>
+                                </div>
+                            </div>
+                            <div class="row section">
+                                <form class="row col s12 m12" name="sysReport_form" id="sysReport_form">
+                                    <div class="row section">
+                                        <img class="image-rounded-5 col s12 m5" src="../assets/images/gallary/4.png">
+                                        <div class="input-field col s12 m6 card roundedCard-5 description-r-card-h26">
+                                            <input id="reportDescriptionS" type="text" class="validate" name="reportDescriptionS" required>
+                                            <label for="reportDescriptionS">Please describe the problem here.</label>
+                                        </div>
+                                    </div>
+                                    <div class="row section"></div>
+                                    <div class="row col s12 m12">
+                                        <a class="cancelReport waves-effect waves-light btn col s5 m2 offset-m3">Cancel</a>
+                                        <button class="waves-effect waves-light btn col s5 offset-s1 m2 offset-m1" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--End system report-->
+                    </div>
                 </div>
-                <!--End content section-->
+                <!--End Report Error-->
             </div>
             <!--end container-->
         </section>
