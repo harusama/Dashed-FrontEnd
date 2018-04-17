@@ -33,15 +33,15 @@ function setUserSessionData(data, xhr) {
     $.session.set('subjects', JSON.stringify(data.data.subjects));
 }
 
-function subjectID(subjectID) {
+function subjectID(subjectID, subjectKey) {
 
     //Sets subject id for use
     $.session.set('subjectID', subjectID);
-    console.log("subject ID: " + subjectID);
+    console.log("subject ID: " + subjectID + " SubjectKey: " + subjectKey);
 
     //Sets subject room
-    var subjectRoom = 'subject' + subjectID;
-    $.session.set('chatRoom', subjectRoom);
-    console.log("subject room: " + subjectRoom);
+    var subjectRoom = JSON.parse($.session.get('subjects'));
+    // $.session.set('chatRoom', subjectRoom[0].name);
+    console.log("News Subject Room: " + subjectRoom[subjectKey].name);
 }
 
