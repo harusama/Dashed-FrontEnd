@@ -1,40 +1,3 @@
-var topic = [
-    {
-        "Topic": "Topic1",
-        "Description": "Description topic 1"
-    },
-    {
-        "Topic": "Topic2",
-        "Description": "Description topic 2"
-    },
-    {
-        "Topic": "Topic3",
-        "Description": "Description topic 3"
-    },
-    {
-        "Topic": "Topic4",
-        "Description": "Description topic 4"
-    }
-];
-var news = [
-    {
-        "Title": "New Question added",
-        "Description": "New question added to History",
-        "Link": ""
-    },
-    {
-        "Title": "New subjects available ",
-        "Description": "New question added to History",
-        "Link": ""
-    },
-    {
-        "Title": "New Question added",
-        "Description": "New question added to History",
-        "Link": "http://www.google.com"
-    },
-
-];
-
 // Validate if user is logger
 $(function () {
     console.log($.session.get('StatusUser') );
@@ -42,6 +5,7 @@ $(function () {
         window.location.href = '../index.html';
     }
 });
+
 function searchTopics() {
     var input, filter, ul, li, content, i;
     input = document.getElementById("searchTopic");
@@ -59,39 +23,53 @@ function searchTopics() {
     }
 }
 
+function setSubNews(news) {
+    $.each(news, function (key, body) {
+        $('#news-collection').append(' ' +
+            '<li class="collection-item">' +
+            '   <div class="row">' +
+            '       <div class="col s6">' +
+            '           <h6 class="collections-title">' + body.Title + '</h6>' +
+            '           <p class="collections-content">' + body.Description + '</p>' +
+            (body.Link != '' ? '<a href="' + body.Link + '">Check the conntent</a>' : '') +
+            '       </div>' +
+            '   </div>' +
+            '</li>');
+
+    });
+}
+
+function setSubjectContent() {
+    console.log("Ajax GET request to: " + urls.base + urls.subjectScope + '/' + $.session.get('subjectID'));
+//    Get subject content
+    $.ajax({
+        type: "GET",
+        url: urls.base + urls.subjectScope + '/' + $.session.get('subjectID'),
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        success: function (data, textStatus, xhr) {
+            if (xhr.status == 200 || xhr.status == 304) {
+                console.log("Status: " + xhr.status);
+                console.log("Data from GET Subjects: " + data.data);
+            }
+            else if (xhr.status == 400) {
+                console.log("Error: " + xhr.status);
+            }
+            else if (xhr.status == 404) {
+                console.log("Error: " + xhr.status);
+            } else {
+                console.log("Error: " + xhr.status);
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
 
     console.log("Subjects: " + $.session.get('subjects'));
-    // Load content from json value
-   //  $(function () {
-   //      $.each(topic, function (key, body) {
-
-   //          $('#topic-collection').append(' ' +
-   //              '<li class="collection-item">' +
-   //              '   <div class="row">' +
-   //              '       <div class="col s6">' +
-   //              '           <h6 class="collections-title">' + body.Topic + '</h6>' +
-   //              '           <p class="collections-content">' + body.Description + '</p>' +
-   //              '       </div>' +
-   //              '   </div>' +
-   //              '</li>');
-
-   //      });
-   //  });
-    $(function () {
-        $.each(news, function (key, body) {
-            $('#news-collection').append(' ' +
-                '<li class="collection-item">' +
-                '   <div class="row">' +
-                '       <div class="col s6">' +
-                '           <h6 class="collections-title">' + body.Title + '</h6>' +
-                '           <p class="collections-content">' + body.Description + '</p>' +
-                (body.Link != '' ? '<a href="' + body.Link + '">Check the conntent</a>' : '') +
-                '       </div>' +
-                '   </div>' +
-                '</li>');
-
-        });
-    });
-
+    setSubjectContent();
 });

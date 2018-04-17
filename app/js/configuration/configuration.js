@@ -32,7 +32,14 @@ function setUserSessionData(data, xhr) {
     $.session.set('subjects', JSON.stringify(data.data.subjects));
 }
 
-function subjectChat(subjectRoom) {
+function subjectID(subjectID) {
+
+    //Sets subject id for use
+    $.session.set('subjectID', subjectID);
+    console.log("subject ID: " + subjectID);
+
+    //Sets subject room
+    var subjectRoom = 'subject' + subjectID;
     $.session.set('chatRoom', subjectRoom);
     console.log("subject room: " + subjectRoom);
 }

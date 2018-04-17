@@ -24,7 +24,7 @@ function setUsersData() {
 
                 $('#subjectList').after(' ' +
                     '<li>' +
-                    '   <a id="subject' + body.id + '" class="waves-effect waves-cyan white-text" onclick="subjectChat(\'subject' + body.id + '\')" href="subject.html">' +
+                    '   <a id="subject' + body.id + '" class="waves-effect waves-cyan white-text" onclick="subjectID(' + body.id + ')" href="subject.html">' +
                     '       <i class="material-icons white-text">pages</i>' +
                     '       <span class="nav-text">' + body.name + '</span>' +
                     '   </a>' +
