@@ -89,8 +89,8 @@ var subjects = [
 
 // Validate if user is logger
 $(function () {
-    console.log($.session.get('StatusUser') );
-    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+    console.log($.session.get('StatusUser'));
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout') {
         window.location.href = '../index.html';
     }
 });
@@ -209,13 +209,13 @@ function getUnits(unit) {
             '<li> ' +
             '       <div class="collapsible-header">' +
             '           <i class="material-icons">list</i> Unit ' + ' ' + body.unitNumber + ' - ' + body.unitName +
-            '            <input type="checkbox" name="vehicle" value="Bike">' +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + body.unitID + '"><i class="material-icons">add</i></a>' +
             '       </div>' +
             '       <div class="collapsible-body">' +
             '           <div class="row">' +
             '               <div class="col s12 m12">' +
             '                   <ul class="collapsible" data-collapsible="accordion">' +
-            getChapters(body.chapters) +
+            getChapters(body.chapters, body.unitID) +
             '                   </ul>' +
             '               </div>' +
             '           </div>' +
@@ -227,7 +227,7 @@ function getUnits(unit) {
 
 }
 
-function getChapters(chapter) {
+function getChapters(chapter, idUnit) {
     var html = '';
     $.each(chapter, function (key, body) {
 
@@ -235,12 +235,13 @@ function getChapters(chapter) {
             '<li > ' +
             '   <div class="collapsible-header">' +
             '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.chapterNumber + ' - ' + body.chapterName +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + body.chapterID + '"><i class="material-icons">add</i></a>' +
             '   </div>' +
             '   <div class="collapsible-body">' +
             '           <div class="row">' +
             '               <div class="col s12 m12">' +
             '                   <ul class="collapsible" data-collapsible="accordion">' +
-            getLessons(body.lessons) +
+            getLessons(body.lessons, idUnit, body.chapterID) +
             '                   </ul>' +
             '               </div>' +
             '           </div>' +
@@ -253,13 +254,15 @@ function getChapters(chapter) {
 
 }
 
-function getLessons(lesson) {
+function getLessons(lesson, idUnit, chpaterID) {
     var html = '';
     $.each(lesson, function (key, body) {
         html +=
             '<li>' +
             '       <div class="collapsible-header">' +
             '           <i class="material-icons">label</i>' + body.lessonName +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + chpaterID + '-L-' + body.lessonID + '"><i class="material-icons">add</i></a>' +
+
             '       </div>' +
             '      <div class="collapsible-body">' +
             '           <p>' + body.lessonDescription + '</p>' +
@@ -294,39 +297,78 @@ $(document).ready(function () {
 
     });
 
+    $('div').on('click', 'a.Add-Element', function (event) {
+        event.stopPropagation();
+        // alert("target = " + event.target.tagName + ", this=" + this.tagName);
+        $('#sujectsElements-collections').append(
+            '<div class="chip">' +
+            this.id +
+            '   <i class="close material-icons">close</i>' +
+            '</div>'
+        );
+    });
 
 
     $('.createPost').submit(function (e) {
         e.preventDefault();
 
         var formData = $(this).serializeArray();
-        var data = {"title":"noTitle","description":"noDescription","resource":"noresource","kind":"noKind","subjectId":"noSubjectID"};
+        var data = {
+            "title": "noTitle",
+            "description": "noDescription",
+            "resource": "noresource",
+            "kind": "noKind",
+            "subjectId": "noSubjectID"
+        };
 
-        console.log("Before Data from form:" +  JSON.stringify(data));
+        console.log("Before Data from form:" + JSON.stringify(data));
 
-        switch ($(this).attr('id'))
-        {
+        switch ($(this).attr('id')) {
             case "postQuestion":
                 console.log("Success case post: " + $(this).attr('id'));
-                data = {"title":formData[0].value,"description":formData[1].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                data = {
+                    "title": formData[0].value,
+                    "description": formData[1].value,
+                    "resource": "noresource",
+                    "kind": $(this).attr('kind'),
+                    "subjectId": $.session.get('subjectID')
+                };
                 break;
             case "postContent":
                 console.log("Success case post: " + $(this).attr('id'));
-                data = {"title":formData[0].value,"description":formData[1].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                data = {
+                    "title": formData[0].value,
+                    "description": formData[1].value,
+                    "resource": "noresource",
+                    "kind": $(this).attr('kind'),
+                    "subjectId": $.session.get('subjectID')
+                };
                 break;
             case "postResource":
                 console.log("Success case post: " + $(this).attr('id'));
-                data = {"title":formData[0].value,"description":"noDescription","resource":formData[1].value,"kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                data = {
+                    "title": formData[0].value,
+                    "description": "noDescription",
+                    "resource": formData[1].value,
+                    "kind": $(this).attr('kind'),
+                    "subjectId": $.session.get('subjectID')
+                };
                 break;
             case "postTestimony":
                 console.log("Success case post: " + $(this).attr('id'));
-                data = {"title":"noTitle","description":formData[0].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                data = {
+                    "title": "noTitle",
+                    "description": formData[0].value,
+                    "resource": "noresource",
+                    "kind": $(this).attr('kind'),
+                    "subjectId": $.session.get('subjectID')
+                };
                 break;
             default:
                 console.log("Success Default: " + $(this).attr('id'));
                 break;
         }
-        console.log("After Data from form stringified:" +  JSON.stringify(data));
+        console.log("After Data from form stringified:" + JSON.stringify(data));
         $(this).trigger('reset');
         createPostRequest(data);
     });
