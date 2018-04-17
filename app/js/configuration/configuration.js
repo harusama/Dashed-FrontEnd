@@ -14,6 +14,7 @@ urls.usersScope = 'users/';
 urls.questionScope = 'questions';
 urls.stateScope = 'states';
 urls.subjectScope = 'subjects';
+urls.postScope = 'posts';
 
 //Session
 // var userSession = $.session.get('userData');

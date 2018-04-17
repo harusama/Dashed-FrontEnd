@@ -68,8 +68,43 @@ function setSubjectContent() {
     });
 }
 
-function submitPost() {
-    console.log("Success submit post");
+function createPostRequest(data) {
+    console.log("\nData create new post: " + JSON.stringify(data));
+    //POST request for creating post. https://dash-ed.herokuapp.com/v1/posts
+    $.ajax({
+        type: "POST",
+        url: urls.base + urls.postScope,
+        data: JSON.stringify({
+            "title": data.title,
+            "description": data.description,
+            "resource": data.resource,
+            "kind": data.kind,
+            "subjectId": parseInt(data.subjectId)
+        }),
+        dataType: "json",
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+
+        complete: function (xhr, settings) {
+            if (xhr.status == 201) {
+                console.log("Status: " + xhr.status);
+            }
+            else if (xhr.status == 404) {
+                console.log("Status: " + xhr.status);
+
+            }
+            else if (xhr.status == 400) {
+                console.log("Status: " + xhr.status);
+
+            } else {
+                console.log("Status: " + xhr.status);
+            }
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -77,5 +112,38 @@ $(document).ready(function () {
     console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
 
+    $('.createPost').submit(function (e) {
+        e.preventDefault();
 
+        var formData = $(this).serializeArray();
+        var data = {"title":"noTitle","description":"noDescription","resource":"noresource","kind":"noKind","subjectId":"noSubjectID"};
+
+        console.log("Before Data from form:" +  JSON.stringify(data));
+
+        switch ($(this).attr('id'))
+        {
+            case "postQuestion":
+                console.log("Success case post: " + $(this).attr('id'));
+                data = {"title":formData[0].value,"description":formData[1].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                break;
+            case "postContent":
+                console.log("Success case post: " + $(this).attr('id'));
+                data = {"title":formData[0].value,"description":formData[1].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                break;
+            case "postResource":
+                console.log("Success case post: " + $(this).attr('id'));
+                data = {"title":formData[0].value,"description":"noDescription","resource":formData[1].value,"kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                break;
+            case "postTestimony":
+                console.log("Success case post: " + $(this).attr('id'));
+                data = {"title":"noTitle","description":formData[0].value,"resource":"noresource","kind":$(this).attr('kind'),"subjectId":$.session.get('subjectID')};
+                break;
+            default:
+                console.log("Success Default: " + $(this).attr('id'));
+                break;
+        }
+        console.log("After Data from form stringified:" +  JSON.stringify(data));
+        $(this).trigger('reset');
+        createPostRequest(data);
+    });
 });
