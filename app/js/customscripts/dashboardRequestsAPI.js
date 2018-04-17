@@ -101,8 +101,8 @@ function addSubjectUser(subjectID) {
 }
 
 function addSubject() {
-    var subjectList = $.jStorage.get('subjectList');
-
+    var subjectList = $.session.get('subjectList');
+    console.log("Inside addSubject");
     if (subjectList === null && subjectList === '' && subjectList.length === 0){
         // Request to API for subject list information.
         $.ajax({
@@ -117,9 +117,9 @@ function addSubject() {
             success: function (data, textStatus, xhr) {
                 if (xhr.status == 200 || xhr.status == 304) {
                     console.log("Status: " + xhr.status);
-                    $.jStorage.set('subjectList', data.data);
-                    console.log("New subjectList created:" + $.jStorage.get('subjectList'));
-                    subjectList = $.jStorage.get('subjectList');//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
+                    $.session.set('subjectList', JSON.stringify(data.data));
+                    console.log("New subjectList created:" + $.session.get('subjectList'));
+                    subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
                 }
                 else if (xhr.status == 400) {
                     console.log("Status: " + xhr.status);
@@ -132,16 +132,26 @@ function addSubject() {
             }
         });
     } else {
-        console.log("Subject list already in storage " + subjectList);
+        console.log("Subject list in storage " + subjectList);
     }
 
+    subjectList = JSON.parse(subjectList);
     console.log("Succes subjectList: " + subjectList);
+
     $.each(subjectList, function (key, body) {
-        $('#subject-dropdown').append(
-            '<li class="subject" value="' + key + '">' +
-            '   <a id="subjectlist' + subjectList[key].id + '" sKey="' + key + '" onclick="addSubjectUser(' + subjectList[key].id + ')">'  + subjectList[key].name + '</a>' +
-            '</li>'
-        );
+        console.log("Key: " + key + ", Body: " + body.name);
+        var template = jQuery('#addSubject-template').html();
+        var html = Mustache.render(template, {
+            id: body.id,
+            key: body.name,
+            title: body.contentDescription
+        });
+        jQuery('#addList').append(html);
+        // $('#subject-dropdown').append(
+        //     '<li class="subject" value="' + key + '">' +
+        //     '   <a id="subjectlist' + subjectList[key].id + '" sKey="' + key + '" onclick="addSubjectUser(' + subjectList[key].id + ')">'  + subjectList[key].name + '</a>' +
+        //     '</li>'
+        // );
     });
 }
 
@@ -215,6 +225,11 @@ function insertQuestion(qData) {
 
 $(document).ready(function () {
 
+    //Adds components for adding subjects
+    $('#addSubTab').on('click', function (e) {
+        e.preventDefault();
+        addSubject();
+    });
     //Requests question information to API.
     $('#searchQuestionID').submit(function (e) {
         e.preventDefault();
