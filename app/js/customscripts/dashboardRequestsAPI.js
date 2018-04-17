@@ -99,11 +99,22 @@ function addSubjectUser(subjectID) {
         }
     });
 }
-
+function setSubjTemplate(subjectList) {
+    $.each(subjectList, function (key, body) {
+        console.log("Key: " + key + ", Body: " + body.name);
+        var template = jQuery('#addSubject-template').html();
+        var html = Mustache.render(template, {
+            id: body.id,
+            key: body.name,
+            title: body.contentDescription
+        });
+        jQuery('#addList').append(html);
+    });
+}
 function addSubject() {
-    var subjectList = $.session.get('subjectList');
+    var subjectList = '';
     console.log("Inside addSubject");
-    if (subjectList === null && subjectList === '' && subjectList.length === 0){
+    // if (subjectList === null && subjectList === '' && subjectList.length === 0){
         // Request to API for subject list information.
         $.ajax({
             type: "GET",
@@ -120,6 +131,7 @@ function addSubject() {
                     $.session.set('subjectList', JSON.stringify(data.data));
                     console.log("New subjectList created:" + $.session.get('subjectList'));
                     subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
+                    setSubjTemplate(subjectList);
                 }
                 else if (xhr.status == 400) {
                     console.log("Status: " + xhr.status);
@@ -131,28 +143,9 @@ function addSubject() {
                 }
             }
         });
-    } else {
-        console.log("Subject list in storage " + subjectList);
-    }
-
-    subjectList = JSON.parse(subjectList);
-    console.log("Succes subjectList: " + subjectList);
-
-    $.each(subjectList, function (key, body) {
-        console.log("Key: " + key + ", Body: " + body.name);
-        var template = jQuery('#addSubject-template').html();
-        var html = Mustache.render(template, {
-            id: body.id,
-            key: body.name,
-            title: body.contentDescription
-        });
-        jQuery('#addList').append(html);
-        // $('#subject-dropdown').append(
-        //     '<li class="subject" value="' + key + '">' +
-        //     '   <a id="subjectlist' + subjectList[key].id + '" sKey="' + key + '" onclick="addSubjectUser(' + subjectList[key].id + ')">'  + subjectList[key].name + '</a>' +
-        //     '</li>'
-        // );
-    });
+    // } else {
+    //     console.log("Subject list in storage " + subjectList);
+    // }
 }
 
 function returnToReportOptions() {
