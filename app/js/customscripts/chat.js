@@ -18,7 +18,15 @@ function scrollToBottom() {
 socket.on('connect', function () {
    console.log('Connected to server');
    var username = $.session.get('username');
-   var room = 'Subject 1';
+   var room = 'Error_With_Room';
+   var chatRoom = $.session.get('chatRoom');
+
+   if (chatRoom !== null && chatRoom !== '' && chatRoom.length !== 0) {
+       console.log("Chat Room: " + chatRoom);
+       room = chatRoom;
+       console.log("Room: " + room);
+   }
+
    socket.emit('join', {'name': username, 'room': room}, function (err) {
       if (err) {
          alert(err);

@@ -17,14 +17,14 @@ function setUsersData() {
 
     console.log(subjects.length);
     if (subjects !== null && subjects !== '' && subjects.length !== 0) {
-        console.log("Succes Subjects: " + subjects);
+        console.log("Success Subjects: " + subjects);
         // Load content from subjects
         $(function () {
             $.each(subjects, function (key, body) {
 
                 $('#subjectList').after(' ' +
                     '<li>' +
-                    '   <a id="subject' + body.id + '" class="waves-effect waves-cyan white-text" target="_self" href="subject.html">' +
+                    '   <a id="subject' + body.id + '" class="waves-effect waves-cyan white-text" onclick="subjectChat(\'subject' + body.id + '\')" href="subject.html">' +
                     '       <i class="material-icons white-text">pages</i>' +
                     '       <span class="nav-text">' + body.name + '</span>' +
                     '   </a>' +
