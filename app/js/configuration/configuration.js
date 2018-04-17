@@ -41,7 +41,7 @@ function subjectID(subjectID, subjectKey) {
 
     //Sets subject room
     var subjectRoom = JSON.parse($.session.get('subjects'));
-    // $.session.set('chatRoom', subjectRoom[0].name);
+    $.session.set('chatRoom', subjectRoom[subjectKey].name);
     console.log("News Subject Room: " + subjectRoom[subjectKey].name);
 }
 
