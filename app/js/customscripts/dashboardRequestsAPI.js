@@ -36,7 +36,7 @@ function addSubjectUser(subjectID) {
                     success: function (data, textStatus, xhr) {
                         if (xhr.status == 200 || xhr.status == 304) {
                             console.log("Refresh user OK: " + data.data);
-                            setUserSessionData(data, xhr);
+                            setUserSessionData(data);
                         }
                         else if (xhr.status == 400) {
                             console.log("Status: " + xhr.status);

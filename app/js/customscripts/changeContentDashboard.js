@@ -13,11 +13,11 @@ function setUsersData() {
     $('#milestone').text($.session.get('milestone'));
     $('#currency').text($.session.get('currency'));
     var subjects = JSON.parse($.session.get('subjects'));
-    console.log("setUserData Subjects: " + subjects);
+    console.log("setUserData Subjects: " + JSON.stringify(subjects));
 
     console.log(subjects.length);
     if (subjects !== null && subjects !== '' && subjects.length !== 0) {
-        console.log("Success Subjects: " + subjects);
+        console.log("Success Subjects: " + JSON.stringify(subjects));
         // Load content from subjects
         $(function () {
             $.each(subjects, function (key, body) {
@@ -34,7 +34,7 @@ function setUsersData() {
             });
         });
     } else {
-        console.log("Error-No-Subjects: " + subjects);
+        console.log("Error-No-Subjects: " + JSON.stringify(subjects));
     }
 };
 

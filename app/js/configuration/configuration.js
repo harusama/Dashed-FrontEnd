@@ -2,12 +2,12 @@
 
 var urls = {};
 //Server
-urls.base = 'https://dash-ed-api.herokuapp.com/v1/';
-urls.chat = 'https://dash-ed-api.herokuapp.com/';
+// urls.base = 'https://dash-ed-api.herokuapp.com/v1/';
+// urls.chat = 'https://dash-ed-api.herokuapp.com/';
 
 //Local
-//urls.base = 'http://localhost:3000/v1/';
-//urls.chat = 'http://localhost:3000/';
+urls.base = 'http://localhost:3000/v1/';
+urls.chat = 'http://localhost:3000/';
 
 //Relatives
 urls.usersScope = 'users/';
@@ -19,9 +19,12 @@ urls.postScope = 'posts';
 //Session
 // var userSession = $.session.get('userData');
 
-function setUserSessionData(data, xhr) {
+function setUserToken(xhr) {
+    $.session.set('token', xhr.getResponseHeader('x-auth'));
+}
+function setUserSessionData(data) {
     Cookies.set("userData", data);
-    console.log(data.data);
+    console.log("Set user session data: " + JSON.stringify(data.data));
     $.session.set('userData', data.data);
     $.session.set('username', data.data.username);
     $.session.set('name', data.data.firstName);
@@ -29,7 +32,6 @@ function setUserSessionData(data, xhr) {
     $.session.set('currency', data.data.coins);
     $.session.set('milestone', data.data.experience);
     $.session.set('StatusUser', 'Login');
-    $.session.set('token', xhr.getResponseHeader('x-auth'));
     $.session.set('subjects', JSON.stringify(data.data.subjects));
 }
 

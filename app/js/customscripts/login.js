@@ -83,7 +83,8 @@ function userLogin(email, password) {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 201) {
-                setUserSessionData(data, xhr);
+                setUserSessionData(data);
+                setUserToken(xhr);
                 window.location.href = './dashboard.html';
             }
             else {
