@@ -48,7 +48,7 @@ socket.on('updateUserList', function (users) {
        console.log('newActiveUser', user);
        var template = jQuery('#active-users-template').html();
        var html = Mustache.render(template, {
-           username: user.id,
+           username: user.name,
            userColor: user.color
        });
        jQuery('#users-collection').append(html);

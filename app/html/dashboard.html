@@ -219,7 +219,20 @@ Author: JirenSama
                     </a>
                 </li>
                 <div id="subjectList" class="divider"></div>
+                <li>
+                    <a class="waves-effect waves-cyan white-text" onclick="changeTab()">
+                        <i class="material-icons white-text">photo_filter</i>
+                        <span class="nav-text">Add subject</span>
+                    </a>
+                </li>
+                <div class="divider"></div>
             </ul>
+            <script>
+                function changeTab() {
+                    console.log("Tab change.");
+                    $("#addSubTab").trigger('click');
+                }
+            </script>
             <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">
                 <i class="material-icons">menu</i>
             </a>
@@ -235,7 +248,7 @@ Author: JirenSama
                 </div>
                 <div class="divider"></div>
                 <div class="col s12">
-                    <ul class="tabs">
+                    <ul id="dashTabs" class="tabs">
                         <li class="tab col s3"><a class="active changeTitle blue-grey-text" href="#userDashboard">Dashboard</a></li>
                         <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#userStatistics">Statistics</a></li>
                         <li class="tab col s3"><a class="changeTitle blue-grey-text" href="#donate">Donate</a></li>
