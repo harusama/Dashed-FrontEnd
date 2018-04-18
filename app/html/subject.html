@@ -454,7 +454,7 @@ Author: Edgardo
                                           <h6 class="collections-title">{{title}}</h6>
                                           <p class="collections-content">{{description}}</p>
                                           <p class="collections-content">Resource: {{resource}}</p>
-                                          <ul class="comments">
+                                          <ul id="comment-post-{{id}}" class="comments">
                                              <p class="collections-title">Comments</p>
                                           </ul>
                                        </div>
@@ -464,7 +464,7 @@ Author: Edgardo
 
                               <script id="comment-template" type="text/template">
                                  <li class="comment {{id}}">
-                                    <h6 class="collections-title username">{{username}}</h6>
+                                    <h6 class="collections-title username">By user: {{username}}</h6>
                                     <p class="collections-content">{{description}}</p>
                                  </li>
                               </script>

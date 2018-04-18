@@ -128,6 +128,12 @@ function setSubNews(news) {
     });
 }
 
+// <script id="comment-template" type="text/template">
+//     <li class="comment {{id}}">
+//     <h6 class="collections-title username">{{username}}</h6>
+// <p class="collections-content">{{description}}</p>
+// </li>
+// </script>
 function fillPosts(post) {
     console.log('fillSubjectPosts: ', post);
     $.each(post, function (key, body) {
@@ -140,6 +146,18 @@ function fillPosts(post) {
             resource: body.resource
         });
         jQuery('#topic-collection').append(html);
+
+        // console.log("comments array: " + body.comments);
+        $.each(body.comments, function (key, body) {
+            // console.log("Comments: " + body.id);
+            var comment = jQuery('#comment-template').html();
+            var html = Mustache.render(comment, {
+                id: body.id,
+                description: body.description,
+                username: body.userId,
+            });
+            jQuery('#comment-post-' + body.id).append(html);
+        });
     });
 }
 
