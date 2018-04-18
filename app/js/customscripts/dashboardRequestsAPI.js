@@ -112,41 +112,34 @@ function setSubjTemplate(subjectList) {
     });
 }
 function addSubject() {
-    var subjectList = $.session.get('subjectList');
-    console.log("Inside addSubject");
-    if (subjectList === null && subjectList === '' && subjectList.length === 0){
-        // Request to API for subject list information.
-        $.ajax({
-            type: "GET",
-            url: urls.base + urls.subjectScope,
-            headers: {
-                // "Authorization": "" ,
-                "x-auth": $.session.get('token'),
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            success: function (data, textStatus, xhr) {
-                if (xhr.status == 200 || xhr.status == 304) {
-                    console.log("Status: " + xhr.status);
-                    $.session.set('subjectList', JSON.stringify(data.data));
-                    console.log("New subjectList created:" + $.session.get('subjectList'));
-                    subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
-                    setSubjTemplate(subjectList);
-                }
-                else if (xhr.status == 400) {
-                    console.log("Status: " + xhr.status);
-                }
-                else if (xhr.status == 404) {
-                    console.log("Status: " + xhr.status);
-                } else {
-                    console.log("Status: " + xhr.status);
-                }
+    // Request to API for subject list information.
+    $.ajax({
+        type: "GET",
+        url: urls.base + urls.subjectScope,
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        success: function (data, textStatus, xhr) {
+            if (xhr.status == 200 || xhr.status == 304) {
+                console.log("Status: " + xhr.status);
+                $.session.set('subjectList', JSON.stringify(data.data));
+                console.log("New subjectList created:" + JSON.parse($.session.get('subjectList')));
+                subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
+                setSubjTemplate(subjectList);
             }
-        });
-    } else {
-        subjectList = JSON.parse($.session.get('subjectList'));//Get data in JSON. //TODO:Preguntar si hacer get en cada uno es mejor o variables globales.
-        setSubjTemplate(subjectList);
-    }
+            else if (xhr.status == 400) {
+                console.log("Status: " + xhr.status);
+            }
+            else if (xhr.status == 404) {
+                console.log("Status: " + xhr.status);
+            } else {
+                console.log("Status: " + xhr.status);
+            }
+        }
+    });
 }
 
 function returnToReportOptions() {
