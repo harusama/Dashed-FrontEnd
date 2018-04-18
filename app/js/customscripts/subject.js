@@ -128,6 +128,21 @@ function setSubNews(news) {
     });
 }
 
+function fillPosts(post) {
+    console.log('fillSubjectPosts: ', post);
+    $.each(post, function (key, body) {
+        var template = jQuery('#post-template').html();
+        var html = Mustache.render(template, {
+            id: body.id,
+            title: body.title,
+            description: body.description,
+            username: body.username,
+            resource: body.resource
+        });
+        jQuery('#topic-collection').append(html);
+    });
+}
+
 function setSubjectContent() {
     console.log("Ajax GET request to: " + urls.base + urls.subjectScope + '/' + $.session.get('subjectID'));
 //    Get subject content
@@ -144,6 +159,7 @@ function setSubjectContent() {
             if (xhr.status == 200 || xhr.status == 304) {
                 console.log("Status: " + xhr.status);
                 console.log("Data from GET Subjects: " + data.data);
+                fillPosts(data.data.posts);
             }
             else if (xhr.status == 400) {
                 console.log("Error: " + xhr.status);
