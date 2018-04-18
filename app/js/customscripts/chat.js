@@ -43,17 +43,24 @@ socket.on('disconnect', function () {
 
 socket.on('updateUserList', function (users) {
    $('#users-collection').html('<li class="collection-item avatar"><i class= "material-icons cyan circle">account_box</i><h5 class="collection-header m-0">Users in chat</h5></li>');
-   
+
    users.forEach(function (user) {
-      $('#users-collection').append(
-         '<li class="collection-item">' +
-         '   <div class="row">' +
-         '       <div class="col s6">' +
-         '           <h6 class="collections-title" style="color:' + user.color + '">' + user.name + '</h6>' +
-         '       </div>' +
-         '   </div>' +
-         '</li>'
-      );
+       console.log('newActiveUser', user);
+       var template = jQuery('#active-users-template').html();
+       var html = Mustache.render(template, {
+           username: user.id,
+           userColor: user.color
+       });
+       jQuery('#users-collection').append(html);
+      // $('#users-collection').append(
+      //    '<li class="collection-item">' +
+      //    '   <div class="row">' +
+      //    '       <div class="col s6">' +
+      //    '           <h6 class="collections-title" style="color:' + user.color + '">' + user.name + '</h6>' +
+      //    '       </div>' +
+      //    '   </div>' +
+      //    '</li>'
+      // );
    });
 });
    
