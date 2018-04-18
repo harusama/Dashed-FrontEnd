@@ -524,19 +524,20 @@ Author: Edgardo
                                     var date = new Date();
                                     document.getElementById("sNewsDate").innerHTML =  date;
                                 </script>
-                                <!-- News-card -->
+
                                 <script id="news-subject-template" type="text/template">
                                     <li class="collection-item news" newsId="{{id}}">
                                         <div class="row">
-                                            <div class="col s6">
-                                                <h6 class="collections-title">{{title}}</h6>
-                                                <p class="collections-content">{{date}}</p>
-                                                <a target="_blank" href="{{link}}">Go to source!</a>
-                                            </div>
+                                            <a class="collections-title" style="font-size: large">{{title}}</a>
+                                            <p class="collections-content">{{date}}
+                                            </p>
+                                            <a href="{{link}}" class="secondary-content">
+                                                <span class="ultra-small">Go to source!</span>
+                                            </a>
                                         </div>
                                     </li>
                                 </script>
-
+                                <!-- News-card -->
                             </div>
                         </div>
                     </div>
