@@ -85,6 +85,11 @@ div.reportErrorTitle {
 }
 /*End report error texts*/
 
+/*Start Nav*/
+div.rounded-nav {
+    border-radius: 10px;
+}
+/*End Nav*/
 /*Start Dashboard Cards*/
 div.db-card-container {
     padding-left: 25%;

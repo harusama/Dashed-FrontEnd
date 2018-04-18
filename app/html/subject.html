@@ -386,16 +386,17 @@ Author: Edgardo
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="row">
-                                            <div class="col s12 card-panel gradient-45deg-semi-dark header-search-wrapper hide-on-med-and-down">
-                                                <div class="col s2 m1">
-                                                    <i class="material-icons white-text">search</i>
+                                            <nav style="border-radius: 30px">
+                                                <div class="rounded-nav nav-wrapper gradient-45deg-semi-dark">
+                                                    <div class="input-field">
+                                                        <input id="searchTopic" type="search" class="header-search-input z-depth-2"
+                                                               placeholder="Search posts"
+                                                               onkeyup="searchTopics()">
+                                                        <label class="label-icon" for="searchTopic"><i class="material-icons medium">search</i></label>
+                                                        <i class="material-icons">close</i>
+                                                    </div>
                                                 </div>
-                                                <div class="col s10 m11">
-                                                    <input type="text" id="searchTopic" name="Search"
-                                                           class="header-search-input z-depth-2 white-text"
-                                                           placeholder="Search posts" onkeyup="searchTopics()"/>
-                                                </div>
-                                            </div>
+                                            </nav>
                                         </div>
                                         <div class="row">
                                             <ul id="topic-collection" class="collection z-depth-1">
