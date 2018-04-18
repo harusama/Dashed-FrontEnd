@@ -393,7 +393,7 @@ Author: Edgardo
                                                                placeholder="Search posts"
                                                                onkeyup="searchTopics()">
                                                         <label class="label-icon" for="searchTopic"><i class="material-icons medium">search</i></label>
-                                                        <i class="material-icons">close</i>
+                                                        <i class="material-icons right">close</i>
                                                     </div>
                                                 </div>
                                             </nav>
@@ -419,18 +419,12 @@ Author: Edgardo
                             <div class="col s4">
                                 <div class="row">
                                     <div class="col s12">
-                                        <ul id="users-collection" class="collection z-depth-1 chat__users">
-                                            <li class="collection-item avatar">
-                                                <i class="material-icons cyan circle">account_box</i>
-                                                <h5 class="collection-header m-0">Users in chat</h5>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <a>Chat</a>
                                         <div class="card">
+                                            <div class="card-content gradient-45deg-green-teal">
+                                                <div class="card-header">
+                                                    <span class="card-title white-text">Chat</span>
+                                                </div>
+                                            </div>
                                             <div class="card-content">
                                                 <ol id="messages" class="chat__messages"></ol>
                                             </div>
@@ -438,7 +432,7 @@ Author: Edgardo
                                                 <form id="message-form">
                                                     <input name="message" type="text" placeholder="Message" autofocus
                                                            autocomplete="off"/>
-                                                    <button class="btn waves-effect waves-light " type="submit" name="action">Send
+                                                    <button class="btn waves-effect waves-light" type="submit" name="action">Send
                                                         <i class="material-icons right">send</i>
                                                     </button>
                                                 </form>
@@ -824,94 +818,16 @@ Author: Edgardo
                                 </li>
                             </ul>
                         </div>
+                        <!--<a href="#!" class="collection-item avatar border-none">-->
+                        <!--<img src="../assets/images/avatar/avatar-1.png" alt="" class="circle cyan">-->
+                        <!--<span class="line-height-0">Elizabeth Elliott </span>-->
+                        <!--<span class="medium-small right blue-grey-text text-lighten-3">5.00 AM</span>-->
+                        <!--<p class="medium-small blue-grey-text text-lighten-3">Thank you </p>-->
+                        <!--</a>-->
                         <div id="chatapp" class="col s12">
                             <div class="collection border-none">
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-1.png" alt="" class="circle cyan">
-                                    <span class="line-height-0">Elizabeth Elliott </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">5.00 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-2.png" alt=""
-                                         class="circle deep-orange accent-2">
-                                    <span class="line-height-0">Mary Adams </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Hello Boo </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
-                                    <span class="line-height-0">Caleb Richards </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">9.00 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Keny ! </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-4.png" alt="" class="circle cyan">
-                                    <span class="line-height-0">June Lane </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">4.14 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Ohh God </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-5.png" alt="" class="circle red accent-2">
-                                    <span class="line-height-0">Edward Fletcher </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">5.15 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Love you </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-6.png" alt=""
-                                         class="circle deep-orange accent-2">
-                                    <span class="line-height-0">Crystal Bates </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">8.00 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Can we </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-7.png" alt="" class="circle cyan">
-                                    <span class="line-height-0">Nathan Watts </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">9.53 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Great! </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-8.png" alt="" class="circle red accent-2">
-                                    <span class="line-height-0">Willard Wood </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">4.20 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Do it </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-9.png" alt="" class="circle teal accent-4">
-                                    <span class="line-height-0">Ronnie Ellis </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">5.30 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Got that </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-1.png" alt="" class="circle cyan">
-                                    <span class="line-height-0">Gwendolyn Wood </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">4.34 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Like you </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-2.png" alt="" class="circle red accent-2">
-                                    <span class="line-height-0">Daniel Russell </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">12.00 AM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Thank you </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-3.png" alt="" class="circle teal accent-4">
-                                    <span class="line-height-0">Sarah Graves </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">11.14 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Okay you </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-4.png" alt="" class="circle red accent-2">
-                                    <span class="line-height-0">Andrew Hoffman </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">7.30 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Can do </p>
-                                </a>
-                                <a href="#!" class="collection-item avatar border-none">
-                                    <img src="../assets/images/avatar/avatar-5.png" alt="" class="circle cyan">
-                                    <span class="line-height-0">Camila Lynch </span>
-                                    <span class="medium-small right blue-grey-text text-lighten-3">2.00 PM</span>
-                                    <p class="medium-small blue-grey-text text-lighten-3">Leave it </p>
-                                </a>
+                                <ul id="users-collection">
+                                </ul>
                             </div>
                         </div>
                         <div id="activity" class="col s12">
