@@ -502,17 +502,41 @@ Author: Edgardo
                                         </div>
                                     </li>
                                 </script>
+                                <!-- News-card -->
                                 <div class="row">
-                                    <div class="col s12">
-                                        <a>News</a>
-                                        <ul id="news-collection" class="collection z-depth-1">
-                                            <li class="collection-item avatar">
-                                                <i class="material-icons cyan circle">public</i>
-                                                <h5 class="collection-header m-0">News</h5>
+                                    <div class="col s12 m12">
+                                        <ul id="news-collection" class="collection with-header">
+                                            <li class="collection-header gradient-45deg-blue-grey-blue">
+                                                <div class="row">
+                                                    <div class="col s2 m2 text-align" style="padding-top: .4rem">
+                                                        <i class="material-icons medium white circle">public</i>
+                                                    </div>
+                                                    <div class="col s10 m10">
+                                                        <h4 class="task-card-title white-text">News</h4>
+                                                        <p id="sNewsDate" class="date task-card-date white-text"></p>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                                <script>
+                                    var date = new Date();
+                                    document.getElementById("sNewsDate").innerHTML =  date;
+                                </script>
+                                <!-- News-card -->
+                                <script id="news-subject-template" type="text/template">
+                                    <li class="collection-item news" newsId="{{id}}">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <h6 class="collections-title">{{title}}</h6>
+                                                <p class="collections-content">{{date}}</p>
+                                                <a target="_blank" href="{{link}}">Go to source!</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </script>
+
                             </div>
                         </div>
                     </div>

@@ -112,28 +112,20 @@ function searchTopics() {
     }
 }
 
-function setSubNews(news) {
+function fillNews(news) {
+    console.log("Subject News: ", news);
     $.each(news, function (key, body) {
-        $('#news-collection').append(' ' +
-            '<li class="collection-item">' +
-            '   <div class="row">' +
-            '       <div class="col s6">' +
-            '           <h6 class="collections-title">' + body.Title + '</h6>' +
-            '           <p class="collections-content">' + body.Description + '</p>' +
-            (body.Link != '' ? '<a href="' + body.Link + '">Check the conntent</a>' : '') +
-            '       </div>' +
-            '   </div>' +
-            '</li>');
-
+        var template = jQuery('#news-subject-template').html();
+        var html = Mustache.render(template, {
+            id: body.id,
+            title: body.name,
+            date: body.datePublished,
+            link: body.resource
+        });
+        jQuery('#news-collection').append(html);
     });
 }
 
-// <script id="comment-template" type="text/template">
-//     <li class="comment {{id}}">
-//     <h6 class="collections-title username">{{username}}</h6>
-// <p class="collections-content">{{description}}</p>
-// </li>
-// </script>
 function fillPosts(post) {
     console.log('fillSubjectPosts: ', post);
     $.each(post, function (key, body) {
@@ -175,9 +167,10 @@ function setSubjectContent() {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 200 || xhr.status == 304) {
-                console.log("Status: " + xhr.status);
-                console.log("Data from GET Subjects: " + data.data);
+                console.log("Status: ", xhr.status);
+                console.log("Data from GET Subjects: ", data.data);
                 fillPosts(data.data.posts);
+                fillNews(data.data.news);
             }
             else if (xhr.status == 400) {
                 console.log("Error: " + xhr.status);
@@ -192,7 +185,7 @@ function setSubjectContent() {
 }
 
 function createPostRequest(data) {
-    console.log("\nData create new post: " + JSON.stringify(data));
+    console.log("\nData create new post: ", data);
     //POST request for creating post. https://dash-ed.herokuapp.com/v1/posts
     $.ajax({
         type: "POST",
@@ -214,17 +207,17 @@ function createPostRequest(data) {
 
         complete: function (xhr, settings) {
             if (xhr.status == 201) {
-                console.log("Status: " + xhr.status);
+                console.log("Status: ", xhr.status);
             }
             else if (xhr.status == 404) {
-                console.log("Status: " + xhr.status);
+                console.log("Status: ", xhr.status);
 
             }
             else if (xhr.status == 400) {
-                console.log("Status: " + xhr.status);
+                console.log("Status: ", xhr.status);
 
             } else {
-                console.log("Status: " + xhr.status);
+                console.log("Status: ", xhr.status);
             }
         }
     });
