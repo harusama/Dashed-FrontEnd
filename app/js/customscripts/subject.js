@@ -1,91 +1,3 @@
-var subjects = [
-    {
-        "subjectID": 1,
-        "subjectName": "Subject 1",
-        "CampusType": "CampusType 1",
-        "genderTopic": "Math",
-        "contentName": "Math 1",
-        "ContentDescription": "Math Description 1",
-        "units": [
-            {
-                "unitID": 1,
-                "unitNumber": 1,
-                "unitName": "S1 Unit 1",
-                "unitDescription": "S1 Unit D",
-                "chapters": [
-                    {
-                        "chapterID": 1,
-                        "chapterNumber": 1,
-                        "chapterName": "Chapter Name 1",
-                        "chapterDescription": "Chapter Description 1",
-                        "lessons": [
-                            {
-                                "lessonID": 1,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 1",
-                                "lessonDescription": "Lesson Description 1"
-                            },
-                            {
-                                "lessonID": 2,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 2",
-                                "lessonDescription": "Lesson Description 2"
-                            }
-                        ]
-                    },
-                    {
-                        "chapterID": 2,
-                        "chapterNumber": 2,
-                        "chapterName": "Chapter Name 2",
-                        "chapterDescription": "Chapter Description 2",
-                        "lessons": [
-                            {
-                                "lessonID": 1,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 1",
-                                "lessonDescription": "Lesson Description 1"
-                            },
-                            {
-                                "lessonID": 2,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 2",
-                                "lessonDescription": "Lesson Description 2"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "unitID": 2,
-                "unitNumber": 2,
-                "unitName": "S1 Unit 2",
-                "unitDescription": "S1 Unit D",
-                "chapters": [
-                    {
-                        "chapterID": 2,
-                        "chapterNumber": 2,
-                        "chapterName": "Chapter Name 1",
-                        "chapterDescription": "Chapter Description 1",
-                        "lessons": [
-                            {
-                                "lessonID": 1,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 1",
-                                "lessonDescription": "Lesson Description 1"
-                            },
-                            {
-                                "lessonID": 2,
-                                "lessonNumber": 1,
-                                "lessonName": "Lesson Name 2",
-                                "lessonDescription": "Lesson Description 2"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-];
 
 // Validate if user is logger
 $(function () {
@@ -153,6 +65,12 @@ function fillPosts(post) {
     });
 }
 
+function fillSubjects(units) {
+    $('#subject-collection').append(getUnits(units));
+    //This function (collapsible) must be her to load de content dynamically
+    $('.collapsible').collapsible();
+}
+
 function setSubjectContent() {
     console.log("Ajax GET request to: " + urls.base + urls.subjectScope + '/' + $.session.get('subjectID'));
 //    Get subject content
@@ -171,6 +89,7 @@ function setSubjectContent() {
                 console.log("Data from GET Subjects: ", data.data);
                 fillPosts(data.data.posts);
                 fillNews(data.data.news);
+                fillSubjects(data.data.units);
             }
             else if (xhr.status == 400) {
                 console.log("Error: " + xhr.status);
@@ -235,14 +154,14 @@ function getUnits(unit) {
         html +=
             '<li> ' +
             '       <div class="collapsible-header">' +
-            '           <i class="material-icons">list</i> Unit ' + ' ' + body.unitNumber + ' - ' + body.unitName +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + body.unitID + '"><i class="material-icons">add</i></a>' +
+            '           <i class="material-icons">list</i> Unit ' + ' ' + body.number + ' - ' + body.name +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + body.id + '"><i class="material-icons">add</i></a>' +
             '       </div>' +
             '       <div class="collapsible-body">' +
             '           <div class="row">' +
             '               <div class="col s12 m12">' +
             '                   <ul class="collapsible" data-collapsible="accordion">' +
-            getChapters(body.chapters, body.unitID) +
+            getChapters(body.chapters, body.id) +
             '                   </ul>' +
             '               </div>' +
             '           </div>' +
@@ -261,14 +180,14 @@ function getChapters(chapter, idUnit) {
         html +=
             '<li > ' +
             '   <div class="collapsible-header">' +
-            '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.chapterNumber + ' - ' + body.chapterName +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + body.chapterID + '"><i class="material-icons">add</i></a>' +
+            '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.number + ' - ' + body.name +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + body.id + '"><i class="material-icons">add</i></a>' +
             '   </div>' +
             '   <div class="collapsible-body">' +
             '           <div class="row">' +
             '               <div class="col s12 m12">' +
             '                   <ul class="collapsible" data-collapsible="accordion">' +
-            getLessons(body.lessons, idUnit, body.chapterID) +
+            getLessons(body.lessons, idUnit, body.id) +
             '                   </ul>' +
             '               </div>' +
             '           </div>' +
@@ -287,12 +206,11 @@ function getLessons(lesson, idUnit, chpaterID) {
         html +=
             '<li>' +
             '       <div class="collapsible-header">' +
-            '           <i class="material-icons">label</i>' + body.lessonName +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + chpaterID + '-L-' + body.lessonID + '"><i class="material-icons">add</i></a>' +
-
+            '           <i class="material-icons">label</i>' + body.name +
+            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + chpaterID + '-L-' + body.id + '"><i class="material-icons">add</i></a>' +
             '       </div>' +
             '      <div class="collapsible-body">' +
-            '           <p>' + body.lessonDescription + '</p>' +
+            '           <p>' + body.description + '</p>' +
             '       </div>' +
             '</li>'
 
@@ -313,17 +231,6 @@ $(document).ready(function () {
     //
     //     toggleBetweenPostSubj();
     // });
-
-    $(function () {
-        $.each(subjects, function (key, body) {
-            $('#subject-collection').append(getUnits(body.units));
-
-        });
-        //This function (collapsible) must be her to load de content dynamically
-        $('.collapsible').collapsible();
-
-    });
-
     $('div').on('click', 'a.Add-Element', function (event) {
         event.stopPropagation();
         // alert("target = " + event.target.tagName + ", this=" + this.tagName);
