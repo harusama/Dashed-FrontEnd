@@ -421,7 +421,7 @@ Author: Edgardo
                                                 <form id="message-form">
                                                     <input name="message" type="text" placeholder="Message"
                                                            autocomplete="off"/>
-                                                    <button class="btn waves-effect waves-light" type="submit" name="action">Send
+                                                    <button class="btn waves-effect waves-light gradient-45deg-green-teal" type="submit" name="action">Send
                                                         <i class="material-icons right">send</i>
                                                     </button>
                                                 </form>
@@ -434,13 +434,26 @@ Author: Edgardo
                                  <li class="collection-item {{id}}">
                                     <div class="row">
                                        <div class="col s12">
-                                          <h6 class="collections-title username">{{username}}</h6>
-                                          <h6 class="collections-title">{{title}}</h6>
-                                          <p class="collections-content">{{description}}</p>
-                                          <p class="collections-content">Resource: {{resource}}</p>
-                                          <ul id="comment-post-{{id}}" class="comments">
+                                           <h6 class="collections-title username">{{username}}</h6>
+                                           <h6 class="collections-title">{{title}}</h6>
+                                           <p class="collections-content">{{description}}</p>
+                                           <p class="collections-content">Resource: {{resource}}</p>
+                                           <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
+                                               <div class="row">
+                                                   <div class="input-field col s12">
+                                                       <textarea id="textarea{{id}}" class="materialize-textarea" name="textarea{{id}}"></textarea>
+                                                       <label for="textarea{{id}}" class="collections-title">Add comment:</label>
+                                                   </div>
+                                               </div>
+                                               <div class="row">
+                                                   <a class="btn waves-effect waves-light blue right" onclick="addPostComment({{id}})" name="action">Add comment
+                                                       <i class="material-icons right">send</i>
+                                                   </a>
+                                               </div>
+                                           </form>
+                                           <ul id="comment-post-{{id}}" class="comments">
                                              <p class="collections-title">Comments</p>
-                                          </ul>
+                                           </ul>
                                        </div>
                                     </div>
                                  </li>

@@ -140,6 +140,52 @@ function createPostRequest(data) {
     });
 }
 
+function addPostComment(id) {
+    console.log("\nData create new comment: ", id);
+    //Get information from text area.
+    var description = $('#addPostComment'+id).serializeArray()[0].value;
+    //POST request for creating comment on post. https://dash-ed.herokuapp.com/v1/comments
+    console.log("url: ",  urls.base + urls.commentScope);
+    console.log("ID: ", id);
+    console.log("Description: ", description);
+    console.log("postID", id);
+    console.log("subjectID", parseInt($.session.get('subjectID')));
+
+    $.ajax({
+        type: "POST",
+        url: urls.base + urls.commentScope,
+        data: JSON.stringify({
+            "description": description,
+            "postId": parseInt(id),
+            "subjectId": parseInt($.session.get('subjectID'))
+        }),
+        dataType: "json",
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+
+        complete: function (xhr, settings) {
+            if (xhr.status == 201) {
+                console.log("Status: ", xhr.status);
+                $('#addPostComment'+id).trigger('reset');
+            }
+            else if (xhr.status == 404) {
+                console.log("Status: ", xhr.status);
+
+            }
+            else if (xhr.status == 400) {
+                console.log("Status: ", xhr.status);
+
+            } else {
+                console.log("Status: ", xhr.status);
+            }
+        }
+    });
+}
+
 function toggleBetweenPostSubj() {
     $('#subjectContainer').toggle();
     $('#postContainer').toggle();
