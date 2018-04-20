@@ -16,15 +16,12 @@ function scrollToBottom() {
 }
 
 socket.on('connect', function () {
-   console.log('Connected to server');
    var username = $.session.get('username');
    var room = 'Error_With_Room';
    var chatRoom = $.session.get('chatRoom');
 
    if (chatRoom !== null && chatRoom !== '' && chatRoom.length !== 0) {
-       console.log("Chat Room: " + chatRoom);
        room = chatRoom;
-       console.log("Room: " + room);
    }
 
    socket.emit('join', {'name': username, 'room': room}, function (err) {
@@ -45,7 +42,6 @@ socket.on('updateUserList', function (users) {
    $('#users-collection').html('<li class="collection-item avatar"><i class= "material-icons cyan circle">account_box</i><h5 class="collection-header m-0">Users in chat</h5></li>');
 
    users.forEach(function (user) {
-       console.log('newActiveUser', user);
        var template = jQuery('#active-users-template').html();
        var html = Mustache.render(template, {
            username: user.name,
@@ -94,7 +90,6 @@ function addMessage(message, template) {
 }
 
 socket.on('newPost', function (post) {
-   console.log('newPost', post);
    var template = jQuery('#post-template').html();
    var html = Mustache.render(template, {
       id: post.id,
@@ -107,7 +102,6 @@ socket.on('newPost', function (post) {
 });
 
 socket.on('newComment', function (comment) {
-   console.log('newComment', comment);
    var template = jQuery('#comment-template').html();
    var html = Mustache.render(template, {
       id: comment.id,

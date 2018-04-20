@@ -1,4 +1,3 @@
-
 // Validate if user is logger
 $(function () {
     console.log($.session.get('StatusUser'));
@@ -39,7 +38,6 @@ function fillNews(news) {
 }
 
 function fillPosts(post) {
-    console.log('fillSubjectPosts: ', post);
     $.each(post, function (key, body) {
         var template = jQuery('#post-template').html();
         var html = Mustache.render(template, {
@@ -72,7 +70,7 @@ function fillSubjects(units) {
 }
 
 function setSubjectContent() {
-    console.log("Ajax GET request to: " + urls.base + urls.subjectScope + '/' + $.session.get('subjectID'));
+    //console.log("Ajax GET request to: " + urls.base + urls.subjectScope + '/' + $.session.get('subjectID'));
 //    Get subject content
     $.ajax({
         type: "GET",
@@ -85,8 +83,8 @@ function setSubjectContent() {
         },
         success: function (data, textStatus, xhr) {
             if (xhr.status == 200 || xhr.status == 304) {
-                console.log("Status: ", xhr.status);
-                console.log("Data from GET Subjects: ", data.data);
+                //console.log("Status: ", xhr.status);
+                // console.log("Data from GET Subjects: ", data.data);
                 fillPosts(data.data.posts);
                 fillNews(data.data.news);
                 fillSubjects(data.data.units);
@@ -155,7 +153,7 @@ function getUnits(unit) {
             '<li> ' +
             '       <div class="collapsible-header">' +
             '           <i class="material-icons">list</i> Unit ' + ' ' + body.number + ' - ' + body.name +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + body.id + '"><i class="material-icons">add</i></a>' +
+            '           <a class="waves-effect waves-light btn Add-Element" id="u-' + body.id + '">Add</a>' +
             '       </div>' +
             '       <div class="collapsible-body">' +
             '           <div class="row">' +
@@ -181,7 +179,7 @@ function getChapters(chapter, idUnit) {
             '<li > ' +
             '   <div class="collapsible-header">' +
             '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.number + ' - ' + body.name +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + body.id + '"><i class="material-icons">add</i></a>' +
+            '           <a class="waves-effect waves-light btn Add-Element" id="u-' + idUnit + '-ch-' + body.id + '">Add</a>' +
             '   </div>' +
             '   <div class="collapsible-body">' +
             '           <div class="row">' +
@@ -207,7 +205,7 @@ function getLessons(lesson, idUnit, chpaterID) {
             '<li>' +
             '       <div class="collapsible-header">' +
             '           <i class="material-icons">label</i>' + body.name +
-            '            <a class="btn-floating  waves-effect waves-light Add-Element" id="u-' + idUnit + '-ch-' + chpaterID + '-L-' + body.id + '"><i class="material-icons">add</i></a>' +
+            '           <a class="waves-effect waves-light btn Add-Element" id="u-' + idUnit + '-ch-' + chpaterID + '-L-' + body.id + '">Add</a>' +
             '       </div>' +
             '      <div class="collapsible-body">' +
             '           <p>' + body.description + '</p>' +
@@ -219,10 +217,18 @@ function getLessons(lesson, idUnit, chpaterID) {
 
 }
 
-
+function disabledEventPropagation(event)
+{
+    if (event.stopPropagation){
+        event.stopPropagation();
+    }
+    else if(window.event){
+        window.event.cancelBubble=true;
+    }
+}
 $(document).ready(function () {
 
-    console.log("Subjects: " + $.session.get('subjects'));
+    // console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
 
     // $('.goToPost').on('click', function (e) {
@@ -232,14 +238,33 @@ $(document).ready(function () {
     //     toggleBetweenPostSubj();
     // });
     $('div').on('click', 'a.Add-Element', function (event) {
-        event.stopPropagation();
+        disabledEventPropagation(event);
+
         // alert("target = " + event.target.tagName + ", this=" + this.tagName);
-        $('#sujectsElements-collections').append(
-            '<div class="chip">' +
-            this.id +
-            '   <i class="close material-icons">close</i>' +
-            '</div>'
-        );
+        var ids = $.map($('#sujectsElements-collections > div'), function (child) {
+            return child.id;
+        });
+
+        var parentDiv = $('#'+this.id).closest('li');
+        parentDiv.find('a').attr("disabled", true);
+
+        if (ids.indexOf(this.id) < 0) {
+            console.log("added");
+            $('#sujectsElements-collections').append(
+                '<div class="chip">' +
+                this.id +
+                '   <i class="close material-icons '+this.id +'">close</i>' +
+                '</div>'
+            );
+        }
+    });
+
+    $('body').on('click', 'i.close', function(event) {
+        event.preventDefault();
+        var id =  $(this).closest('div').text().split(" ")[0];
+        var parentDiv = $('#'+id).closest('li');
+        parentDiv.find('a').attr("disabled", false);
+
     });
 
 
