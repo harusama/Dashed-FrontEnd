@@ -49,15 +49,17 @@ function fillPosts(post) {
         });
         jQuery('#topic-collection').append(html);
 
-        // console.log("comments array: " + body.comments);
+        console.log("comments array: ", body.comments);
         $.each(body.comments, function (key, body) {
-            // console.log("Comments: " + body.id);
+            console.log("Comments id: ",  body.id);
+            console.log("Comments Body: ",  body.description);
             var comment = jQuery('#comment-template').html();
             var html = Mustache.render(comment, {
                 id: body.id,
                 description: body.description,
                 username: body.userId,
             });
+            console.log("Comments complete: ",  html);
             jQuery('#comment-post-' + body.id).append(html);
         });
     });
