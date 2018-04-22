@@ -104,21 +104,24 @@ $(function () {
 
 });
 
-function requestQuestions() {
+function approveListQuestions() {
 
+    console.log("GET Approve:", urls.base + urls.questionScope + "/" + urls.subjectScope + "/" + $.session.get('subjectID'));
+    console.log("Token", $.session.get('token'));
     // Request to API
     $.ajax({
         type: "GET",
         // Id of subject
-        url: urls.base + urls.questionScope + "/" + Cookies.get("subject"),
+        url: urls.base + urls.questionScope + "/" + urls.subjectScope + "/" + $.session.get('subjectID'),
         headers: {
             // "Authorization": "" ,
-            "X-API-KEY": Cookies.get("token"),
+            "x-auth": $.session.get("token"),
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
         success: function (data, textStatus, xhr) {
-            if (xhr.status == 201) {
+            if (xhr.status == 200) {
+                console.log("chkData:", data);
                 $.each(data, function (key, body) {
                     var question = getQuestion(body);
 
@@ -135,6 +138,7 @@ function requestQuestions() {
                 });
             }
             else {
+                console.log("chkQStatus:", xhr.status);
                 swal({
                     type: 'error',
                     position: 'top-end',
@@ -145,13 +149,15 @@ function requestQuestions() {
                     timer: 1500
                 }, function (isConfirm) {
                     if (isConfirm) {
-                        location.reload();
+                        // location.reload();
                     }
                 });
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR.status);
+            console.log("chkQStatus: 2: ", jqXHR.status);
+
             swal({
                 type: 'error',
                 position: 'top-end',
@@ -162,7 +168,7 @@ function requestQuestions() {
                 timer: 1500
             }, function (isConfirm) {
                 if (isConfirm) {
-                    location.reload();
+                    // location.reload();
                 }
             });
         }
@@ -233,57 +239,57 @@ function getQuestion(body) {
 }
 
 $(document).ready(function () {
-    $('.collapsible').collapsible();
-    $(function () {
-        $.each(questions, function (key, body) {
-            var question = getQuestion(body);
-
-            $('#question-list').append(
-                '<li id="question' + key + '">' +
-                '   <div class="collapsible-header">\n' +
-                '       <i class="material-icons">question_answer</i>' + body.descriptionText +
-                '   </div>' +
-                '   <div class="collapsible-body">' +
-                question +
-                '   </div>' +
-                '</li>');
-
-        });
-    });
-    $(document).on('click', '.approve', function (e) {
-        e.preventDefault();
-        swal({
-            type: 'success',
-            position: 'top-end',
-            title: "Question Approved!",
-            text: "Text!",
-            timer: 1500
-        });
-        // $("li, div").removeClass("active");
-        $(this).closest('li.active').hide();
-        // $(this).closest('li.active').hide();
-        // li.removeClass('active');
-        // li.closest('div.collapsible-header').removeClass('active');
-        // li.closest('div.collapsible-body').removeClass('active');
-
-    });
-    $(document).on('click', '.reject', function (e) {
-        e.preventDefault();
-        swal({
-            type: "input",
-            closeOnConfirm: false,
-            // showCancelButton: true,
-            inputPlaceholder: "Reason",
-            title: "Question Rejected!"
-        }, function (inputValue) {
-            if (inputValue === false) return false;
-            if (inputValue === "") {
-                swal.showInputError("You need to write something!");
-                return false
-            }
-            swal("Nice!", "You wrote: " + inputValue, "success");
-        });
-        $(this).closest('li.active').hide();
-    });
-
+    approveListQuestions();
+    // $('.collapsible').collapsible();
+    // $(function () {
+    //     $.each(questions, function (key, body) {
+    //         var question = getQuestion(body);
+    //
+    //         $('#question-list').append(
+    //             '<li id="question' + key + '">' +
+    //             '   <div class="collapsible-header">\n' +
+    //             '       <i class="material-icons">question_answer</i>' + body.descriptionText +
+    //             '   </div>' +
+    //             '   <div class="collapsible-body">' +
+    //             question +
+    //             '   </div>' +
+    //             '</li>');
+    //
+    //     });
+    // });
+    // $(document).on('click', '.approve', function (e) {
+    //     e.preventDefault();
+    //     swal({
+    //         type: 'success',
+    //         position: 'top-end',
+    //         title: "Question Approved!",
+    //         text: "Text!",
+    //         timer: 1500
+    //     });
+    //     // $("li, div").removeClass("active");
+    //     $(this).closest('li.active').hide();
+    //     // $(this).closest('li.active').hide();
+    //     // li.removeClass('active');
+    //     // li.closest('div.collapsible-header').removeClass('active');
+    //     // li.closest('div.collapsible-body').removeClass('active');
+    //
+    // });
+    // $(document).on('click', '.reject', function (e) {
+    //     e.preventDefault();
+    //     swal({
+    //         type: "input",
+    //         closeOnConfirm: false,
+    //         // showCancelButton: true,
+    //         inputPlaceholder: "Reason",
+    //         title: "Question Rejected!"
+    //     }, function (inputValue) {
+    //         if (inputValue === false) return false;
+    //         if (inputValue === "") {
+    //             swal.showInputError("You need to write something!");
+    //             return false
+    //         }
+    //         swal("Nice!", "You wrote: " + inputValue, "success");
+    //     });
+    //     $(this).closest('li.active').hide();
+    // });
 });

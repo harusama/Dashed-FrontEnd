@@ -90,6 +90,14 @@ function setSubjectContent() {
                 fillPosts(data.data.posts);
                 fillNews(data.data.news);
                 fillSubjects(data.data.units);
+
+                //Store subject information
+                $.session.set("subjectPosts", JSON.stringify(data.data.posts));
+                console.log("Posts", JSON.parse($.session.get('subjectPosts')));
+                $.session.set("subjectNews", JSON.stringify(data.data.news));
+                console.log("News", JSON.parse($.session.get('subjectNews')));
+                $.session.set("subjectUnits", JSON.stringify(data.data.units));
+                console.log("Units",JSON.parse($.session.get('subjectUnits')));
             }
             else if (xhr.status == 400) {
                 console.log("Error: " + xhr.status);
@@ -274,10 +282,26 @@ function disabledEventPropagation(event)
         window.event.cancelBubble=true;
     }
 }
+
+function initMaterialize() {
+    $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrainWidth: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left', // Displays dropdown with edge aligned to the left of button
+            stopPropagation: true // Stops event propagation
+        }
+    );
+}
 $(document).ready(function () {
 
     // console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
+
+    initMaterialize();
 
     // $('.goToPost').on('click', function (e) {
     //     e.preventDefault();
