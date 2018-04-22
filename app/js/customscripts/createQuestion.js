@@ -86,8 +86,8 @@ $(document).ready(function () {
                 "descriptionText": descriptionArea.val(),
                 "descriptionImage": "None",
                 "kind": parseInt(form.attr('name')),
-                "subjectId": parseInt($.session.get('subjectID')),
-                "answers": answers
+                "answers": answers,
+                "lessonId": 1
             }),
             headers: {
                 // "Authorization": "" ,

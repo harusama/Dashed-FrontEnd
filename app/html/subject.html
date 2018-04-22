@@ -53,12 +53,6 @@ Author: Edgardo
     <link href="../vendors/sweetalert/dist/sweetalert.css" type="text/css" rel="stylesheet">
     <script src="../vendors/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!--- W3 Schools library to import content -->
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
-
-    <!--- W3 Schools library to import content -->
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
-
     <!-- Custom JS -->
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -68,6 +62,7 @@ Author: Edgardo
     <script type="text/javascript" src="../js/customscripts/subject.js"></script>
     <script type="text/javascript" src="../js/customscripts/createQuestion.js"></script>
     <script type="text/javascript" src="../js/customscripts/checkQuestion.js"></script>
+    <script type="text/javascript" src="../js/customscripts/questions.js"></script>
 
     <!--Storage-->
     <script type="text/javascript" src="../js/customscripts/jStorage.js"></script>
@@ -592,32 +587,25 @@ Author: Edgardo
                         <nav class="nav-extended">
                             <div class="nav-content">
                                 <ul class="tabs tabs-transparent">
-                                    <li class="tab"><a class="active" href="#bridgeMap">Bridge</a></li>
-                                    <li class="tab"><a href="#mFlowMap">Multi-Flow</a></li>
-                                    <li class="tab"><a href="#fMap">Flow Map</a></li>
-                                    <li class="tab"><a href="#dBubbleMap">Double Bubble</a></li>
+                                    <li class="tab"><a class="active" href="#bridgemap">Bridge</a></li>
+                                    <li class="tab"><a href="#mflowmap">Multi-Flow</a></li>
+                                    <li class="tab"><a href="#fmap">Flow Map</a></li>
+                                    <li class="tab"><a href="#dbubblemap">Double Bubble</a></li>
                                     <li class="tab"><a href="#bubblemap">Bubble</a></li>
-                                    <li class="tab"><a href="#cFrameMap">Circle and Frame</a></li>
-                                    <li class="tab"><a href="#treeMap">Tree Map</a></li>
-                                    <li class="tab"><a href="#braceMap">Brace</a></li>
+                                    <li class="tab"><a href="#cframemap">Circle and Frame</a></li>
+                                    <li class="tab"><a href="#treemap">Tree Map</a></li>
+                                    <li class="tab"><a href="#bracemap">Brace</a></li>
                                 </ul>
                             </div>
                         </nav>
-                        <div id="bridgeMap" class="col s12" w3-include-html="../questions/bridgeMap.html"></div>
-                        <div id="mFlowMap" class="col s12" w3-include-html="../questions/mFlowMap.html"></div>
-                        <div id="fMap" class="col s12" w3-include-html="../questions/fMap.html"></div>
-                        <div id="dBubbleMap" class="col s12" w3-include-html="../questions/dBubbleMap.html"></div>
-                        <div id="bubblemap" class="col s12" w3-include-html="../questions/bubblemap.html"></div>
-                        <div id="cFrameMap" class="col s12" w3-include-html="../questions/cFrameMap.html"></div>
-                        <div id="treeMap" class="col s12" w3-include-html="../questions/treeMap.html"></div>
-                        <div id="braceMap" class="col s12" w3-include-html="../questions/braceMap.html"></div>
-
-
-                        <script>
-                            w3IncludeHTML();
-                        </script>
-
-
+                        <div id="bridgemap" class="col s12"></div>
+                        <div id="mflowmap" class="col s12"></div>
+                        <div id="fmap" class="col s12"></div>
+                        <div id="dbubblemap" class="col s12"></div>
+                        <div id="bubblemap" class="col s12"></div>
+                        <div id="cframemap" class="col s12"></div>
+                        <div id="treemap" class="col s12"></div>
+                        <div id="bracemap" class="col s12"></div>
                     </div>
                 </div>
                 <!--End create question section-->
