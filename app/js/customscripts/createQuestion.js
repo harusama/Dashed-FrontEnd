@@ -77,8 +77,10 @@ $(document).ready(function () {
         question['kind'] = form.attr('name');
         question['descriptionText'] = descriptionArea.val();
         question['descriptionImage'] = "";
-
+        //Gets actual lesson id.
+        var lessonId = parseInt($('#lessonIdSet').attr('lessonId'));
         // Request to API
+        //TODO: Clear and reset all forms, and validate for complete input fields.
         $.ajax({
             type: "POST",
             url: urls.base + urls.questionScope,
@@ -87,7 +89,7 @@ $(document).ready(function () {
                 "descriptionImage": "None",
                 "kind": parseInt(form.attr('name')),
                 "answers": answers,
-                "lessonId": 1
+                "lessonId": lessonId
             }),
             headers: {
                 // "Authorization": "" ,

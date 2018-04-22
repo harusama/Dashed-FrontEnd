@@ -6,6 +6,82 @@ $(function () {
     }
 });
 
+//TODO: This needs to be re-factorized.
+function setUnits(unit) {
+    var html = '';
+    $.each(unit, function (key, body) {
+        html +=
+            '<li> ' +
+            '       <div class="collapsible-header">' +
+            '           <i class="material-icons">list</i> Unit ' + ' ' + body.number + ' - ' + body.name +
+            '       </div>' +
+            '       <div class="collapsible-body">' +
+            '           <div class="row">' +
+            '               <div class="col s12 m12">' +
+            '                   <ul class="collapsible popout" data-collapsible="accordion">' +
+            setChapters(body.chapters, body.id) +
+            '                   </ul>' +
+            '               </div>' +
+            '           </div>' +
+            '       </div>' +
+            '</li>'
+
+    });
+    return html;
+
+}
+
+function setChapters(chapter) {
+    var html = '';
+    $.each(chapter, function (key, body) {
+
+        html +=
+            '<li > ' +
+            '   <div class="collapsible-header">' +
+            '       <i class="material-icons">line_weight</i>Chapter ' + ' ' + body.number + ' - ' + body.name +
+            '   </div>' +
+            '   <div class="collapsible-body">' +
+            '           <div class="row">' +
+            '               <div class="col s12 m12">' +
+            '                   <ul class="collapsible popout" data-collapsible="accordion">' +
+            setLessons(body.lessons) +
+            '                   </ul>' +
+            '               </div>' +
+            '           </div>' +
+            '   </div>' +
+            '</li>'
+
+
+    });
+    return html;
+
+}
+
+function setLessons(lesson) {
+    var html = '';
+    $.each(lesson, function (key, body) {
+        html +=
+            '<li>' +
+            '       <div class="collapsible-header">' +
+            '           <i class="material-icons">label</i>' + body.name +
+            '       </div>' +
+            '      <div class="collapsible-body">' +
+            '           <p>' + body.description + '</p>' +
+            '           <a class="waves-effect waves-light btn blue white-text right" onclick="setLesonId(' + body.id + ')">Select</a>' +
+            '       </div>' +
+            '</li>'
+
+    });
+    return html;
+
+}
+
+function setLesonId(lessonId) {
+    $('#lessonIdSet').text("Lesson selected: " + lessonId);
+    $('#lessonIdSet').attr('lessonId', lessonId);
+    console.log("Lesson ID: ", $('#lessonIdSet').attr('lessonId'));
+}
+
 function searchTopics() {
     var input, filter, ul, li, content, i;
     input = document.getElementById("searchTopic");
@@ -67,6 +143,7 @@ function fillPosts(posts) {
 
 function fillSubjects(units) {
     $('#subject-collection').append(getUnits(units));
+    $('#create-question-collection').append(setUnits(units));
     //This function (collapsible) must be her to load de content dynamically
     $('.collapsible').collapsible();
 }
