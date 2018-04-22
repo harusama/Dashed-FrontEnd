@@ -52,14 +52,12 @@ function fillPosts(posts) {
         $('#topic-collection').append(html);
 
         console.log("comments array: ", body.comments);
-        $.each(body.comments, function (key, body) {
-            console.log("Comments id: ",  body.id);
-            console.log("Comments Body: ",  body.description);
+        $.each(body.comments, function (key, cBody) {
             var comment = jQuery('#comment-template').html();
             var html = Mustache.render(comment, {
-                id: body.id,
-                description: body.description,
-                username: body.userId,
+                id: cBody.id,
+                description: cBody.description,
+                username: cBody.userId,
             });
             console.log("Comments complete: ",  html);
             $('#comment-post-' + body.id).append(html);
