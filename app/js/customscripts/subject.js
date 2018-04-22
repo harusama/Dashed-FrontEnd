@@ -47,7 +47,7 @@ function fillPosts(post) {
             username: body.username,
             resource: body.resource
         });
-        jQuery('#topic-collection').append(html);
+        $('#topic-collection').append(html);
 
         console.log("comments array: ", body.comments);
         $.each(body.comments, function (key, body) {
@@ -60,7 +60,7 @@ function fillPosts(post) {
                 username: body.userId,
             });
             console.log("Comments complete: ",  html);
-            jQuery('#comment-post-' + body.id).append(html);
+            $('#comment-post-' + body.id).prepend(html);
         });
     });
 }
