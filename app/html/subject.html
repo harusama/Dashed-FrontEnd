@@ -560,10 +560,10 @@ Author: Edgardo
                 <!--End content section-->
                 <!--Start create question section-->
                 <div id="createQuestion" class="section">
-                    <div class="section">
+                    <div id="selectUnit" class="section">
                         <div class="card col s12 m6" style="border-radius: 5px;">
                             <div class="card-header col s12 m12 center">
-                                <a class="card-title">Select the lesson your question belongs to:</a>
+                                <a class="card-title">Select a unit</a>
                             </div>
                         </div>
                         <div class="col s12 m12">
@@ -575,16 +575,64 @@ Author: Edgardo
                                         <a class="btn btn-flat waves-light waves-effect blue right white-text">Select</a>
                                     </div>
                                 </li>
+                            </ul>
+                        </div>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-action">
+                                <a class="btn btn-flat waves-effect waves-light blue white-text right" onclick="next('selectUnit','selectChapter')">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="selectChapter" class="section" hidden>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-header col s12 m12 center">
+                                <a class="card-title">Select a chapter</a>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <div class="col s12 m12">
+                            <ul class="collapsible popout" data-collapsible="accordion">
                                 <li>
-                                    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First </div>
+                                    <div class="collapsible-body">
+                                        <span>Lorem ipsum dolor sit amet.</span>
+                                        <a class="btn btn-flat waves-light waves-effect blue right white-text">Select</a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-action">
+                                <a class="btn btn-flat waves-effect waves-light blue white-text" onclick="back('selectUnit','selectChapter')">Back</a>
+                                <a class="btn btn-flat waves-effect waves-light blue white-text right" onclick="next('selectChapter','selectLesson')">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="selectLesson" class="section" hidden>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-header col s12 m12 center">
+                                <a class="card-title">Select a lesson</a>
+                            </div>
+                        </div>
+                        <div class="col s12 m12">
+                            <ul class="collapsible popout" data-collapsible="accordion">
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First </div>
+                                    <div class="collapsible-body">
+                                        <span>Lorem ipsum dolor sit amet.</span>
+                                        <a class="btn btn-flat waves-light waves-effect blue right white-text">Select</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-action">
+                                <a class="btn btn-flat waves-effect waves-light blue white-text" onclick="back('selectChapter','selectLesson')">Back</a>
+                                <a class="btn btn-flat waves-effect waves-light blue white-text right" onclick="next('selectLesson','questionInputs')">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="questionInputs" class="section" hidden>
                         <nav class="nav-extended">
                             <div class="nav-content">
                                 <ul class="tabs tabs-transparent">
@@ -607,8 +655,25 @@ Author: Edgardo
                         <div id="cframemap" class="col s12"></div>
                         <div id="treemap" class="col s12"></div>
                         <div id="bracemap" class="col s12"></div>
+                        <div class="card col s12 m6" style="border-radius: 5px;">
+                            <div class="card-action">
+                                <a class="btn btn-flat waves-effect waves-light blue white-text" onclick="back('selectLesson','questionInputs')">Back</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <script>
+                    //This scripts moves back and forth the steps
+                    function next(actualID, nextID){
+                        $('#'+actualID).toggle();
+                        $('#'+nextID).toggle();
+                    }
+                    
+                    function back(prevID, actualID) {
+                        $('#'+prevID).toggle();
+                        $('#'+actualID).toggle();
+                    }
+                </script>
                 <!--End create question section-->
                 <!--Start review question section-->
                 <div id="reviewQuestion" class="section">
