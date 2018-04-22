@@ -37,8 +37,10 @@ function fillNews(news) {
     });
 }
 
-function fillPosts(post) {
-    $.each(post, function (key, body) {
+function fillPosts(posts) {
+
+    posts = posts.reverse();
+    $.each(posts, function (key, body) {
         var template = jQuery('#post-template').html();
         var html = Mustache.render(template, {
             id: body.id,
@@ -60,7 +62,7 @@ function fillPosts(post) {
                 username: body.userId,
             });
             console.log("Comments complete: ",  html);
-            $('#comment-post-' + body.id).prepend(html);
+            $('#comment-post-' + body.id).append(html);
         });
     });
 }
