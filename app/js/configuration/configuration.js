@@ -40,7 +40,8 @@ function subjectID(subjectID, subjectKey) {
 
     //Sets subject id for use
     $.session.set('subjectID', subjectID);
-    console.log("subject ID: " + subjectID + " SubjectKey: " + subjectKey);
+    console.log("subject ID: ", subjectID, " SubjectKey: ", subjectKey);
+    $.session.set('subjectKey', subjectKey);
 
     //Sets subject room
     var subjectRoom = JSON.parse($.session.get('subjects'));

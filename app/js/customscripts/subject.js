@@ -98,6 +98,8 @@ function setSubjectContent() {
                 console.log("News", JSON.parse($.session.get('subjectNews')));
                 $.session.set("subjectUnits", JSON.stringify(data.data.units));
                 console.log("Units",JSON.parse($.session.get('subjectUnits')));
+                $('#dashboardTitle').text(JSON.parse($.session.get('subjects'))[$.session.get('subjectKey')].name);
+                console.log("Set Subject Title: ", JSON.parse($.session.get('subjects'))[$.session.get('subjectKey')].name, " - KeyID: ", $.session.get('subjectKey'));
             }
             else if (xhr.status == 400) {
                 console.log("Error: " + xhr.status);
@@ -300,7 +302,6 @@ $(document).ready(function () {
 
     // console.log("Subjects: " + $.session.get('subjects'));
     setSubjectContent();
-
     initMaterialize();
 
     // $('.goToPost').on('click', function (e) {

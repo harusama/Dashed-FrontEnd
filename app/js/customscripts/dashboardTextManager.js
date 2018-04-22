@@ -5,7 +5,7 @@ $(document).ready(function () {
         e.preventDefault();
         var name = $(this).text();
 
-        $('a#dashboardTitle').text(name);
+        $('a#dashboardSubTitle').text("(" + name + ")");
 
     });
 });
