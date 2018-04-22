@@ -1,17 +1,46 @@
 // Validate if user is logger
 $(function () {
-    console.log($.session.get('StatusUser') );
-    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout'){
+    console.log($.session.get('StatusUser'));
+    if (!$.session.get('StatusUser') || $.session.get('StatusUser') == 'Logout') {
         window.location.href = '../index.html';
     }
 
 });
 
+function loadQuestions(typeAnswer, type) {
+    var template = (questionsType[type]);
+    var answers = {};
+    for (var i = 0; i < numInputs[type]; i++) {
+        if (typeAnswer === 'input') {
+            answers['inputLabel' + i] = '<input type="text" name="answer-' + (i + 1) + '" ><label>Answer ' + (i + 1) + '</label>';
+        } else {
+            answers['inputLabel' + i] = '<p></p>';
+        }
+    }
+    if (typeAnswer === 'input') {
+        answers.footer =
+            '<div class="row card-action">' +
+            '   <div class="input-field col s12">' +
+            '       <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit ' +
+            '           <i class="material-icons right">send</i>' +
+            '       </button>' +
+            '   </div>' +
+            '</div>';
+    }
+    $('#' + type).append(Mustache.render(template, answers));
+}
+
 $(document).ready(function () {
-    // Todo : for test proposes
-    // Reference to use cookies https://github.com/js-cookie/js-cookie
-    Cookies.set("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzQ1Njc4OTAiLCJuYW1lIjo" +
-        "iSm9obiBEb2UiLCJTdGF0ZSI6IlR4In0.pVyxECimTKaw4Pdr0zI3o5cjKUnG3sIcTNmk9BcEM6A",{ expires: 7 });
+
+    loadQuestions('input', 'bridgemap');
+    loadQuestions('input', 'bracemap');
+    loadQuestions('input', 'mflowmap');
+    loadQuestions('input', 'fmap');
+    loadQuestions('input', 'dbubblemap');
+    loadQuestions('input', 'cframemap');
+    loadQuestions('input', 'treemap');
+    loadQuestions('input', 'bubblemap');
+
 
     // Toggle from text input to file input
     $('.toggleInput').click(function (e) {
