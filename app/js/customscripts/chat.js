@@ -98,7 +98,7 @@ socket.on('newPost', function (post) {
       username: post.username,
       resource: post.resource
    });
-   jQuery('#topic-collection').prepend(html);
+   jQuery('#topic-collection-header').after(html);
 });
 
 socket.on('newComment', function (comment) {
