@@ -100,6 +100,8 @@ function addSubjectUser(subjectID) {
     });
 }
 function setSubjTemplate(subjectList) {
+
+    $('#addList').html('');
     $.each(subjectList, function (key, body) {
         console.log("Key: " + key + ", Body: " + body.name);
         var template = jQuery('#addSubject-template').html();
