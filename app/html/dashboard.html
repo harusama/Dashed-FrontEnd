@@ -432,33 +432,27 @@ Author: JirenSama
                     <p class="caption">User Statistics</p>
                     <div class="divider"></div>
                 </div>
-                <!--End User Staistics-->
+                <!--End User Statistics-->
                 <!--Start add subject-->
                 <div class="container" id="addSubject">
                     <p class="caption">Add subject</p>
                     <div class="divider"></div>
-                    <div class="row margin">
-                        <ul id="addList">
-                        </ul>
+                    <div id="addList" class="col s12 m12">
                     </div>
                 </div>
                 <script id="addSubject-template" type="text/template">
-                    <li class="collection-item {{key}}">
-                        <div class="row">
-                            <div class="col s12 m6">
-                                <div class="card blue-grey darken-1">
-                                    <div class="card-content white-text">
-                                        <span class="card-title">{{key}}</span>
-                                        <p>{{title}}</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a subID="{{id}}" onclick="addSubjectUser({{id}})" class="btn waves-light waves-effect blue" href="#">Add subject!</a>
-                                        <a class="btn waves-effect waves-light orange" href="#" disabled>More info</a>
-                                    </div>
-                                </div>
+                    <div class="col s6 m4 l4" subjListID="{{key}}">
+                        <div class="card blue-grey darken-1 col s12 m11 offset-m1">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{key}}</span>
+                                <p>{{title}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a subID="{{id}}" onclick="addSubjectUser({{id}})" class="btn waves-light waves-effect blue" href="#">Add subject!</a>
+                                <a class="btn waves-effect waves-light orange" href="#" disabled>More info</a>
                             </div>
                         </div>
-                    </li>
+                    </div>
                 </script>
                 <!--End add subject-->
                 <!--Start Donate-->

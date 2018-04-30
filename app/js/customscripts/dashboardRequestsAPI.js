@@ -102,16 +102,29 @@ function addSubjectUser(subjectID) {
 function setSubjTemplate(subjectList) {
 
     $('#addList').html('');
+    var counter = 0;
+    var html = '';
     $.each(subjectList, function (key, body) {
-        console.log("Key: " + key + ", Body: " + body.name);
         var template = jQuery('#addSubject-template').html();
-        var html = Mustache.render(template, {
+        if (counter === 0) {
+            html += '<div class="row">';
+        }
+        html += Mustache.render(template, {
             id: body.id,
             key: body.name,
             title: body.contentDescription
         });
-        jQuery('#addList').append(html);
+        counter++;
+        if (counter === 3) {
+            html += '</div>';
+            counter = 0;
+        }
     });
+    if (0 < counter && counter < 3) {
+        html += '</div>';
+    }
+    jQuery('#addList').append(html);
+
 }
 function addSubject() {
     // Request to API for subject list information.
