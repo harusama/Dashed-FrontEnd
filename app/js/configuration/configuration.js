@@ -15,6 +15,7 @@ urls.stateScope = 'states';
 urls.subjectScope = 'subjects';
 urls.postScope = 'posts';
 urls.commentScope = 'comments';
+urls.commentVoteUpdate = 'comments';
 
 //Session
 // var userSession = "";

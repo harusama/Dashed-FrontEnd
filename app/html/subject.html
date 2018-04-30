@@ -434,6 +434,10 @@ Author: Edgardo
                                            <h6 class="collections-title">@{{username}}</h6>
                                            <p class="collections-content">{{description}}</p>
                                            <p class="collections-content">Resource: {{resource}}</p>
+                                           <div class="card-action">
+                                               <button class="btn-flat upvote"><i class="material-icons">thumb_up</i></button>
+                                               <button class="btn-flat downvote"><i class="material-icons">thumb_down</i></button>
+                                           </div>
                                            <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
                                                <div class="row">
                                                    <div class="input-field col s12">
@@ -466,6 +470,10 @@ Author: Edgardo
                                  <li class="comment {{id}}">
                                     <h6 class="collections-title username">By user: {{username}}</h6>
                                     <p class="collections-content">{{description}}</p>
+                                     <div class="card-action">
+                                         <button class="btn-flat upvote"><i class="material-icons">thumb_up</i></button>
+                                         <button class="btn-flat downvote"><i class="material-icons">thumb_down</i></button>
+                                     </div>
                                  </li>
                               </script>
 

@@ -135,7 +135,7 @@ function fillPosts(posts) {
                 description: cBody.description,
                 username: cBody.userId,
             });
-            console.log("Comments complete: ",  html);
+            console.log("Comments complete: ", html);
             $('#comment-post-' + body.id).append(html);
         });
     });
@@ -174,7 +174,7 @@ function setSubjectContent() {
                 $.session.set("subjectNews", JSON.stringify(data.data.news));
                 console.log("News", JSON.parse($.session.get('subjectNews')));
                 $.session.set("subjectUnits", JSON.stringify(data.data.units));
-                console.log("Units",JSON.parse($.session.get('subjectUnits')));
+                console.log("Units", JSON.parse($.session.get('subjectUnits')));
                 $('#dashboardTitle').text(JSON.parse($.session.get('subjects'))[$.session.get('subjectKey')].name);
                 console.log("Set Subject Title: ", JSON.parse($.session.get('subjects'))[$.session.get('subjectKey')].name, " - KeyID: ", $.session.get('subjectKey'));
             }
@@ -232,9 +232,9 @@ function createPostRequest(data) {
 function addPostComment(id) {
     console.log("\nData create new comment: ", id);
     //Get information from text area.
-    var description = $('#addPostComment'+id).serializeArray()[0].value;
+    var description = $('#addPostComment' + id).serializeArray()[0].value;
     //POST request for creating comment on post. https://dash-ed.herokuapp.com/v1/comments
-    console.log("url: ",  urls.base + urls.commentScope);
+    console.log("url: ", urls.base + urls.commentScope);
     console.log("ID: ", id);
     console.log("Description: ", description);
     console.log("postID", id);
@@ -259,7 +259,7 @@ function addPostComment(id) {
         complete: function (xhr, settings) {
             if (xhr.status == 201) {
                 console.log("Status: ", xhr.status);
-                $('#addPostComment'+id).trigger('reset');
+                $('#addPostComment' + id).trigger('reset');
             }
             else if (xhr.status == 404) {
                 console.log("Status: ", xhr.status);
@@ -279,7 +279,6 @@ function toggleBetweenPostSubj() {
     $('#subjectContainer').toggle();
     $('#postContainer').toggle();
 }
-
 
 function getUnits(unit) {
     var html = '';
@@ -352,13 +351,12 @@ function getLessons(lesson, idUnit, chpaterID) {
 
 }
 
-function disabledEventPropagation(event)
-{
-    if (event.stopPropagation){
+function disabledEventPropagation(event) {
+    if (event.stopPropagation) {
         event.stopPropagation();
     }
-    else if(window.event){
-        window.event.cancelBubble=true;
+    else if (window.event) {
+        window.event.cancelBubble = true;
     }
 }
 
@@ -375,6 +373,50 @@ function initMaterialize() {
         }
     );
 }
+
+function updateVotes(type, id, action) {
+
+    var data = {
+        "action": action
+    };
+    if (type === 'comment'){
+        data.commentId = id;
+    }
+    else {
+        data.postId = id
+    }
+
+    $.ajax({
+        type: "POST",
+        url: urls.base + urls.commentVoteUpdate,
+        data: data,
+        dataType: "json",
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+
+        complete: function (xhr, settings) {
+            if (xhr.status == 201) {
+                console.log("Status: ", xhr.status);
+                $('#addPostComment' + id).trigger('reset');
+            }
+            else if (xhr.status == 404) {
+                console.log("Status: ", xhr.status);
+
+            }
+            else if (xhr.status == 400) {
+                console.log("Status: ", xhr.status);
+
+            } else {
+                console.log("Status: ", xhr.status);
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
 
     // console.log("Subjects: " + $.session.get('subjects'));
@@ -387,6 +429,7 @@ $(document).ready(function () {
     //
     //     toggleBetweenPostSubj();
     // });
+
     $('div').on('click', 'a.Add-Element', function (event) {
         disabledEventPropagation(event);
 
@@ -395,7 +438,7 @@ $(document).ready(function () {
             return child.id;
         });
 
-        var parentDiv = $('#'+this.id).closest('li');
+        var parentDiv = $('#' + this.id).closest('li');
         parentDiv.find('a').attr("disabled", true);
 
         if (ids.indexOf(this.id) < 0) {
@@ -403,16 +446,16 @@ $(document).ready(function () {
             $('#sujectsElements-collections').append(
                 '<div class="chip">' +
                 this.id +
-                '   <i class="close material-icons '+this.id +'">close</i>' +
+                '   <i class="close material-icons ' + this.id + '">close</i>' +
                 '</div>'
             );
         }
     });
 
-    $('body').on('click', 'i.close', function(event) {
+    $('body').on('click', 'i.close', function (event) {
         event.preventDefault();
-        var id =  $(this).closest('div').text().split(" ")[0];
-        var parentDiv = $('#'+id).closest('li');
+        var id = $(this).closest('div').text().split(" ")[0];
+        var parentDiv = $('#' + id).closest('li');
         parentDiv.find('a').attr("disabled", false);
 
     });
@@ -481,4 +524,35 @@ $(document).ready(function () {
         $(this).trigger('reset');
         createPostRequest(data);
     });
+    $('body').on('click', 'button.downvote', function (event) {
+        event.preventDefault();
+        var classes = $(this).closest('li').attr('class').split(/\s+/);
+        var id_elemnt = classes.slice(-1)[0];
+        var type_element = 'post';
+        $.each(classes, function (key, body) {
+            if (body === 'comment'){
+                type_element = 'comment';
+                return false;
+            }
+        });
+        // Todo: fix the endpoint to update the vote in post or comment
+        // updateVotes(type_element,id_elemnt,'downvote');
+        alert("down vote the "+ type_element + " with id " + id_elemnt);
+    });
+    $('body').on('click', 'button.upvote', function (event) {
+        event.preventDefault();
+        var classes = $(this).closest('li').attr('class').split(/\s+/);
+        var id_elemnt = classes.slice(-1)[0];
+        var type_element = 'post';
+        $.each(classes, function (key, body) {
+            if (body === 'comment'){
+                type_element = 'comment';
+                return false;
+            }
+        });
+        // Todo: fix the endpoint to update the vote in post or comment
+        // updateVotes(type_element,id_elemnt,'upvote');
+        alert("up vote the "+ type_element + " with id " + id_elemnt);
+    });
+
 });
