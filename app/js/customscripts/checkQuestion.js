@@ -126,7 +126,7 @@ function approveListQuestions() {
                     var question = getQuestion(body);
 
                     $('#question-list').append(
-                        '<li id="question' + key + '">' +
+                        '<li id="question' + key + '" approve-q-id="' + body.id + '">' +
                         '   <div class="collapsible-header">\n' +
                         '       <i class="material-icons">question_answer</i>' + body.descriptionText +
                         '   </div>' +
@@ -257,39 +257,88 @@ $(document).ready(function () {
     //
     //     });
     // });
-    // $(document).on('click', '.approve', function (e) {
-    //     e.preventDefault();
-    //     swal({
-    //         type: 'success',
-    //         position: 'top-end',
-    //         title: "Question Approved!",
-    //         text: "Text!",
-    //         timer: 1500
-    //     });
-    //     // $("li, div").removeClass("active");
-    //     $(this).closest('li.active').hide();
-    //     // $(this).closest('li.active').hide();
-    //     // li.removeClass('active');
-    //     // li.closest('div.collapsible-header').removeClass('active');
-    //     // li.closest('div.collapsible-body').removeClass('active');
-    //
-    // });
-    // $(document).on('click', '.reject', function (e) {
-    //     e.preventDefault();
-    //     swal({
-    //         type: "input",
-    //         closeOnConfirm: false,
-    //         // showCancelButton: true,
-    //         inputPlaceholder: "Reason",
-    //         title: "Question Rejected!"
-    //     }, function (inputValue) {
-    //         if (inputValue === false) return false;
-    //         if (inputValue === "") {
-    //             swal.showInputError("You need to write something!");
-    //             return false
-    //         }
-    //         swal("Nice!", "You wrote: " + inputValue, "success");
-    //     });
-    //     $(this).closest('li.active').hide();
-    // });
+    $(document).on('click', 'button.approve', function (e) {
+        e.preventDefault();
+        //API approve
+        $.ajax({
+            type: "PATCH",
+            url: urls.base + urls.questionScope  + urls.approveQuestion + $(this).parents('li').attr('approve-q-id'),
+            data: JSON.stringify({
+                "questionId": parseInt($(this).parents('li').attr('approve-q-id'))
+            }),
+            headers: {
+                // "Authorization": "" ,
+                "x-auth": $.session.get('token'),
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            success: function (data, textStatus, xhr) {
+                console.log(data); // show response from the php script.
+                if (xhr.status == 200) {
+                    swal({
+                        type: 'success',
+                        position: 'top-end',
+                        title: "Question Approved!",
+                        text: "Text!",
+                        timer: 1500
+                    });
+                    // $("li, div").removeClass("active");
+                    $(this).closest('li.active').hide();
+                    // $(this).closest('li.active').hide();
+                    // li.removeClass('active');
+                    // li.closest('div.collapsible-header').removeClass('active');
+                    // li.closest('div.collapsible-body').removeClass('active');
+                }
+                else {
+                    swal({
+                        type: 'error',
+                        position: 'top-end',
+                        title: "Internal error",
+                        text: "Please reload page and try again",
+                        showCancelButton: true,
+                        confirmButtonText: "Reload",
+                        timer: 1500
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            location.reload();
+                        }
+                    });
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.status);
+                swal({
+                    type: 'error',
+                    position: 'top-end',
+                    title: "Internal error",
+                    text: "Please reload page and try again",
+                    showCancelButton: true,
+                    confirmButtonText: "Reload",
+                    timer: 1500
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    });
+    $(document).on('click', '.reject', function (e) {
+        e.preventDefault();
+        swal({
+            type: "input",
+            closeOnConfirm: false,
+            // showCancelButton: true,
+            inputPlaceholder: "Reason",
+            title: "Question Rejected!"
+        }, function (inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("You need to write something!");
+                return false
+            }
+            swal("Nice!", "You wrote: " + inputValue, "success");
+        });
+        $(this).closest('li.active').hide();
+    });
 });

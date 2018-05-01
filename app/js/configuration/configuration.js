@@ -16,6 +16,8 @@ urls.subjectScope = 'subjects';
 urls.postScope = 'posts';
 urls.commentScope = 'comments';
 urls.commentVoteUpdate = 'comments';
+urls.approveQuestion = '/approved/';
+
 
 //Session
 // var userSession = "";
