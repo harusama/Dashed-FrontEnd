@@ -55,7 +55,6 @@ $(document).ready(function () {
     $(document).on('submit', '.submitQuestion:not(.toggleInput)', function (e) {
 
         e.preventDefault();
-        console.log(Cookies.get("token"));
 
         var i = 1;
         var form = $(this).closest('form');

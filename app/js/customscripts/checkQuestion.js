@@ -122,7 +122,7 @@ function approveListQuestions() {
         success: function (data, textStatus, xhr) {
             if (xhr.status == 200) {
                 console.log("chkData:", data);
-                $.each(data, function (key, body) {
+                $.each(data.data, function (key, body) {
                     var question = getQuestion(body);
 
                     $('#question-list').append(

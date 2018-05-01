@@ -139,7 +139,7 @@ questionsType['mflowmap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="2">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
@@ -204,7 +204,7 @@ questionsType['fmap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="3">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
@@ -270,7 +270,7 @@ questionsType['dbubblemap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="4">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
@@ -351,7 +351,7 @@ questionsType['cframemap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="6">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
@@ -412,7 +412,7 @@ questionsType['treemap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="7">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
@@ -473,7 +473,7 @@ questionsType['bubblemap'] =
     '        </div>' +
     '        <div class="card col m7 s12">' +
     '            <div class="card-content">' +
-    '                <form class="col s12 m12 submitQuestion" name="1">' +
+    '                <form class="col s12 m12 submitQuestion" name="5">' +
     '                    <div class="answers">' +
     '                        <div class="row">' +
     '                            <div class="input-field col s12 textInput" style="display: block">' +
