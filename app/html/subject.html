@@ -372,12 +372,12 @@ Author: Edgardo
                                         <div class="row">
                                             <ul id="topic-collection" class="collection z-depth-1">
                                                 <li id="topic-collection-header" class="collection-item avatar">
-                                                    <div class="col s2 m2">
+                                                    <div class="col s6 m2">
                                                         <i class="material-icons cyan circle">description</i>
                                                         <h5 class="collection-header m-0">Posts</h5>
                                                         <p>List of posts</p>
                                                     </div>
-                                                    <div class="col s10 m10">
+                                                    <div class="col s6 m10">
                                                         <nav style="border-radius: 30px">
                                                             <div class="rounded-nav nav-wrapper gradient-45deg-semi-dark">
                                                                 <div class="input-field">
@@ -432,13 +432,40 @@ Author: Edgardo
                                  <li class="collection-item {{id}}">
                                     <div class="row">
                                        <div class="col s12">
-                                           <h6 class="collections-title username">{{title}}</h6>
-                                           <h6 class="collections-title">@{{username}}</h6>
-                                           <p class="collections-content">{{description}}</p>
-                                           <p class="collections-content">Resource: {{resource}}</p>
-                                           <div class="card-action">
-                                               <button class="btn-flat upvote"><i class="material-icons">thumb_up</i></button>
-                                               <button class="btn-flat downvote"><i class="material-icons">thumb_down</i></button>
+                                           <div class="row">
+                                               <div class="col s12 m12">
+                                                   <div class="col s9 m9">
+                                                       <div class="row">
+                                                           <div class="col s12 m12">
+                                                               <h6 class="collections-title username">{{title}}</h6>
+                                                           </div>
+                                                           <div class="col s12 m12">
+                                                               <p class="collections-content">{{description}}</p>
+                                                               <p class="collections-content">Resource: {{resource}}</p>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="col s3 m3">
+                                                       <div class="row">
+                                                           <div class="col s12 m12">
+                                                               <div class="col s2 m2">
+                                                                   <span class="avatar-status avatar-online">
+                                                                   <img src="../assets/images/avatar/avatar-7.png" alt="avatar">
+                                                                   <i></i>
+                                                               </span>
+                                                               </div>
+                                                               <div class="col s10 m10">
+                                                                   <a class="collections-title">@{{username}}</a>
+                                                                   <a class="collections-title" style="font-size: 10px; color: #0b0b0b">{{createdAt}}</a>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="card-action">
+                                                   <button class="btn-flat upvote"><i class="material-icons">thumb_up</i></button>
+                                                   <button class="btn-flat downvote"><i class="material-icons">thumb_down</i></button>
+                                               </div>
                                            </div>
                                            <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
                                                <div class="row">

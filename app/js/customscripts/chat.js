@@ -96,7 +96,8 @@ socket.on('newPost', function (post) {
       title: post.title,
       description: post.description,
       username: post.username,
-      resource: post.resource
+      resource: post.resource,
+       createdAt: post.createdAt
    });
    jQuery('#topic-collection-header').after(html);
 });

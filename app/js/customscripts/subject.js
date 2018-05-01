@@ -123,7 +123,8 @@ function fillPosts(posts) {
             title: body.title,
             description: body.description,
             username: body.username,
-            resource: body.resource
+            resource: body.resource,
+            createdAt: body.createdAt
         });
         $('#topic-collection').append(html);
 
