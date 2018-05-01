@@ -272,24 +272,8 @@ $(document).ready(function () {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            success: function (data, textStatus, xhr) {
-                console.log(data); // show response from the php script.
-                if (xhr.status == 200) {
-                    swal({
-                        type: 'success',
-                        position: 'top-end',
-                        title: "Question Approved!",
-                        text: "Text!",
-                        timer: 1500
-                    });
-                    // $("li, div").removeClass("active");
-                    $(this).closest('li.active').hide();
-                    // $(this).closest('li.active').hide();
-                    // li.removeClass('active');
-                    // li.closest('div.collapsible-header').removeClass('active');
-                    // li.closest('div.collapsible-body').removeClass('active');
-                }
-                else {
+            statusCode: {
+                404: function() {
                     swal({
                         type: 'error',
                         position: 'top-end',
@@ -303,25 +287,19 @@ $(document).ready(function () {
                             location.reload();
                         }
                     });
+                },
+                200: function() {
+                    swal({
+                        type: 'success',
+                        position: 'top-end',
+                        title: "Question Approved!",
+                        text: "Text!",
+                        timer: 1500
+                    });
                 }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR.status);
-                swal({
-                    type: 'error',
-                    position: 'top-end',
-                    title: "Internal error",
-                    text: "Please reload page and try again",
-                    showCancelButton: true,
-                    confirmButtonText: "Reload",
-                    timer: 1500
-                }, function (isConfirm) {
-                    if (isConfirm) {
-                        location.reload();
-                    }
-                });
             }
         });
+        $(this).closest('li.active').hide();
     });
     $(document).on('click', '.reject', function (e) {
         e.preventDefault();
