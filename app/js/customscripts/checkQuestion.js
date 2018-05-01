@@ -123,17 +123,22 @@ function approveListQuestions() {
             if (xhr.status == 200) {
                 console.log("chkData:", data);
                 $.each(data.data, function (key, body) {
-                    var question = getQuestion(body);
+                    console.log("Session ID: ", parseInt($.session.get('userId')));
+                    console.log("Body ID: ", parseInt(body.userId));
 
-                    $('#question-list').append(
-                        '<li id="question' + key + '" approve-q-id="' + body.id + '">' +
-                        '   <div class="collapsible-header">\n' +
-                        '       <i class="material-icons">question_answer</i>' + body.descriptionText +
-                        '   </div>' +
-                        '   <div class="collapsible-body">' +
-                        question +
-                        '   </div>' +
-                        '</li>');
+                    if (parseInt(body.userId) !== parseInt($.session.get('userId'))) {
+                        var question = getQuestion(body);
+
+                        $('#question-list').append(
+                            '<li id="question' + key + '" approve-q-id="' + body.id + '">' +
+                            '   <div class="collapsible-header">\n' +
+                            '       <i class="material-icons">question_answer</i>' + body.descriptionText +
+                            '   </div>' +
+                            '   <div class="collapsible-body">' +
+                            question +
+                            '   </div>' +
+                            '</li>');
+                    }
 
                 });
             }

@@ -30,6 +30,7 @@ function setUserSessionData(data) {
     console.log("Set user session data: " + JSON.stringify(data.data));
     $.session.set('userData', data.data);
     $.session.set('username', data.data.username);
+    $.session.set('userId', data.data.userId);
     $.session.set('name', data.data.firstName);
     $.session.set('lname', data.data.lastName);
     $.session.set('currency', data.data.coins);
