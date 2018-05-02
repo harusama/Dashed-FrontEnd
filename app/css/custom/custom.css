@@ -170,6 +170,6 @@ img.image-rounded-5 {
     font-size: small;
 }
 
-a:hover {
+a.link-to-post:hover {
     color: #4f77cc !important;
 }
