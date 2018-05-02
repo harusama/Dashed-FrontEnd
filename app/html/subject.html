@@ -101,7 +101,7 @@ Author: Edgardo
                 </ul>
                 <div class="header-search-wrapper hide-on-med-and-down">
                     <i class="material-icons">search</i>
-                    <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore features, tags, topics, questions, and more..." />
+                    <input id="searchTopic" type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore features, tags, topics, questions, and more..." onkeyup="searchTopics()" />
                 </div>
                 <ul class="right hide-on-med-and-down">
                     <li>
@@ -269,7 +269,7 @@ Author: Edgardo
                     <div class="col s12 m12">
                         <div class="row">
                             <div class="col s8">
-                                <div class="row">
+                                <div class="row" hidden>
                                     <div class="col s12">
                                         <div class="card gradient-shadow white border-radius-3">
                                             <!--TODO: Should this be minimized for posts to be visible?-->
@@ -380,18 +380,19 @@ Author: Edgardo
                                                         <p>List of posts</p>
                                                     </div>
                                                     <div class="col s6 m10">
-                                                        <nav style="border-radius: 30px">
-                                                            <div class="rounded-nav nav-wrapper gradient-45deg-semi-dark">
-                                                                <div class="input-field">
-                                                                    <input id="searchTopic" type="search" class="header-search-input z-depth-2"
-                                                                           placeholder="Search posts"
-                                                                           onkeyup="searchTopics()"
-                                                                    >
-                                                                    <label class="label-icon" for="searchTopic"><i class="material-icons medium">search</i></label>
-                                                                    <i class="material-icons right">close</i>
-                                                                </div>
-                                                            </div>
-                                                        </nav>
+                                                        <!--TODO: Changed to nav header bar, finding a better place-->
+                                                        <!--<nav style="border-radius: 30px">-->
+                                                            <!--<div class="rounded-nav nav-wrapper gradient-45deg-semi-dark">-->
+                                                                <!--<div class="input-field">-->
+                                                                    <!--<input id="searchTopic" type="search" class="header-search-input z-depth-2"-->
+                                                                           <!--placeholder="Search posts"-->
+                                                                           <!--onkeyup="searchTopics()"-->
+                                                                    <!--&gt;-->
+                                                                    <!--<label class="label-icon" for="searchTopic"><i class="material-icons medium">search</i></label>-->
+                                                                    <!--<i class="material-icons right">close</i>-->
+                                                                <!--</div>-->
+                                                            <!--</div>-->
+                                                        <!--</nav>-->
                                                     </div>
                                                 </li>
                                             </ul>
@@ -461,16 +462,17 @@ Author: Edgardo
                                          </div>
                                          <div class="col s7 m7">
                                              <div class="col s12 m12">
-                                                <h6 class="collections-title username">{{title}}</h6>
+                                                <a href="#" class="collections-title username">{{title}}</a>
                                              </div>
                                              <div class="col s12 m12">
-                                                <p class="collections-content">{{description}}</p>
-                                                 <!--TODO: Where can we put this?-->
+                                                <p class="collections-content post-description-wrap">{{description}}</p>
+                                                 <!--TODO: Where can we put this?vvvvvvv-->
                                                 <!--<p class="collections-content">Resource: {{resource}}</p>-->
                                              </div>
                                          </div>
                                          <div class="col s2 m2">
-                                             <div class="col s12 m12">
+                                             <div class="col s12 m12 center">
+                                                 <img class="circle avatar-sm blue" src="../assets/images/avatar/avatar-7.png" alt="avatar">
                                                  <a class="collections-title">@{{username}}</a>
                                                  <a class="collections-title blue-grey-text" style="font-size: 10px;">{{createdAt}}</a>
                                              </div>
@@ -499,7 +501,7 @@ Author: Edgardo
                                                                    <!--<span class="avatar-status avatar-online">-->
                                                                    <!--<img src="../assets/images/avatar/avatar-7.png" alt="avatar">-->
                                                                    <!--<i></i>-->
-                                                               <!--</span>-->
+                                                                    <!--</span>-->
                                                                <!--</div>-->
                                                                <!--<div class="col s10 m10">-->
                                                                    <!--<a class="collections-title">@{{username}}</a>-->

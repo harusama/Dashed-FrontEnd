@@ -162,10 +162,14 @@ img.image-rounded-5 {
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-div.description-wrap {
-    white-space: nowrap;
-    width: 50px;
-    overflow: hidden;
+.post-description-wrap {
     text-overflow: ellipsis;
-    border: 1px solid #000000;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    font-size: small;
+}
+
+a:hover {
+    color: #4f77cc !important;
 }
