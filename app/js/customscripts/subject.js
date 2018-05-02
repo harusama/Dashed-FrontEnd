@@ -6,6 +6,10 @@ $(function () {
     }
 });
 
+function showCreatePost() {
+    $('#createPostTabs').toggle();
+    $('#showPostCreation').toggle();
+}
 //TODO: This needs to be re-factorized.
 function setUnits(unit) {
     var html = '';
@@ -89,7 +93,7 @@ function searchTopics() {
     ul = document.getElementById("topic-collection");
     li = ul.getElementsByTagName("li");
     for (i = 1; i < li.length; i++) {
-        content = li[i].getElementsByTagName("h6")[0];
+        content = li[i].getElementsByTagName("a")[6];
         if (content.innerHTML.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
         } else {
