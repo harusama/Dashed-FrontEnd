@@ -373,6 +373,8 @@ function initMaterialize() {
             stopPropagation: true // Stops event propagation
         }
     );
+
+    $('input#postTitle1').characterCounter();
 }
 
 function updateVotes(type, id, action) {

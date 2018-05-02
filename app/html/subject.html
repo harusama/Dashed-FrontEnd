@@ -243,6 +243,7 @@ Author: Edgardo
         <section id="subjectContainer" >
             <!--breadcrumbs start-->
             <div id="breadcrumbs-wrapper">
+                <!--TODO: Should this be taken off? too much space.-->
                 <div class="col s12 gradient-45deg-indigo-light-blue gradient-shadow profile-page-sidebar"  style="background-image: url('../assets/images/gallary/33.png'); height: 8.8rem">
                     <a class="title-nav-bar-dash white-text" id="dashboardTitle">Subject</a>
                     <a class="title-nav-bar-dash white-text" id="dashboardSubTitle">(Subject)</a>
@@ -271,6 +272,7 @@ Author: Edgardo
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="card gradient-shadow white border-radius-3">
+                                            <!--TODO: Should this be minimized for posts to be visible?-->
                                             <div class="card-content gradient-45deg-indigo-light-blue white-text">
                                                 <span class="card-title">Share or Ask something!</span>
                                             </div>
@@ -288,7 +290,7 @@ Author: Edgardo
                                                         <form id="postQuestion" kind="question" name="postQuestion" class="createPost col s12" onsubmit="return false;" >
                                                             <div class="row">
                                                                 <div class="input-field col s12">
-                                                                    <input id="postTitle1" type="text" name="postTitle1"/>
+                                                                    <input id="postTitle1" type="text" data-length="150" name="postTitle1"/>
                                                                     <label for="postTitle1">What is your question about?</label>
                                                                 </div>
                                                             </div>
