@@ -430,61 +430,112 @@ Author: Edgardo
 <!--TODO: Do the search topic correctly. Needs to search for title not username, right now fields where changed. Fix-->
                               <script id="post-template" type="text/template">
                                  <li class="collection-item {{id}}">
-                                    <div class="row">
-                                       <div class="col s12">
-                                           <div class="row">
-                                               <div class="col s12 m12">
-                                                   <div class="col s9 m9">
-                                                       <div class="row">
-                                                           <div class="col s12 m12">
-                                                               <h6 class="collections-title username">{{title}}</h6>
-                                                           </div>
-                                                           <div class="col s12 m12">
-                                                               <p class="collections-content">{{description}}</p>
-                                                               <p class="collections-content">Resource: {{resource}}</p>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   <div class="col s3 m3">
-                                                       <div class="row">
-                                                           <div class="col s12 m12">
-                                                               <div class="col s2 m2">
-                                                                   <span class="avatar-status avatar-online">
-                                                                   <img src="../assets/images/avatar/avatar-7.png" alt="avatar">
-                                                                   <i></i>
-                                                               </span>
-                                                               </div>
-                                                               <div class="col s10 m10">
-                                                                   <a class="collections-title">@{{username}}</a>
-                                                                   <a class="collections-title" style="font-size: 10px; color: #0b0b0b">{{createdAt}}</a>
-                                                               </div>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div class="card-action">
-                                                   <button class="btn-flat upvote"><i class="material-icons">thumb_up</i></button>
-                                                   <button class="btn-flat downvote"><i class="material-icons">thumb_down</i></button>
-                                               </div>
-                                           </div>
-                                           <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
-                                               <div class="row">
-                                                   <div class="input-field col s12">
-                                                       <textarea id="textarea{{id}}" class="materialize-textarea" name="textarea{{id}}"></textarea>
-                                                       <label for="textarea{{id}}" class="collections-title">Add comment:</label>
-                                                   </div>
-                                               </div>
-                                               <div class="row">
-                                                   <a class="btn waves-effect waves-light blue right" onclick="addPostComment({{id}})" name="action">Add comment
-                                                       <i class="material-icons right">send</i>
-                                                   </a>
-                                               </div>
-                                           </form>
-                                           <ul id="comment-post-{{id}}" class="comments">
-                                             <p class="collections-title">Comments</p>
-                                           </ul>
-                                       </div>
-                                    </div>
+                                     <div class="row">
+                                         <div class="col s3 m3">
+                                             <div class="col s3 m3">
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">0</a>
+                                                 </div>
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">Votes</a>
+                                                 </div>
+                                             </div>
+                                             <div class="col s5 m5 center">
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">0</a>
+                                                 </div>
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">Comments</a>
+                                                 </div>
+                                             </div>
+                                             <div class="col s4 m4 center-align">
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">0</a>
+                                                 </div>
+                                                 <div class="col s12 m12">
+                                                     <a class="blue-grey-text">Rating</a>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col s7 m7">
+                                             <div class="col s12 m12">
+                                                <h6 class="collections-title username">{{title}}</h6>
+                                             </div>
+                                             <div class="col s12 m12">
+                                                <p class="collections-content">{{description}}</p>
+                                                 <!--TODO: Where can we put this?-->
+                                                <!--<p class="collections-content">Resource: {{resource}}</p>-->
+                                             </div>
+                                         </div>
+                                         <div class="col s2 m2">
+                                             <div class="col s12 m12">
+                                                 <a class="collections-title">@{{username}}</a>
+                                                 <a class="collections-title blue-grey-text" style="font-size: 10px;">{{createdAt}}</a>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <!-- vvvvvvvvvvvvv TODO: How to reorganize all this?????===================================================-->
+                                    <!--<div class="row">-->
+                                       <!--<div class="col s12">-->
+                                           <!--<div class="row">-->
+                                               <!--<div class="col s12 m12">-->
+                                                   <!--<div class="col s9 m9">-->
+                                                       <!--<div class="row">-->
+                                                           <!--<div class="col s12 m12">-->
+                                                               <!--<h6 class="collections-title username">{{title}}</h6>-->
+                                                           <!--</div>-->
+                                                           <!--<div class="col s12 m12">-->
+                                                               <!--<p class="collections-content">{{description}}</p>-->
+                                                               <!--<p class="collections-content">Resource: {{resource}}</p>-->
+                                                           <!--</div>-->
+                                                       <!--</div>-->
+                                                   <!--</div>-->
+                                                   <!--<div class="col s3 m3">-->
+                                                       <!--<div class="row">-->
+                                                           <!--<div class="col s12 m12">-->
+                                                               <!--<div class="col s2 m2">-->
+                                                                   <!--<span class="avatar-status avatar-online">-->
+                                                                   <!--<img src="../assets/images/avatar/avatar-7.png" alt="avatar">-->
+                                                                   <!--<i></i>-->
+                                                               <!--</span>-->
+                                                               <!--</div>-->
+                                                               <!--<div class="col s10 m10">-->
+                                                                   <!--<a class="collections-title">@{{username}}</a>-->
+                                                                   <!--<a class="collections-title" style="font-size: 10px; color: #0b0b0b">{{createdAt}}</a>-->
+                                                               <!--</div>-->
+                                                           <!--</div>-->
+                                                       <!--</div>-->
+                                                   <!--</div>-->
+                                                   <!--<div class="col s12 m12">-->
+                                                       <!--<div class="col s4 m4">-->
+                                                           <!--<button class="btn-flat upvote"><i class="material-icons blue-grey-text">thumb_up</i></button>-->
+                                                           <!--<button class="btn-flat downvote"><i class="material-icons blue-grey-text">thumb_down</i></button>-->
+                                                       <!--</div>-->
+                                                       <!--<div class="col s8 m8">-->
+                                                           <!--<a class="right blue-grey-text">numOfComments Comments</a>-->
+                                                       <!--</div>-->
+                                                   <!--</div>-->
+                                               <!--</div>-->
+                                               <!--<div class="col s12 m12" style="background-color: #e9ebee; height: 5%">-->
+                                                   <!--<form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">-->
+                                                       <!--<div class="input-field col s8 m8">-->
+                                                           <!--<textarea id="textarea{{id}}" class="materialize-textarea" name="textarea{{id}}"></textarea>-->
+                                                           <!--<label for="textarea{{id}}" class="collections-title">Add comment:</label>-->
+                                                       <!--</div>-->
+                                                       <!--<div class="col s4 m4">-->
+                                                           <!--<a class="btn waves-effect waves-light blue right" onclick="addPostComment({{id}})" name="action">Add comment-->
+                                                               <!--<i class="material-icons right">send</i>-->
+                                                           <!--</a>-->
+                                                       <!--</div>-->
+                                                   <!--</form>-->
+                                               <!--</div>-->
+                                           <!--</div>-->
+                                           <!--<ul id="comment-post-{{id}}" class="comments" hidden>-->
+                                             <!--<p class="collections-title">Comments</p>-->
+                                           <!--</ul>-->
+                                       <!--</div>-->
+                                    <!--</div>-->
+                                     <!-- ^^^^^^^^^^^^^^^^^^^^ TODO: How to reorganize all this?????===================================================-->
                                  </li>
                               </script>
 
