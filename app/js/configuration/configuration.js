@@ -17,6 +17,7 @@ urls.postScope = 'posts';
 urls.commentScope = 'comments';
 urls.commentVoteUpdate = 'comments';
 urls.approveQuestion = '/approved/';
+urls.news = 'news/';
 
 
 //Session

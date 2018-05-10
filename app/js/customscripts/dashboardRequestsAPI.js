@@ -37,6 +37,7 @@ function addSubjectUser(subjectID) {
                         if (xhr.status == 200 || xhr.status == 304) {
                             console.log("Refresh user OK: " + data.data);
                             setUserSessionData(data);
+                            console.log("----");
                         }
                         else if (xhr.status == 400) {
                             console.log("Status: " + xhr.status);
@@ -225,7 +226,50 @@ function insertQuestion(qData) {
     $('#searchQuestionID').after(addQuestion, load);
 }
 
+function setNews() {
+
+    $.ajax({
+        type: "GET",
+        url: urls.base + urls.news,
+        headers: {
+            // "Authorization": "" ,
+            "x-auth": $.session.get('token'),
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        success: function (data, textStatus, xhr) {
+            if (xhr.status == 200 || xhr.status == 304) {
+                console.log(data.data);
+                fillNews(data.data);
+            }
+            else if (xhr.status == 400) {
+                console.log("Error: " + xhr.status);
+            }
+            else if (xhr.status == 404) {
+                console.log("Error: " + xhr.status);
+            } else {
+                console.log("Error: " + xhr.status);
+            }
+        }
+    });
+}
+
+function fillNews(news) {
+    $.each(news, function (key, body) {
+        var template = jQuery('#news-subject-template').html();
+        var html = Mustache.render(template, {
+            id: body.id,
+            title: body.name,
+            date: body.datePublished,
+            link: body.resource
+        });
+        jQuery('#news-collection').append(html);
+    });
+}
+
 $(document).ready(function () {
+
+    setNews();
 
     //Adds components for adding subjects
     $('#addSubTab').on('click', function (e) {
