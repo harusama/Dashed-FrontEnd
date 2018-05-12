@@ -538,20 +538,18 @@ Author: Edgardo
                                             <ul id="comment-post-{{id}}" class="comments">
                                                 <p class="collections-title">Comments</p><br>
                                             </ul>
-                                        </div>
-                                        <!-- vvvvvvvvvvvvv TODO: How to reorganize all this?????===================================================-->
-                                        <!--<div class="col s12 m12" style="background-color: #e9ebee; height: 5%">-->
-                                            <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
-                                                <div class="input-field col s8 m8">
-                                                    <textarea id="textarea{{id}}" class="materialize-textarea" name="textarea{{id}}"></textarea>
-                                                    <label for="textarea{{id}}" class="collections-title">Add comment:</label>
-                                                </div>
+                                            <div class="col s12 m12" style="height: 5%">
+                                                <form id="addPostComment{{id}}" onsubmit="addPostComment({{id}})" class="col s12" onsubmit="return false;">
+                                                    <div class="input-field col s8 m8">
+                                                        <textarea id="textarea{{id}}" class="materialize-textarea" name="textarea{{id}}"></textarea>
+                                                        <label for="textarea{{id}}" class="collections-title">Add comment:</label>
+                                                    </div>
+                                                </form>
                                                 <a class="btn waves-effect waves-light blue right" onclick="addPostComment({{id}})" name="action">Add comment
                                                     <i class="material-icons right">send</i>
                                                 </a>
-                                            </form>
-                                        <!--</div>-->
-                                        <!-- ^^^^^^^^^^^^^^^^^^^^ TODO: How to reorganize all this?????===================================================-->
+                                            </div>
+                                        </div>
                                     </li>
                                 </script>
 

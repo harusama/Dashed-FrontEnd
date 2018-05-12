@@ -138,7 +138,7 @@ function fillPosts(posts) {
             var html = Mustache.render(comment, {
                 id: cBody.id,
                 description: cBody.description,
-                username: cBody.userId,
+                username: cBody.username
             });
             console.log("Comments complete: ", html);
             $('#comment-post-' + body.id).append(html);
