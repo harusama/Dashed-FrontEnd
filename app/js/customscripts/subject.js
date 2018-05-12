@@ -128,7 +128,8 @@ function fillPosts(posts) {
             description: body.description,
             username: body.username,
             resource: body.resource,
-            createdAt: body.createdAt
+            createdAt: body.createdAt,
+            commentCount: body.comments.length
         });
         $('#topic-collection').append(html);
 
