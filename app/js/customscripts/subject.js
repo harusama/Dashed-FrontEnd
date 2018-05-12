@@ -129,7 +129,8 @@ function fillPosts(posts) {
             username: body.username,
             resource: body.resource,
             createdAt: body.createdAt,
-            commentCount: body.comments.length
+            commentCount: body.comments.length,
+            voteCount: body.downvotes + body.upvotes
         });
         $('#topic-collection').append(html);
 

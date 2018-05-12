@@ -92,12 +92,15 @@ function addMessage(message, template) {
 socket.on('newPost', function (post) {
    var template = jQuery('#post-template').html();
    var html = Mustache.render(template, {
+
       id: post.id,
-      title: post.title,
-      description: post.description,
-      username: post.username,
-      resource: post.resource,
-       createdAt: post.createdAt
+       title: post.title,
+       description: post.description,
+       username: post.username,
+       resource: post.resource,
+       createdAt: post.createdAt,
+       commentCount: 0,
+       voteCount: 0
    });
    jQuery('#topic-collection-header').after(html);
 });
