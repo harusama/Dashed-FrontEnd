@@ -550,7 +550,7 @@ $(document).ready(function () {
         });
         // Todo: fix the endpoint to update the vote in post or comment
         // updateVotes(type_element,id_elemnt,'downvote');
-        alert("down vote the "+ type_element + " with id " + id_elemnt);
+        console.log("down vote the "+ type_element + " with id " + id_elemnt);
     });
     $('body').on('click', 'button.upvote', function (event) {
         event.preventDefault();
@@ -565,7 +565,7 @@ $(document).ready(function () {
         });
         // Todo: fix the endpoint to update the vote in post or comment
         // updateVotes(type_element,id_elemnt,'upvote');
-        alert("up vote the "+ type_element + " with id " + id_elemnt);
+        console.log("up vote the "+ type_element + " with id " + id_elemnt);
     });
 
 });
