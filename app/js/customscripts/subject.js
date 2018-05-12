@@ -146,6 +146,10 @@ function fillPosts(posts) {
     });
 }
 
+function seeComments(id){
+    $('#comments-section-'+id).toggle();
+}
+
 function fillSubjects(units) {
     $('#subject-collection').append(getUnits(units));
     $('#create-question-collection').append(setUnits(units));
