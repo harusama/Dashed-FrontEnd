@@ -107,7 +107,7 @@ socket.on('newComment', function (comment) {
    var html = Mustache.render(template, {
       id: comment.id,
       description: comment.description,
-      username: comment.username,
+      username: comment.username
    });
    jQuery('.collection-item.' + comment.postId + ' .comments').append(html);
 });

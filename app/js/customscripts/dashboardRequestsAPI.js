@@ -285,11 +285,11 @@ $(document).ready(function () {
 
         if (data[0].value != ''){
             //TODO: Do api request.
-            alert("So request to API here, Question #" + data[0].value);
+            // alert("So request to API here, Question #" + data[0].value);
             insertQuestion(data[0].value);
         } else {
             //TODO: Show message of empty request.
-            alert("Show message of invalid input");
+            // alert("Show message of invalid input");
         }
     });
 
@@ -302,7 +302,7 @@ $(document).ready(function () {
 
         if ($(this).attr('id') == "qtnReport_form") {
             //TODO: Submit report to api.
-            alert("Question Report Submitted -> " + data[0].value + " -> " + dataDescription[0].value);
+            // alert("Question Report Submitted -> " + data[0].value + " -> " + dataDescription[0].value);
 
             swal({
                 type: 'success',
@@ -327,7 +327,7 @@ $(document).ready(function () {
 
         if ($(this).attr('id') == "sysReport_form") {
             //TODO: Submit report to api.
-            alert("System Report Submitted -> " + dataDescription[0].value);
+            // alert("System Report Submitted -> " + dataDescription[0].value);
 
             swal({
                 type: 'success',
